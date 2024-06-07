@@ -8,8 +8,10 @@ namespace LegendOfTheRealm
 
         protected PlayerStateMachine stateMachine;
         protected Player player;
+        protected Rigidbody2D playerRb;
 
         private string animBoolName;
+        protected float xInput;
 
         // Constructors
 
@@ -26,11 +28,12 @@ namespace LegendOfTheRealm
         public virtual void Enter()
         {
             player.animator.SetBool(animBoolName, true);
+            playerRb = player.rb;
         }
 
         public virtual void Update()
         {
-
+            xInput = Input.GetAxisRaw("Horizontal");
         }
 
         public virtual void Exit()
