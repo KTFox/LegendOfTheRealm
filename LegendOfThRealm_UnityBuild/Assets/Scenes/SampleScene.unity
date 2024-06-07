@@ -1341,7 +1341,7 @@ MonoBehaviour:
   rollSpeed: 8
   rollDuration: 0.3
   groundCheck: {fileID: 195745453}
-  groundCheckDistance: 0.2
+  groundCheckDistance: 0.15
   groundLayerMask:
     serializedVersion: 2
     m_Bits: 2048

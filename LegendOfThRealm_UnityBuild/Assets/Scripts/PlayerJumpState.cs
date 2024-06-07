@@ -2,7 +2,7 @@ using UnityEngine;
 
 namespace LegendOfTheRealm
 {
-    public class PlayerJumpState : PlayerState
+    public class PlayerJumpState : PlayerAirState
     {
         // Constructors
 
@@ -23,11 +23,6 @@ namespace LegendOfTheRealm
         public override void Update()
         {
             base.Update();
-
-            if (playerRb.velocity.y < 0f)
-            {
-                stateMachine.ChangeState(player.airState);
-            }
         }
 
         public override void Exit()

@@ -22,6 +22,8 @@ namespace LegendOfTheRealm
         {
             base.Update();
 
+            player.SetVelocity(xInput * player.MoveSpeed, playerRb.velocity.y);
+
             if (player.IsGround)
             {
                 stateMachine.ChangeState(player.idleState);
