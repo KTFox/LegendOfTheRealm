@@ -2,7 +2,7 @@ using UnityEngine;
 
 namespace LegendOfTheRealm
 {
-    public class PlayerMoveState : PlayerState
+    public class PlayerMoveState : PlayerGroundedState
     {
         // Constructors
 

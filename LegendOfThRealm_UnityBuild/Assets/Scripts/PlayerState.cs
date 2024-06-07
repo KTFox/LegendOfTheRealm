@@ -34,6 +34,8 @@ namespace LegendOfTheRealm
         public virtual void Update()
         {
             xInput = Input.GetAxisRaw("Horizontal");
+
+            player.animator.SetFloat("yVelocity", playerRb.velocity.y);
         }
 
         public virtual void Exit()

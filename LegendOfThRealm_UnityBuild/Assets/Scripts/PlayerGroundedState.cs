@@ -2,11 +2,11 @@ using UnityEngine;
 
 namespace LegendOfTheRealm
 {
-    public class PlayerIdleState : PlayerGroundedState
+    public class PlayerGroundedState : PlayerState
     {
         // Constructors
 
-        public PlayerIdleState(Player player, PlayerStateMachine stateMachine, string animBoolName) : base(player, stateMachine, animBoolName)
+        public PlayerGroundedState(Player player, PlayerStateMachine stateMachine, string animBoolName) : base(player, stateMachine, animBoolName)
         {
 
         }
@@ -23,9 +23,9 @@ namespace LegendOfTheRealm
         {
             base.Update();
 
-            if (xInput != 0)
+            if(Input.GetKeyDown(KeyCode.Space) && player.IsGround)
             {
-                stateMachine.ChangeState(player.moveState);
+                stateMachine.ChangeState(player.jumpState);
             }
         }
 

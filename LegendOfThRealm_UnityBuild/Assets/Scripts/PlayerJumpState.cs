@@ -2,13 +2,12 @@ using UnityEngine;
 
 namespace LegendOfTheRealm
 {
-    public class PlayerIdleState : PlayerGroundedState
+    public class PlayerJumpState : PlayerState
     {
         // Constructors
 
-        public PlayerIdleState(Player player, PlayerStateMachine stateMachine, string animBoolName) : base(player, stateMachine, animBoolName)
+        public PlayerJumpState(Player player, PlayerStateMachine stateMachine, string animBoolName) : base(player, stateMachine, animBoolName)
         {
-
         }
 
 
@@ -17,15 +16,17 @@ namespace LegendOfTheRealm
         public override void Enter()
         {
             base.Enter();
+
+            playerRb.velocity = new Vector2(playerRb.velocity.x, player.JumpForce);
         }
 
         public override void Update()
         {
             base.Update();
 
-            if (xInput != 0)
+            if (playerRb.velocity.y < 0f)
             {
-                stateMachine.ChangeState(player.moveState);
+                stateMachine.ChangeState(player.airState);
             }
         }
 
