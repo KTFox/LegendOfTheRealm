@@ -10,12 +10,18 @@ namespace LegendOfTheRealm
         [SerializeField] private float moveSpeed = 3f;
         [SerializeField] private float jumpForce = 7f;
 
+        [Header("Dash info")]
+        [SerializeField] private float rollCooldown = 0.8f;
+        [SerializeField] private float rollSpeed = 8f;
+        [SerializeField] private float rollDuration = 0.3f;
+
         [Header("Collision info")]
         [SerializeField] private Transform groundCheck;
         [SerializeField] private float groundCheckDistance;
         [SerializeField] private LayerMask groundLayerMask;
 
         private bool isFacingRight = true;
+        private float rollTimer;
 
         // Properties
 
@@ -30,11 +36,14 @@ namespace LegendOfTheRealm
         public PlayerMoveState moveState { get; private set; }
         public PlayerJumpState jumpState { get; private set; }
         public PlayerAirState airState { get; private set; }
+        public PlayerRollState rollState { get; private set; }
         #endregion
 
         public int FacingDir { get; private set; } = 1;
         public float MoveSpeed => moveSpeed;
         public float JumpForce => jumpForce;
+        public float RollSpeed => rollSpeed;
+        public float RollDuration => rollDuration;
         public bool IsGround => Physics2D.Raycast(groundCheck.position, Vector2.down, groundCheckDistance, groundLayerMask);
 
 
@@ -50,6 +59,7 @@ namespace LegendOfTheRealm
             moveState = new PlayerMoveState(this, stateMachine, "Move");
             jumpState = new PlayerJumpState(this, stateMachine, "Jump");
             airState = new PlayerAirState(this, stateMachine, "Jump");
+            rollState = new PlayerRollState(this, stateMachine, "Roll");
         }
 
         private void Start()
@@ -60,6 +70,18 @@ namespace LegendOfTheRealm
         private void Update()
         {
             stateMachine.currentState.Update();
+            CheckForDashInput();
+        }
+
+        private void CheckForDashInput()
+        {
+            rollTimer -= Time.deltaTime;
+
+            if (Input.GetKeyDown(KeyCode.L) && rollTimer < 0)
+            {
+                rollTimer = rollCooldown;
+                stateMachine.ChangeState(rollState);
+            }
         }
 
         public void SetVelocity(float xVelocity, float yVelocity)
@@ -68,7 +90,7 @@ namespace LegendOfTheRealm
             ControllFlipping(xVelocity);
         }
 
-        public void ControllFlipping(float xInput)
+        private void ControllFlipping(float xInput)
         {
             if (xInput > 0.01f && !isFacingRight)
             {

@@ -1337,6 +1337,9 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   moveSpeed: 3
   jumpForce: 7
+  rollCooldown: 0.8
+  rollSpeed: 8
+  rollDuration: 0.3
   groundCheck: {fileID: 195745453}
   groundCheckDistance: 0.2
   groundLayerMask:

@@ -23,7 +23,7 @@ namespace LegendOfTheRealm
         {
             base.Update();
 
-            if(Input.GetKeyDown(KeyCode.Space) && player.IsGround)
+            if (Input.GetKeyDown(KeyCode.K) && player.IsGround)
             {
                 stateMachine.ChangeState(player.jumpState);
             }

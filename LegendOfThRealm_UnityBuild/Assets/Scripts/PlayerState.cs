@@ -13,6 +13,8 @@ namespace LegendOfTheRealm
         private string animBoolName;
         protected float xInput;
 
+        protected float stateTimer;
+
         // Constructors
 
         public PlayerState(Player player, PlayerStateMachine stateMachine, string animBoolName)
@@ -34,8 +36,8 @@ namespace LegendOfTheRealm
         public virtual void Update()
         {
             xInput = Input.GetAxisRaw("Horizontal");
-
             player.animator.SetFloat("yVelocity", playerRb.velocity.y);
+            stateTimer -= Time.deltaTime;
         }
 
         public virtual void Exit()
