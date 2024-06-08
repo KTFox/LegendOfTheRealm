@@ -1,12 +1,12 @@
 using UnityEngine;
 
-namespace LegendOfTheRealm
+namespace LegendOfTheRealm.Players
 {
-    public class PlayerRollState : PlayerState
+    public class PlayerAirState : PlayerState
     {
         // Constructors
 
-        public PlayerRollState(Player player, PlayerStateMachine stateMachine, string animBoolName) : base(player, stateMachine, animBoolName)
+        public PlayerAirState(Player player, PlayerStateMachine stateMachine, string animBoolName) : base(player, stateMachine, animBoolName)
         {
         }
 
@@ -16,17 +16,15 @@ namespace LegendOfTheRealm
         public override void Enter()
         {
             base.Enter();
-
-            stateTimer = player.RollDuration;
         }
 
         public override void Update()
         {
             base.Update();
 
-            player.SetVelocity(player.FacingDir * player.RollSpeed, 0f);
+            player.SetVelocity(xInput * player.MoveSpeed, playerRb.velocity.y);
 
-            if (stateTimer < 0)
+            if (player.IsGround)
             {
                 stateMachine.ChangeState(player.idleState);
             }
@@ -35,8 +33,6 @@ namespace LegendOfTheRealm
         public override void Exit()
         {
             base.Exit();
-
-            player.SetVelocity(0f, playerRb.velocity.y);
         }
     }
 }
