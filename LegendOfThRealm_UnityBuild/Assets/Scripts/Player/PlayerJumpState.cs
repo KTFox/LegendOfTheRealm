@@ -16,8 +16,6 @@ namespace LegendOfTheRealm.Players
         public override void Enter()
         {
             base.Enter();
-
-            playerRb.velocity = new Vector2(playerRb.velocity.x, player.JumpForce);
         }
 
         public override void Update()

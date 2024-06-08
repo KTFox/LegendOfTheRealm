@@ -35,8 +35,8 @@ namespace LegendOfTheRealm.Players
         public PlayerIdleState idleState { get; private set; }
         public PlayerMoveState moveState { get; private set; }
         public PlayerJumpState jumpState { get; private set; }
-        public PlayerAirState airState { get; private set; }
         public PlayerRollState rollState { get; private set; }
+        public PlayerAirDashingState airDashingState { get; private set; }
         #endregion
 
         public int FacingDir { get; private set; } = 1;
@@ -59,6 +59,7 @@ namespace LegendOfTheRealm.Players
             moveState = new PlayerMoveState(this, stateMachine, "Move");
             jumpState = new PlayerJumpState(this, stateMachine, "Jump");
             rollState = new PlayerRollState(this, stateMachine, "Roll");
+            airDashingState = new PlayerAirDashingState(this, stateMachine, "AirDashing");
         }
 
         private void Start()
@@ -79,7 +80,15 @@ namespace LegendOfTheRealm.Players
             if (Input.GetKeyDown(KeyCode.L) && rollTimer < 0)
             {
                 rollTimer = rollCooldown;
-                stateMachine.ChangeState(rollState);
+
+                if (IsGround)
+                {
+                    stateMachine.ChangeState(rollState);
+                }
+                else
+                {
+                    stateMachine.ChangeState(airDashingState);
+                }
             }
         }
 
