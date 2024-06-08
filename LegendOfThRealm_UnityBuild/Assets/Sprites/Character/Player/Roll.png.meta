@@ -139,8 +139,8 @@ TextureImporter:
       name: Roll_0
       rect:
         serializedVersion: 2
-        x: 31
-        y: 64
+        x: 0
+        y: 0
         width: 64
         height: 64
       alignment: 0
@@ -150,8 +150,8 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: 4214f6b9d4ba87343bcb6bef2a4eec2e
-      internalID: 1730387420
+      spriteID: bf7809f7106953c4ebaf8228ddc646a8
+      internalID: 782586725
       vertices: []
       indices: 
       edges: []
@@ -160,8 +160,8 @@ TextureImporter:
       name: Roll_1
       rect:
         serializedVersion: 2
-        x: 159
-        y: 64
+        x: 64
+        y: 0
         width: 64
         height: 64
       alignment: 0
@@ -171,8 +171,8 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: 07882257ee0b11a44850d0715f1dbcc9
-      internalID: -129195857
+      spriteID: 4d092b692a1ca1d4e922f7f97f3fa8ef
+      internalID: -1262424569
       vertices: []
       indices: 
       edges: []
@@ -181,7 +181,7 @@ TextureImporter:
       name: Roll_2
       rect:
         serializedVersion: 2
-        x: 31
+        x: 128
         y: 0
         width: 64
         height: 64
@@ -192,8 +192,8 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: db75c9e3b54ad594a9aaf54a58c707a6
-      internalID: 1954133317
+      spriteID: d293223b93d841b4dae963c1a6ab13a7
+      internalID: 1207470611
       vertices: []
       indices: 
       edges: []
@@ -202,7 +202,7 @@ TextureImporter:
       name: Roll_3
       rect:
         serializedVersion: 2
-        x: 159
+        x: 192
         y: 0
         width: 64
         height: 64
@@ -213,8 +213,8 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: b05eeaeabfe7cad479d17932bb1edc62
-      internalID: 709174892
+      spriteID: bb4ebd72b280c0548bf1b0da86027dfe
+      internalID: 384763428
       vertices: []
       indices: 
       edges: []
@@ -230,10 +230,10 @@ TextureImporter:
     weights: []
     secondaryTextures: []
     nameFileIdTable:
-      Roll_0: 1730387420
-      Roll_1: -129195857
-      Roll_2: 1954133317
-      Roll_3: 709174892
+      Roll_0: 782586725
+      Roll_1: -1262424569
+      Roll_2: 1207470611
+      Roll_3: 384763428
   mipmapLimitGroupName: 
   pSDRemoveMatte: 0
   userData: 

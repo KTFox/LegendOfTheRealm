@@ -139,8 +139,8 @@ TextureImporter:
       name: Jump_0
       rect:
         serializedVersion: 2
-        x: 31
-        y: 192
+        x: 0
+        y: 0
         width: 64
         height: 64
       alignment: 0
@@ -150,8 +150,8 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: cc037d20a5bb1b149badac8135740e5a
-      internalID: 347099736
+      spriteID: 806410b7cf3890741ab4f29b4069a4c0
+      internalID: -1254117275
       vertices: []
       indices: 
       edges: []
@@ -160,8 +160,8 @@ TextureImporter:
       name: Jump_1
       rect:
         serializedVersion: 2
-        x: 159
-        y: 192
+        x: 64
+        y: 0
         width: 64
         height: 64
       alignment: 0
@@ -171,8 +171,8 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: 73e49b9765812624e824d3e3f2a9dfb9
-      internalID: 1066074020
+      spriteID: 96ebf8a06c29c114e988f299b1657888
+      internalID: -1628425650
       vertices: []
       indices: 
       edges: []
@@ -181,8 +181,8 @@ TextureImporter:
       name: Jump_2
       rect:
         serializedVersion: 2
-        x: 31
-        y: 128
+        x: 128
+        y: 0
         width: 64
         height: 64
       alignment: 0
@@ -192,8 +192,8 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: acb4f179e3e7cfc4f92212a6ae52460b
-      internalID: 1517786845
+      spriteID: 57ec89bb595bdb140ac82719adb946ac
+      internalID: 1909007486
       vertices: []
       indices: 
       edges: []
@@ -202,8 +202,8 @@ TextureImporter:
       name: Jump_3
       rect:
         serializedVersion: 2
-        x: 159
-        y: 128
+        x: 192
+        y: 0
         width: 64
         height: 64
       alignment: 0
@@ -213,8 +213,8 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: c79d48be84c1a2e4985faf80063a4d08
-      internalID: -211638151
+      spriteID: 3398ff52035dcb546b8a08ee13ceb772
+      internalID: 1890178776
       vertices: []
       indices: 
       edges: []
@@ -223,8 +223,8 @@ TextureImporter:
       name: Jump_4
       rect:
         serializedVersion: 2
-        x: 31
-        y: 64
+        x: 256
+        y: 0
         width: 64
         height: 64
       alignment: 0
@@ -234,8 +234,8 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: 1658ed43175d7d24f8b4196cece59bc0
-      internalID: -1930475319
+      spriteID: bc9798bb89a1f3d459cf79c790bcfb50
+      internalID: 1153878383
       vertices: []
       indices: 
       edges: []
@@ -244,8 +244,8 @@ TextureImporter:
       name: Jump_5
       rect:
         serializedVersion: 2
-        x: 159
-        y: 64
+        x: 320
+        y: 0
         width: 64
         height: 64
       alignment: 0
@@ -255,8 +255,8 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: fe42e8c379f05f6458209f95a9f08137
-      internalID: 2119926199
+      spriteID: 2622cffa33445834087315ca07a050af
+      internalID: -851783871
       vertices: []
       indices: 
       edges: []
@@ -265,7 +265,7 @@ TextureImporter:
       name: Jump_6
       rect:
         serializedVersion: 2
-        x: 31
+        x: 384
         y: 0
         width: 64
         height: 64
@@ -276,8 +276,8 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: 18129bf7e7d71a242bc71fbce5b61956
-      internalID: 1661631103
+      spriteID: 469cf268fa2fd9e43a7fe5fb3ddcc39b
+      internalID: 2058585983
       vertices: []
       indices: 
       edges: []
@@ -286,7 +286,7 @@ TextureImporter:
       name: Jump_7
       rect:
         serializedVersion: 2
-        x: 159
+        x: 448
         y: 0
         width: 64
         height: 64
@@ -297,8 +297,8 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: f14daab27584a91438f6893c2930c112
-      internalID: 958616217
+      spriteID: b3999f26ddeb26e438a622fc6b6b9aa5
+      internalID: -1032897709
       vertices: []
       indices: 
       edges: []
@@ -314,14 +314,14 @@ TextureImporter:
     weights: []
     secondaryTextures: []
     nameFileIdTable:
-      Jump_0: 347099736
-      Jump_1: 1066074020
-      Jump_2: 1517786845
-      Jump_3: -211638151
-      Jump_4: -1930475319
-      Jump_5: 2119926199
-      Jump_6: 1661631103
-      Jump_7: 958616217
+      Jump_0: -1254117275
+      Jump_1: -1628425650
+      Jump_2: 1909007486
+      Jump_3: 1890178776
+      Jump_4: 1153878383
+      Jump_5: -851783871
+      Jump_6: 2058585983
+      Jump_7: -1032897709
   mipmapLimitGroupName: 
   pSDRemoveMatte: 0
   userData: 
