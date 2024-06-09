@@ -1,3 +1,4 @@
+using System.Collections;
 using UnityEngine;
 
 namespace LegendOfTheRealm.Players
@@ -5,6 +6,9 @@ namespace LegendOfTheRealm.Players
     public class Player : MonoBehaviour
     {
         // Variables
+
+        [Header("Attack details")]
+        [SerializeField] private Vector2[] attackMovements;
 
         [Header("Move info")]
         [SerializeField] private float moveSpeed = 3f;
@@ -41,11 +45,13 @@ namespace LegendOfTheRealm.Players
         #endregion
 
         public int FacingDir { get; private set; } = 1;
+        public Vector2[] AttackMovements => attackMovements;
         public float MoveSpeed => moveSpeed;
         public float JumpForce => jumpForce;
         public float RollSpeed => rollSpeed;
         public float RollDuration => rollDuration;
         public bool IsGround => Physics2D.Raycast(groundCheck.position, Vector2.down, groundCheckDistance, groundLayerMask);
+        public bool IsBusy { get; private set; } = false;
 
 
         // Methods
@@ -92,6 +98,15 @@ namespace LegendOfTheRealm.Players
                     stateMachine.ChangeState(airDashingState);
                 }
             }
+        }
+
+        public IEnumerator BusyFor(float seconds)
+        {
+            IsBusy = true;
+
+            yield return new WaitForSeconds(seconds);
+
+            IsBusy = false;
         }
 
         public void AnimationTrigger()

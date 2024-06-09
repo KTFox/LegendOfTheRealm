@@ -29,11 +29,25 @@ namespace LegendOfTheRealm.Players
             }
 
             player.animator.SetInteger("ComboCounter", comboCounter);
+
+            float attackDir = player.FacingDir;
+            if (xInput != 0)
+            {
+                attackDir = xInput;
+            }
+            player.SetVelocity(player.AttackMovements[comboCounter].x * attackDir, player.AttackMovements[comboCounter].y);
+
+            stateTimer = 0.1f;
         }
 
         public override void Update()
         {
             base.Update();
+
+            if (stateTimer < 0)
+            {
+                player.SetVelocity(0f, 0f);
+            }
 
             if (triggerCalled)
             {

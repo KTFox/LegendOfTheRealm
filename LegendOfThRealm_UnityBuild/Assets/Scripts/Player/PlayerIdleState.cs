@@ -23,7 +23,7 @@ namespace LegendOfTheRealm.Players
         {
             base.Update();
 
-            if (xInput != 0)
+            if (xInput != 0 && !player.IsBusy)
             {
                 stateMachine.ChangeState(player.moveState);
             }

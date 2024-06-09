@@ -4,6 +4,10 @@ namespace LegendOfTheRealm.Players
 {
     public class PlayerRollState : PlayerState
     {
+        // Variables
+
+        private float rollDir;
+
         // Constructors
 
         public PlayerRollState(Player player, PlayerStateMachine stateMachine, string animBoolName) : base(player, stateMachine, animBoolName)
@@ -18,13 +22,19 @@ namespace LegendOfTheRealm.Players
             base.Enter();
 
             stateTimer = player.RollDuration;
+
+            rollDir = player.FacingDir;
+            if (xInput != 0)
+            {
+                rollDir = xInput;
+            }
         }
 
         public override void Update()
         {
             base.Update();
 
-            player.SetVelocity(player.FacingDir * player.RollSpeed, 0f);
+            player.SetVelocity(rollDir * player.RollSpeed, 0f);
 
             if (stateTimer < 0)
             {
