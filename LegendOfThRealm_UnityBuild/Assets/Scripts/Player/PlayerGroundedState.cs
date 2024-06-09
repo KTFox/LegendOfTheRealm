@@ -28,12 +28,12 @@ namespace LegendOfTheRealm.Players
                 stateMachine.ChangeState(player.primaryAttackState);
             }
 
-            if (InputManager.Instance.IsKKeyDown() && player.IsGround)
+            if (InputManager.Instance.IsKKeyDown() && player.IsGroundDetected)
             {
                 player.SetVelocity(playerRb.velocity.x, player.JumpForce);
             }
 
-            if (!player.IsGround)
+            if (!player.IsGroundDetected)
             {
                 stateMachine.ChangeState(player.jumpState);
             }

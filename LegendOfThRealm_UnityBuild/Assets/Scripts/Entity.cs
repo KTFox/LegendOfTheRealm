@@ -10,6 +10,9 @@ namespace LegendOfTheRealm
         [SerializeField] protected Transform groundCheck;
         [SerializeField] protected float groundCheckDistance;
         [SerializeField] protected LayerMask groundLayerMask;
+        [SerializeField] protected Transform wallCheck;
+        [SerializeField] protected float wallCheckDistance;
+        [SerializeField] protected LayerMask wallLayerMask;
 
         protected bool isFacingRight = true;
 
@@ -21,7 +24,8 @@ namespace LegendOfTheRealm
         #endregion
 
         public int FacingDir { get; private set; } = 1;
-        public virtual bool IsGround => Physics2D.Raycast(groundCheck.position, Vector2.down, groundCheckDistance, groundLayerMask);
+        public virtual bool IsGroundDetected => Physics2D.Raycast(groundCheck.position, Vector2.down, groundCheckDistance, groundLayerMask);
+        public virtual bool IsWallDetected => Physics2D.Raycast(wallCheck.position, Vector2.right * FacingDir, wallCheckDistance, wallLayerMask);
 
 
         // Methods
@@ -71,6 +75,7 @@ namespace LegendOfTheRealm
         {
             Gizmos.color = Color.red;
             Gizmos.DrawLine(groundCheck.position, new Vector2(groundCheck.position.x, groundCheck.position.y - groundCheckDistance));
+            Gizmos.DrawLine(wallCheck.position, new Vector2(wallCheck.position.x + wallCheckDistance, wallCheck.position.y));
         }
     }
 }

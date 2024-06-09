@@ -24,7 +24,7 @@ namespace LegendOfTheRealm.Players
 
             player.SetVelocity(InputManager.Instance.GetHorizontalInput() * player.MoveSpeed, playerRb.velocity.y);
 
-            if (player.IsGround)
+            if (player.IsGroundDetected)
             {
                 stateMachine.ChangeState(player.idleState);
             }

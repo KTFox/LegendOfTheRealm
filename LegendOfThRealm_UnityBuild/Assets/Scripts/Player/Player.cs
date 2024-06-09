@@ -80,7 +80,7 @@ namespace LegendOfTheRealm.Players
             {
                 rollTimer = rollCooldown;
 
-                if (IsGround)
+                if (IsGroundDetected)
                 {
                     stateMachine.ChangeState(rollState);
                 }
