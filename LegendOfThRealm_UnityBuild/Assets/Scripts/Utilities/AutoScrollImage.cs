@@ -1,6 +1,6 @@
 using UnityEngine;
 
-namespace LegendOfTheRealm
+namespace LegendOfTheRealm.Utilities
 {
     public class AutoScrollImage : MonoBehaviour
     {

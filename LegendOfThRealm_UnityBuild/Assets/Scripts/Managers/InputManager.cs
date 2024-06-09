@@ -1,6 +1,6 @@
 using UnityEngine;
 
-namespace LegendOfTheRealm
+namespace LegendOfTheRealm.Managers
 {
     public class InputManager : MonoBehaviour
     {
