@@ -37,6 +37,7 @@ namespace LegendOfTheRealm.Players
         public PlayerJumpState jumpState { get; private set; }
         public PlayerRollState rollState { get; private set; }
         public PlayerAirDashingState airDashingState { get; private set; }
+        public PlayerPrimaryAttackState primaryAttackState { get; private set; }
         #endregion
 
         public int FacingDir { get; private set; } = 1;
@@ -60,6 +61,7 @@ namespace LegendOfTheRealm.Players
             jumpState = new PlayerJumpState(this, stateMachine, "Jump");
             rollState = new PlayerRollState(this, stateMachine, "Roll");
             airDashingState = new PlayerAirDashingState(this, stateMachine, "AirDashing");
+            primaryAttackState = new PlayerPrimaryAttackState(this, stateMachine, "Attack");
         }
 
         private void Start()
@@ -90,6 +92,11 @@ namespace LegendOfTheRealm.Players
                     stateMachine.ChangeState(airDashingState);
                 }
             }
+        }
+
+        public void AnimationTrigger()
+        {
+            stateMachine.currentState.AnimationFinishTrigger();
         }
 
         public void SetVelocity(float xVelocity, float yVelocity)

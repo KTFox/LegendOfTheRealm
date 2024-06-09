@@ -23,6 +23,11 @@ namespace LegendOfTheRealm.Players
         {
             base.Update();
 
+            if (Input.GetKeyDown(KeyCode.J))
+            {
+                stateMachine.ChangeState(player.primaryAttackState);
+            }
+
             if (Input.GetKeyDown(KeyCode.K) && player.IsGround)
             {
                 playerRb.velocity = new Vector2(playerRb.velocity.x, player.JumpForce);

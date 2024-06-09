@@ -6,7 +6,7 @@ AnimationClip:
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
-  m_Name: Player_Attack1
+  m_Name: Player_Attack3
   serializedVersion: 7
   m_Legacy: 0
   m_Compressed: 0
@@ -21,19 +21,13 @@ AnimationClip:
   - serializedVersion: 2
     curve:
     - time: 0
-      value: {fileID: 1295880262, guid: 2f76d93cb6b20584e8b53ebe891615e0, type: 3}
+      value: {fileID: -1315677425, guid: 2f76d93cb6b20584e8b53ebe891615e0, type: 3}
     - time: 0.083333336
-      value: {fileID: -1708349244, guid: 2f76d93cb6b20584e8b53ebe891615e0, type: 3}
+      value: {fileID: 1643930231, guid: 2f76d93cb6b20584e8b53ebe891615e0, type: 3}
     - time: 0.16666667
-      value: {fileID: -76449525, guid: 2f76d93cb6b20584e8b53ebe891615e0, type: 3}
+      value: {fileID: -1536667779, guid: 2f76d93cb6b20584e8b53ebe891615e0, type: 3}
     - time: 0.25
-      value: {fileID: 1922304527, guid: 2f76d93cb6b20584e8b53ebe891615e0, type: 3}
-    - time: 0.33333334
-      value: {fileID: -461373430, guid: 2f76d93cb6b20584e8b53ebe891615e0, type: 3}
-    - time: 0.41666666
-      value: {fileID: -106625292, guid: 2f76d93cb6b20584e8b53ebe891615e0, type: 3}
-    - time: 0.5
-      value: {fileID: 1735140721, guid: 2f76d93cb6b20584e8b53ebe891615e0, type: 3}
+      value: {fileID: -2033235663, guid: 2f76d93cb6b20584e8b53ebe891615e0, type: 3}
     attribute: m_Sprite
     path: 
     classID: 212
@@ -56,19 +50,16 @@ AnimationClip:
       isIntCurve: 0
       isSerializeReferenceCurve: 0
     pptrCurveMapping:
-    - {fileID: 1295880262, guid: 2f76d93cb6b20584e8b53ebe891615e0, type: 3}
-    - {fileID: -1708349244, guid: 2f76d93cb6b20584e8b53ebe891615e0, type: 3}
-    - {fileID: -76449525, guid: 2f76d93cb6b20584e8b53ebe891615e0, type: 3}
-    - {fileID: 1922304527, guid: 2f76d93cb6b20584e8b53ebe891615e0, type: 3}
-    - {fileID: -461373430, guid: 2f76d93cb6b20584e8b53ebe891615e0, type: 3}
-    - {fileID: -106625292, guid: 2f76d93cb6b20584e8b53ebe891615e0, type: 3}
-    - {fileID: 1735140721, guid: 2f76d93cb6b20584e8b53ebe891615e0, type: 3}
+    - {fileID: -1315677425, guid: 2f76d93cb6b20584e8b53ebe891615e0, type: 3}
+    - {fileID: 1643930231, guid: 2f76d93cb6b20584e8b53ebe891615e0, type: 3}
+    - {fileID: -1536667779, guid: 2f76d93cb6b20584e8b53ebe891615e0, type: 3}
+    - {fileID: -2033235663, guid: 2f76d93cb6b20584e8b53ebe891615e0, type: 3}
   m_AnimationClipSettings:
     serializedVersion: 2
     m_AdditiveReferencePoseClip: {fileID: 0}
     m_AdditiveReferencePoseTime: 0
     m_StartTime: 0
-    m_StopTime: 0.5833333
+    m_StopTime: 0.33333334
     m_OrientationOffsetY: 0
     m_Level: 0
     m_CycleOffset: 0
@@ -87,11 +78,4 @@ AnimationClip:
   m_EulerEditorCurves: []
   m_HasGenericRootTransform: 0
   m_HasMotionFloatCurves: 0
-  m_Events:
-  - time: 0.5833333
-    functionName: AnimationTrigger
-    data: 
-    objectReferenceParameter: {fileID: 0}
-    floatParameter: 0
-    intParameter: 0
-    messageOptions: 0
+  m_Events: []

@@ -14,6 +14,7 @@ namespace LegendOfTheRealm.Players
         protected float xInput;
 
         protected float stateTimer;
+        protected bool triggerCalled;
 
         // Constructors
 
@@ -31,6 +32,7 @@ namespace LegendOfTheRealm.Players
         {
             player.animator.SetBool(animBoolName, true);
             playerRb = player.rb;
+            triggerCalled = false;
         }
 
         public virtual void Update()
@@ -43,6 +45,11 @@ namespace LegendOfTheRealm.Players
         public virtual void Exit()
         {
             player.animator.SetBool(animBoolName, false);
+        }
+
+        public virtual void AnimationFinishTrigger()
+        {
+            triggerCalled = true;
         }
     }
 }
