@@ -29,20 +29,20 @@ namespace LegendOfTheRealm.Players
 
         public virtual void Enter()
         {
-            player.animator.SetBool(animBoolName, true);
-            playerRb = player.rb;
+            player.Animator.SetBool(animBoolName, true);
+            playerRb = player.Rb;
             triggerCalled = false;
         }
 
         public virtual void Update()
         {
-            player.animator.SetFloat("yVelocity", playerRb.velocity.y);
+            player.Animator.SetFloat("yVelocity", playerRb.velocity.y);
             stateTimer -= Time.deltaTime;
         }
 
         public virtual void Exit()
         {
-            player.animator.SetBool(animBoolName, false);
+            player.Animator.SetBool(animBoolName, false);
         }
 
         public virtual void AnimationFinishTrigger()

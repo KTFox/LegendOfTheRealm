@@ -29,7 +29,7 @@ namespace LegendOfTheRealm.Players
                 comboCounter = 0;
             }
 
-            player.animator.SetInteger("ComboCounter", comboCounter);
+            player.Animator.SetInteger("ComboCounter", comboCounter);
 
             float attackDir = player.FacingDir;
             if (InputManager.Instance.GetHorizontalInput() != 0)

@@ -4,7 +4,7 @@ using LegendOfTheRealm.Managers;
 
 namespace LegendOfTheRealm.Players
 {
-    public class Player : MonoBehaviour
+    public class Player : Entity
     {
         // Variables
 
@@ -20,20 +20,9 @@ namespace LegendOfTheRealm.Players
         [SerializeField] private float rollSpeed = 8f;
         [SerializeField] private float rollDuration = 0.3f;
 
-        [Header("Collision info")]
-        [SerializeField] private Transform groundCheck;
-        [SerializeField] private float groundCheckDistance;
-        [SerializeField] private LayerMask groundLayerMask;
-
-        private bool isFacingRight = true;
         private float rollTimer;
 
         // Properties
-
-        #region Components
-        public Rigidbody2D rb { get; private set; }
-        public Animator animator { get; private set; }
-        #endregion
 
         #region States
         private PlayerStateMachine stateMachine;
@@ -45,22 +34,19 @@ namespace LegendOfTheRealm.Players
         public PlayerPrimaryAttackState primaryAttackState { get; private set; }
         #endregion
 
-        public int FacingDir { get; private set; } = 1;
         public Vector2[] AttackMovements => attackMovements;
         public float MoveSpeed => moveSpeed;
         public float JumpForce => jumpForce;
         public float RollSpeed => rollSpeed;
         public float RollDuration => rollDuration;
-        public bool IsGround => Physics2D.Raycast(groundCheck.position, Vector2.down, groundCheckDistance, groundLayerMask);
         public bool IsBusy { get; private set; } = false;
 
 
         // Methods
 
-        private void Awake()
+        protected override void Awake()
         {
-            rb = GetComponent<Rigidbody2D>();
-            animator = GetComponentInChildren<Animator>();
+            base.Awake();
 
             stateMachine = new PlayerStateMachine();
             idleState = new PlayerIdleState(this, stateMachine, "Idle");
@@ -71,13 +57,17 @@ namespace LegendOfTheRealm.Players
             primaryAttackState = new PlayerPrimaryAttackState(this, stateMachine, "Attack");
         }
 
-        private void Start()
+        protected override void Start()
         {
+            base.Start();
+
             stateMachine.Initialize(idleState);
         }
 
-        private void Update()
+        protected override void Update()
         {
+            base.Update();
+
             stateMachine.CurrentState.Update();
             CheckForDashInput();
         }
@@ -113,37 +103,6 @@ namespace LegendOfTheRealm.Players
         public void AnimationTrigger()
         {
             stateMachine.CurrentState.AnimationFinishTrigger();
-        }
-
-        public void SetVelocity(float xVelocity, float yVelocity)
-        {
-            rb.velocity = new Vector2(xVelocity, yVelocity);
-            ControllFlipping(xVelocity);
-        }
-
-        private void ControllFlipping(float xInput)
-        {
-            if (xInput > 0.01f && !isFacingRight)
-            {
-                Flip();
-            }
-            else if (xInput < -0.01f && isFacingRight)
-            {
-                Flip();
-            }
-        }
-
-        private void Flip()
-        {
-            FacingDir *= -1;
-            isFacingRight = !isFacingRight;
-            transform.Rotate(0, 180, 0);
-        }
-
-        private void OnDrawGizmos()
-        {
-            Gizmos.color = Color.red;
-            Gizmos.DrawLine(groundCheck.position, new Vector2(groundCheck.position.x, groundCheck.position.y - groundCheckDistance));
         }
     }
 }

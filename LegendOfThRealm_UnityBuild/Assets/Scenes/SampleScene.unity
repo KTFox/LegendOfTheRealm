@@ -1531,6 +1531,11 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: f555091f209e38a489dbba1abdc8a939, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  groundCheck: {fileID: 195745453}
+  groundCheckDistance: 0.15
+  groundLayerMask:
+    serializedVersion: 2
+    m_Bits: 2048
   attackMovements:
   - {x: 1, y: 1}
   - {x: 1, y: 1}
@@ -1540,11 +1545,6 @@ MonoBehaviour:
   rollCooldown: 0.8
   rollSpeed: 8
   rollDuration: 0.3
-  groundCheck: {fileID: 195745453}
-  groundCheckDistance: 0.15
-  groundLayerMask:
-    serializedVersion: 2
-    m_Bits: 2048
 --- !u!70 &1456994712
 CapsuleCollider2D:
   m_ObjectHideFlags: 0
