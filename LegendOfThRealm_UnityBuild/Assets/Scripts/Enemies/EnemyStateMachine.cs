@@ -1,21 +1,21 @@
-namespace LegendOfTheRealm.Players
+namespace LegendOfTheRealm.Enemies
 {
-    public class PlayerStateMachine
+    public class EnemyStateMachine
     {
         // Properties
 
-        public PlayerState CurrentState { get; private set; }
+        public EnemyState CurrentState { get; private set; }
 
 
         // Methods
 
-        public void Initialize(PlayerState startState)
+        public void Initialize(EnemyState startState)
         {
             CurrentState = startState;
             CurrentState.Enter();
         }
 
-        public void ChangeState(PlayerState newState)
+        public void ChangeState(EnemyState newState)
         {
             CurrentState.Exit();
             CurrentState = newState;

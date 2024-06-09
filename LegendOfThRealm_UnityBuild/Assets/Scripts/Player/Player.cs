@@ -78,7 +78,7 @@ namespace LegendOfTheRealm.Players
 
         private void Update()
         {
-            stateMachine.currentState.Update();
+            stateMachine.CurrentState.Update();
             CheckForDashInput();
         }
 
@@ -112,7 +112,7 @@ namespace LegendOfTheRealm.Players
 
         public void AnimationTrigger()
         {
-            stateMachine.currentState.AnimationFinishTrigger();
+            stateMachine.CurrentState.AnimationFinishTrigger();
         }
 
         public void SetVelocity(float xVelocity, float yVelocity)
