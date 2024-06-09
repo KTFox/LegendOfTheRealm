@@ -19,11 +19,18 @@ namespace LegendOfTheRealm.Enemies.Bandits
         public override void Enter()
         {
             base.Enter();
+
+            stateTimer = bandit.IdleTime;
         }
 
         public override void Update()
         {
             base.Update();
+
+            if (stateTimer <= 0)
+            {
+                stateMachine.ChangeState(bandit.MoveState);
+            }
         }
 
         public override void Exit()

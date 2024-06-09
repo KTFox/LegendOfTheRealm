@@ -64,7 +64,7 @@ namespace LegendOfTheRealm
             }
         }
 
-        protected virtual void Flip()
+        public virtual void Flip()
         {
             FacingDir *= -1;
             isFacingRight = !isFacingRight;

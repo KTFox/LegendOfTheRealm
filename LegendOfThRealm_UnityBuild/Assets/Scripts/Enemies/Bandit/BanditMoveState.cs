@@ -24,6 +24,14 @@ namespace LegendOfTheRealm.Enemies.Bandits
         public override void Update()
         {
             base.Update();
+
+            bandit.SetVelocity(bandit.MoveSpeed * bandit.FacingDir, bandit.Rb.velocity.y);
+
+            if (bandit.IsWallDetected || !bandit.IsGroundDetected)
+            {
+                bandit.Flip();
+                stateMachine.ChangeState(bandit.IdleState);
+            }
         }
 
         public override void Exit()
