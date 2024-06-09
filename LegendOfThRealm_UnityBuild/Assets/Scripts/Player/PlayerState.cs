@@ -11,7 +11,6 @@ namespace LegendOfTheRealm.Players
         protected Rigidbody2D playerRb;
 
         private string animBoolName;
-        protected float xInput;
 
         protected float stateTimer;
         protected bool triggerCalled;
@@ -37,7 +36,6 @@ namespace LegendOfTheRealm.Players
 
         public virtual void Update()
         {
-            xInput = Input.GetAxisRaw("Horizontal");
             player.animator.SetFloat("yVelocity", playerRb.velocity.y);
             stateTimer -= Time.deltaTime;
         }

@@ -8,7 +8,6 @@ namespace LegendOfTheRealm.Players
 
         public PlayerIdleState(Player player, PlayerStateMachine stateMachine, string animBoolName) : base(player, stateMachine, animBoolName)
         {
-
         }
 
 
@@ -23,7 +22,7 @@ namespace LegendOfTheRealm.Players
         {
             base.Update();
 
-            if (xInput != 0 && !player.IsBusy)
+            if (InputManager.Instance.GetHorizontalInput() != 0 && !player.IsBusy)
             {
                 stateMachine.ChangeState(player.moveState);
             }

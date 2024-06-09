@@ -85,7 +85,7 @@ namespace LegendOfTheRealm.Players
         {
             rollTimer -= Time.deltaTime;
 
-            if (Input.GetKeyDown(KeyCode.L) && rollTimer < 0)
+            if (InputManager.Instance.IsLKeyDown() && rollTimer < 0)
             {
                 rollTimer = rollCooldown;
 

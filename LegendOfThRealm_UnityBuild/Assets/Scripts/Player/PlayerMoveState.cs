@@ -23,9 +23,9 @@ namespace LegendOfTheRealm.Players
         {
             base.Update();
 
-            player.SetVelocity(xInput * player.MoveSpeed, playerRb.velocity.y);
+            player.SetVelocity(InputManager.Instance.GetHorizontalInput() * player.MoveSpeed, playerRb.velocity.y);
 
-            if (xInput == 0)
+            if (InputManager.Instance.GetHorizontalInput() == 0)
             {
                 stateMachine.ChangeState(player.idleState);
             }

@@ -24,9 +24,9 @@ namespace LegendOfTheRealm.Players
             stateTimer = player.RollDuration;
 
             rollDir = player.FacingDir;
-            if (xInput != 0)
+            if (InputManager.Instance.GetHorizontalInput() != 0)
             {
-                rollDir = xInput;
+                rollDir = InputManager.Instance.GetHorizontalInput();
             }
         }
 

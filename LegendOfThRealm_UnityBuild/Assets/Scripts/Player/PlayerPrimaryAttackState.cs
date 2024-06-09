@@ -31,9 +31,9 @@ namespace LegendOfTheRealm.Players
             player.animator.SetInteger("ComboCounter", comboCounter);
 
             float attackDir = player.FacingDir;
-            if (xInput != 0)
+            if (InputManager.Instance.GetHorizontalInput() != 0)
             {
-                attackDir = xInput;
+                attackDir = InputManager.Instance.GetHorizontalInput();
             }
             player.SetVelocity(player.AttackMovements[comboCounter].x * attackDir, player.AttackMovements[comboCounter].y);
 
