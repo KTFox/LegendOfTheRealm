@@ -1,26 +1,27 @@
-using UnityEngine;
-
 namespace LegendOfTheRealm.Enemies
 {
-    public class Enemy : MonoBehaviour
+    public class Enemy : Entity
     {
         // Properties
 
-        public Rigidbody2D Rb { get; private set; }
-        public Animator Animator { get; private set; }
-
+        #region States
         public EnemyStateMachine StateMachine { get; private set; }
+        #endregion
 
 
         // Methods
 
-        private void Awake()
+        protected override void Awake()
         {
+            base.Awake();
+
             StateMachine = new EnemyStateMachine();
         }
 
-        private void Update()
+        protected override void Update()
         {
+            base.Update();
+
             StateMachine.CurrentState.Update();
         }
     }
