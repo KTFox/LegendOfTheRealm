@@ -23,6 +23,11 @@ namespace LegendOfTheRealm.Enemies.Bandits
         {
             base.Update();
 
+            if (bandit.Target != null)
+            {
+                bandit.ControllFlipping(bandit.Target.transform.position.x - bandit.transform.position.x);
+            }
+
             if (stateTimer <= 0)
             {
                 if (distanceToTarget <= bandit.AttackRange)

@@ -12,6 +12,7 @@ namespace LegendOfTheRealm.Enemies.Bandits
         public BanditChaseState ChaseState { get; private set; }
         public BanditAttackState AttackState { get; private set; }
         public BanditAttackCooldownState CooldownState { get; private set; }
+        public BanditSuspiciousState SuspiciousState { get; private set; }
         #endregion
 
 
@@ -26,6 +27,7 @@ namespace LegendOfTheRealm.Enemies.Bandits
             ChaseState = new BanditChaseState(this, StateMachine, "Move");
             AttackState = new BanditAttackState(this, StateMachine, "Attack");
             CooldownState = new BanditAttackCooldownState(this, StateMachine, "Idle");
+            SuspiciousState = new BanditSuspiciousState(this, StateMachine, "Idle");
         }
 
         protected override void Start()

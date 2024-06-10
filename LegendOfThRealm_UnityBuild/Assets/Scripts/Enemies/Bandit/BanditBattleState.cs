@@ -35,7 +35,7 @@ namespace LegendOfTheRealm.Enemies.Bandits
 
             if (!bandit.IsPlayerDetected)
             {
-                stateMachine.ChangeState(bandit.WalkAroundState);
+                stateMachine.ChangeState(bandit.SuspiciousState);
             }
         }
 

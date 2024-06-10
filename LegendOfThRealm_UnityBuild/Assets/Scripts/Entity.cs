@@ -52,7 +52,7 @@ namespace LegendOfTheRealm
             ControllFlipping(xVelocity);
         }
 
-        protected virtual void ControllFlipping(float xInput)
+        public virtual void ControllFlipping(float xInput)
         {
             if (xInput > 0.01f && !isFacingRight)
             {

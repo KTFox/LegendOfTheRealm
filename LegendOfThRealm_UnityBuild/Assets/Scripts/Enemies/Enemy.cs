@@ -23,6 +23,7 @@ namespace LegendOfTheRealm.Enemies
         [SerializeField] private float chaseSpeed;
         [SerializeField] private float attackRange;
         [SerializeField] private float attackCooldown;
+        [SerializeField] private float suspiciousTime;
 
         // Properties
 
@@ -39,6 +40,7 @@ namespace LegendOfTheRealm.Enemies
         public float ChaseSpeed => chaseSpeed;
         public float AttackRange => attackRange;
         public float AttackCooldown => attackCooldown;
+        public float SuspiciousTime => suspiciousTime;
 
 
         // Methods

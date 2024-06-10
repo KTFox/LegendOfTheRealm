@@ -2488,6 +2488,7 @@ MonoBehaviour:
   chaseSpeed: 1
   attackRange: 1
   attackCooldown: 2
+  suspiciousTime: 2
 --- !u!70 &1625647148
 CapsuleCollider2D:
   m_ObjectHideFlags: 0
