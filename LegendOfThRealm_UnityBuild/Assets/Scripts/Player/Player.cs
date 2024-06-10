@@ -100,7 +100,7 @@ namespace LegendOfTheRealm.Players
             IsBusy = false;
         }
 
-        public void AnimationTrigger()
+        public void AnimationFinishTrigger()
         {
             stateMachine.CurrentState.AnimationFinishTrigger();
         }

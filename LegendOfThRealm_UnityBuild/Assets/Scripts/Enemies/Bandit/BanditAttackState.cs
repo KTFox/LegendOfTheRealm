@@ -20,6 +20,11 @@ namespace LegendOfTheRealm.Enemies.Bandits
         public override void Update()
         {
             base.Update();
+
+            if (triggerCalled)
+            {
+                stateMachine.ChangeState(bandit.CooldownState);
+            }
         }
 
         public override void Exit()

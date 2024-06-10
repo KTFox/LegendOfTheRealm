@@ -42,5 +42,10 @@ namespace LegendOfTheRealm.Enemies
         {
             enemy.Animator.SetBool(animBoolName, false);
         }
+
+        public virtual void AnimationFinishTrigger()
+        {
+            triggerCalled = true;
+        }
     }
 }

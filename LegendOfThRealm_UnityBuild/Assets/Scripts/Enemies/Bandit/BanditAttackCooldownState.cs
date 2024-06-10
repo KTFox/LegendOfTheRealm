@@ -1,12 +1,10 @@
-using UnityEngine;
-
 namespace LegendOfTheRealm.Enemies.Bandits
 {
-    public class BanditChaseState : BanditBattleState
+    public class BanditAttackCooldownState : BanditBattleState
     {
         // Constructors
 
-        public BanditChaseState(Enemy enemy, EnemyStateMachine stateMachine, string animBoolName) : base(enemy, stateMachine, animBoolName)
+        public BanditAttackCooldownState(Enemy enemy, EnemyStateMachine stateMachine, string animBoolName) : base(enemy, stateMachine, animBoolName)
         {
             bandit = enemy as Bandit;
         }
@@ -17,20 +15,23 @@ namespace LegendOfTheRealm.Enemies.Bandits
         public override void Enter()
         {
             base.Enter();
+
+            stateTimer = bandit.AttackCooldown;
         }
 
         public override void Update()
         {
             base.Update();
 
-            if (bandit.Target != null)
+            if (stateTimer <= 0)
             {
-                Vector2 moveDir = (bandit.Target.transform.position - bandit.transform.position).normalized;
-                bandit.SetVelocity(moveDir.x * bandit.ChaseSpeed, 0f);
-
                 if (distanceToTarget <= bandit.AttackRange)
                 {
                     stateMachine.ChangeState(bandit.AttackState);
+                }
+                else
+                {
+                    stateMachine.ChangeState(bandit.ChaseState);
                 }
             }
         }

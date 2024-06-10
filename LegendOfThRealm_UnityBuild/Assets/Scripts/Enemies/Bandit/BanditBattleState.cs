@@ -1,3 +1,5 @@
+using UnityEngine;
+
 namespace LegendOfTheRealm.Enemies.Bandits
 {
     public class BanditBattleState : EnemyState
@@ -5,6 +7,7 @@ namespace LegendOfTheRealm.Enemies.Bandits
         // Variables
 
         protected Bandit bandit;
+        protected float distanceToTarget;
 
         // Constructors
 
@@ -24,6 +27,11 @@ namespace LegendOfTheRealm.Enemies.Bandits
         public override void Update()
         {
             base.Update();
+
+            if (bandit.Target != null)
+            {
+                distanceToTarget = Vector2.Distance(bandit.transform.position, bandit.Target.transform.position);
+            }
 
             if (!bandit.IsPlayerDetected)
             {

@@ -6,7 +6,7 @@ namespace LegendOfTheRealm.Players
     {
         private void AnimationTrigger()
         {
-            GetComponentInParent<Player>().AnimationTrigger();
+            GetComponentInParent<Player>().AnimationFinishTrigger();
         }
     }
 }

@@ -22,6 +22,7 @@ namespace LegendOfTheRealm.Enemies
         [Header("Battle info")]
         [SerializeField] private float chaseSpeed;
         [SerializeField] private float attackRange;
+        [SerializeField] private float attackCooldown;
 
         // Properties
 
@@ -37,6 +38,7 @@ namespace LegendOfTheRealm.Enemies
         public bool IsPlayerDetected => Target != null;
         public float ChaseSpeed => chaseSpeed;
         public float AttackRange => attackRange;
+        public float AttackCooldown => attackCooldown;
 
 
         // Methods
@@ -69,6 +71,11 @@ namespace LegendOfTheRealm.Enemies
             {
                 Target = null;
             }
+        }
+
+        public void AnimationFinishTrigger()
+        {
+            StateMachine.CurrentState.AnimationFinishTrigger();
         }
 
         protected override void OnDrawGizmos()
