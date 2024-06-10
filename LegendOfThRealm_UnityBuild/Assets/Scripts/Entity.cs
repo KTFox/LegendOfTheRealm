@@ -26,6 +26,7 @@ namespace LegendOfTheRealm
         #region Components
         public Rigidbody2D Rb { get; private set; }
         public Animator Animator { get; private set; }
+        public EntityFX EntityFX { get; private set; }
         #endregion
 
         public int FacingDir { get; private set; } = 1;
@@ -42,6 +43,7 @@ namespace LegendOfTheRealm
         {
             Rb = GetComponent<Rigidbody2D>();
             Animator = GetComponentInChildren<Animator>();
+            EntityFX = GetComponent<EntityFX>();
         }
 
         protected virtual void Start()
@@ -57,6 +59,7 @@ namespace LegendOfTheRealm
         public virtual void TakeDamage()
         {
             Debug.Log($"{gameObject.name} take damaged!!!");
+            EntityFX.PlayFlashFX();
         }
 
         public void SetVelocity(float xVelocity, float yVelocity)

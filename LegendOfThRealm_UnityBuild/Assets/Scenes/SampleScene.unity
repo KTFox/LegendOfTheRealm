@@ -2142,6 +2142,7 @@ GameObject:
   - component: {fileID: 1456994713}
   - component: {fileID: 1456994712}
   - component: {fileID: 1456994711}
+  - component: {fileID: 1456994714}
   m_Layer: 8
   m_Name: Player
   m_TagString: Untagged
@@ -2252,7 +2253,7 @@ Rigidbody2D:
   m_LinearDrag: 0
   m_AngularDrag: 0.05
   m_GravityScale: 1
-  m_Material: {fileID: 0}
+  m_Material: {fileID: 6200000, guid: c22dab039c341e3439c066236847883f, type: 2}
   m_IncludeLayers:
     serializedVersion: 2
     m_Bits: 0
@@ -2263,6 +2264,19 @@ Rigidbody2D:
   m_SleepingMode: 1
   m_CollisionDetection: 0
   m_Constraints: 4
+--- !u!114 &1456994714
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1456994709}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 84cd11e3b4cb7d941bf32e0ab1fd83b5, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  flashMaterial: {fileID: 2100000, guid: 615198ce70d183146b6f30048f03e98d, type: 2}
 --- !u!1 &1486106633
 GameObject:
   m_ObjectHideFlags: 0
@@ -2489,6 +2503,7 @@ GameObject:
   - component: {fileID: 1625647149}
   - component: {fileID: 1625647148}
   - component: {fileID: 1625647147}
+  - component: {fileID: 1625647150}
   m_Layer: 9
   m_Name: Bandit
   m_TagString: Untagged
@@ -2620,6 +2635,19 @@ Rigidbody2D:
   m_SleepingMode: 1
   m_CollisionDetection: 0
   m_Constraints: 4
+--- !u!114 &1625647150
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1625647145}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 84cd11e3b4cb7d941bf32e0ab1fd83b5, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  flashMaterial: {fileID: 2100000, guid: 615198ce70d183146b6f30048f03e98d, type: 2}
 --- !u!1 &1628056329
 GameObject:
   m_ObjectHideFlags: 0
