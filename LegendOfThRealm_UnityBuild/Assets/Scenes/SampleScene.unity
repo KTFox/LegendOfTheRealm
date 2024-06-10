@@ -2465,6 +2465,13 @@ MonoBehaviour:
     - {x: 7.5, y: -0.25}
     - {x: 10.5, y: -0.25}
   minDistanceToWaypoint: 0.1
+  boxOrigin: {x: 9, y: -0.25}
+  boxSize: {x: 4, y: 1.5}
+  playerLayerMask:
+    serializedVersion: 2
+    m_Bits: 256
+  gizmoIdleColor: {r: 0, g: 1, b: 0, a: 0.18431373}
+  gimoDetectedColor: {r: 1, g: 0, b: 0, a: 0.24705882}
 --- !u!70 &1625647148
 CapsuleCollider2D:
   m_ObjectHideFlags: 0

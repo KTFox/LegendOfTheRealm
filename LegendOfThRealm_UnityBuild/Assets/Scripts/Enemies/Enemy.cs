@@ -12,6 +12,13 @@ namespace LegendOfTheRealm.Enemies
         [SerializeField] private PatrolPoints patrolPoints;
         [SerializeField] private float minDistanceToWaypoint = 0.1f;
 
+        [Header("Player detect info")]
+        [SerializeField] private Vector2 boxOrigin;
+        [SerializeField] private Vector2 boxSize;
+        [SerializeField] private LayerMask playerLayerMask;
+        [SerializeField] private Color gizmoIdleColor;
+        [SerializeField] private Color gimoDetectedColor;
+
         // Properties
 
         #region States
@@ -22,6 +29,7 @@ namespace LegendOfTheRealm.Enemies
         public float DwellTime => dwellTime;
         public PatrolPoints PatrolPoints => patrolPoints;
         public float MinDistanceToWaypoint => minDistanceToWaypoint;
+        public bool IsPlayerDetected => Physics2D.OverlapBox(boxOrigin, boxSize, 0f, playerLayerMask);
 
 
         // Methods
@@ -50,6 +58,13 @@ namespace LegendOfTheRealm.Enemies
                 Gizmos.DrawWireSphere(patrolPoints.Points[i], minDistanceToWaypoint);
                 Gizmos.DrawLine(patrolPoints.Points[i], patrolPoints.Points[patrolPoints.GetNextIndexOf(i)]);
             }
+
+            Gizmos.color = gizmoIdleColor;
+            if (IsPlayerDetected)
+            {
+                Gizmos.color = gimoDetectedColor;
+            }
+            Gizmos.DrawCube(boxOrigin, boxSize);
         }
     }
 }
