@@ -13,6 +13,7 @@ namespace LegendOfTheRealm.Enemies.Bandits
         public BanditAttackState AttackState { get; private set; }
         public BanditAttackCooldownState CooldownState { get; private set; }
         public BanditSuspiciousState SuspiciousState { get; private set; }
+        public BanditStunnedState StunnedState { get; private set; }
         #endregion
 
 
@@ -28,6 +29,7 @@ namespace LegendOfTheRealm.Enemies.Bandits
             AttackState = new BanditAttackState(this, StateMachine, "Attack");
             CooldownState = new BanditAttackCooldownState(this, StateMachine, "Idle");
             SuspiciousState = new BanditSuspiciousState(this, StateMachine, "Idle");
+            StunnedState = new BanditStunnedState(this, StateMachine, "Stunned");
         }
 
         protected override void Start()
@@ -40,6 +42,11 @@ namespace LegendOfTheRealm.Enemies.Bandits
         protected override void Update()
         {
             base.Update();
+
+            if (Input.GetKeyDown(KeyCode.Space))
+            {
+                StateMachine.ChangeState(StunnedState);
+            }
         }
     }
 }

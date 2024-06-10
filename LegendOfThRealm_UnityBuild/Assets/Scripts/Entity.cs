@@ -41,6 +41,7 @@ namespace LegendOfTheRealm
         public Transform AttackCheck => attackCheck;
         public float AttackCheckRadius => attackCheckRadius;
         public Vector2[] AttackMovements => attackMovements;
+        public Vector2 KnockbackDirection => knockbackDirection;
 
 
         // Methods
