@@ -15,6 +15,8 @@ namespace LegendOfTheRealm.Enemies.Bandits
         public override void Enter()
         {
             base.Enter();
+
+            isAttacking = true;
         }
 
         public override void Update()
@@ -30,6 +32,13 @@ namespace LegendOfTheRealm.Enemies.Bandits
         public override void Exit()
         {
             base.Exit();
+        }
+
+        public override void AnimationFinishTrigger()
+        {
+            base.AnimationFinishTrigger();
+
+            isAttacking = false;
         }
     }
 }

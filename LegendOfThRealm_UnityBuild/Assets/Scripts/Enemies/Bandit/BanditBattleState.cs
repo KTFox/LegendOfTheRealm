@@ -8,6 +8,7 @@ namespace LegendOfTheRealm.Enemies.Bandits
 
         protected Bandit bandit;
         protected float distanceToTarget;
+        protected bool isAttacking;
 
         // Constructors
 
@@ -33,7 +34,7 @@ namespace LegendOfTheRealm.Enemies.Bandits
                 distanceToTarget = Vector2.Distance(bandit.transform.position, bandit.Target.transform.position);
             }
 
-            if (!bandit.IsPlayerDetected)
+            if (!bandit.IsPlayerDetected && !isAttacking)
             {
                 stateMachine.ChangeState(bandit.SuspiciousState);
             }
