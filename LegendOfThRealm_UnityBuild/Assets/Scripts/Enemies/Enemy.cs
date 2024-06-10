@@ -19,6 +19,10 @@ namespace LegendOfTheRealm.Enemies
         [SerializeField] private Color gizmoIdleColor;
         [SerializeField] private Color gimoDetectedColor;
 
+        [Header("Battle info")]
+        [SerializeField] private float chaseSpeed;
+        [SerializeField] private float attackRange;
+
         // Properties
 
         #region States
@@ -29,7 +33,10 @@ namespace LegendOfTheRealm.Enemies
         public float DwellTime => dwellTime;
         public PatrolPoints PatrolPoints => patrolPoints;
         public float MinDistanceToWaypoint => minDistanceToWaypoint;
-        public bool IsPlayerDetected => Physics2D.OverlapBox(boxOrigin, boxSize, 0f, playerLayerMask);
+        public GameObject Target { get; private set; }
+        public bool IsPlayerDetected => Target != null;
+        public float ChaseSpeed => chaseSpeed;
+        public float AttackRange => attackRange;
 
 
         // Methods
@@ -46,12 +53,29 @@ namespace LegendOfTheRealm.Enemies
             base.Update();
 
             StateMachine.CurrentState.Update();
+
+            PerformDetected();
+        }
+
+        private void PerformDetected()
+        {
+            Collider2D collider = Physics2D.OverlapBox(boxOrigin, boxSize, 0f, playerLayerMask);
+
+            if (collider != null)
+            {
+                Target = collider.gameObject;
+            }
+            else
+            {
+                Target = null;
+            }
         }
 
         protected override void OnDrawGizmos()
         {
             base.OnDrawGizmos();
 
+            // Draw patrol paths
             Gizmos.color = Color.green;
             for (int i = 0; i < patrolPoints.Points.Length; i++)
             {
@@ -59,12 +83,17 @@ namespace LegendOfTheRealm.Enemies
                 Gizmos.DrawLine(patrolPoints.Points[i], patrolPoints.Points[patrolPoints.GetNextIndexOf(i)]);
             }
 
+            // Draw detected area
             Gizmos.color = gizmoIdleColor;
             if (IsPlayerDetected)
             {
                 Gizmos.color = gimoDetectedColor;
             }
             Gizmos.DrawCube(boxOrigin, boxSize);
+
+            // Draw attack range
+            Gizmos.color = Color.white;
+            Gizmos.DrawWireSphere(transform.position, attackRange);
         }
     }
 }
