@@ -1,6 +1,6 @@
 namespace LegendOfTheRealm.Enemies.Bandits
 {
-    public class BanditIdleState : EnemyState
+    public class BanditIDwellState : EnemyState
     {
         // Variables
 
@@ -8,7 +8,7 @@ namespace LegendOfTheRealm.Enemies.Bandits
 
         // Constructors
 
-        public BanditIdleState(Enemy enemy, EnemyStateMachine stateMachine, string animBoolName) : base(enemy, stateMachine, animBoolName)
+        public BanditIDwellState(Enemy enemy, EnemyStateMachine stateMachine, string animBoolName) : base(enemy, stateMachine, animBoolName)
         {
             bandit = enemy as Bandit;
         }
@@ -20,7 +20,7 @@ namespace LegendOfTheRealm.Enemies.Bandits
         {
             base.Enter();
 
-            stateTimer = bandit.IdleTime;
+            stateTimer = bandit.DwellTime;
         }
 
         public override void Update()
@@ -29,7 +29,7 @@ namespace LegendOfTheRealm.Enemies.Bandits
 
             if (stateTimer <= 0)
             {
-                stateMachine.ChangeState(bandit.MoveState);
+                stateMachine.ChangeState(bandit.WalkAroundState);
             }
         }
 

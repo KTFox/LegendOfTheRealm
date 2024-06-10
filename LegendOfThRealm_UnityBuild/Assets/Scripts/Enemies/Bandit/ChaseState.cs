@@ -1,6 +1,6 @@
 namespace LegendOfTheRealm.Enemies.Bandits
 {
-    public class BanditMoveState : EnemyState
+    public class ChaseState : EnemyState
     {
         // Variables
 
@@ -8,7 +8,7 @@ namespace LegendOfTheRealm.Enemies.Bandits
 
         // Constructors
 
-        public BanditMoveState(Enemy enemy, EnemyStateMachine stateMachine, string animBoolName) : base(enemy, stateMachine, animBoolName)
+        public ChaseState(Enemy enemy, EnemyStateMachine stateMachine, string animBoolName) : base(enemy, stateMachine, animBoolName)
         {
             bandit = enemy as Bandit;
         }
@@ -24,14 +24,6 @@ namespace LegendOfTheRealm.Enemies.Bandits
         public override void Update()
         {
             base.Update();
-
-            bandit.SetVelocity(bandit.MoveSpeed * bandit.FacingDir, bandit.Rb.velocity.y);
-
-            if (bandit.IsWallDetected || !bandit.IsGroundDetected)
-            {
-                bandit.Flip();
-                stateMachine.ChangeState(bandit.IdleState);
-            }
         }
 
         public override void Exit()

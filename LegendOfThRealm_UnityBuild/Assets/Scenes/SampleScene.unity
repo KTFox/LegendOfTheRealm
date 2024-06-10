@@ -2098,7 +2098,7 @@ GameObject:
   - component: {fileID: 1456994713}
   - component: {fileID: 1456994712}
   - component: {fileID: 1456994711}
-  m_Layer: 0
+  m_Layer: 8
   m_Name: Player
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -2411,7 +2411,7 @@ GameObject:
   - component: {fileID: 1625647149}
   - component: {fileID: 1625647148}
   - component: {fileID: 1625647147}
-  m_Layer: 0
+  m_Layer: 9
   m_Name: Bandit
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -2458,8 +2458,13 @@ MonoBehaviour:
   wallLayerMask:
     serializedVersion: 2
     m_Bits: 2048
-  moveSpeed: 1
-  idleTime: 3
+  patrolSpeed: 0.5
+  dwellTime: 2
+  patrolPoints:
+    Points:
+    - {x: 7.5, y: -0.25}
+    - {x: 10.5, y: -0.25}
+  minDistanceToWaypoint: 0.1
 --- !u!70 &1625647148
 CapsuleCollider2D:
   m_ObjectHideFlags: 0
@@ -2678,7 +2683,7 @@ Transform:
   m_GameObject: {fileID: 1725775061}
   serializedVersion: 2
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 0.6, y: 0.009, z: 0}
+  m_LocalPosition: {x: 0.52, y: -0.17, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children: []
