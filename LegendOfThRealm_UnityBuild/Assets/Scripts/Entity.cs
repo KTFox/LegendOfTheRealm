@@ -1,3 +1,4 @@
+using System.Collections;
 using UnityEngine;
 
 namespace LegendOfTheRealm
@@ -19,7 +20,12 @@ namespace LegendOfTheRealm
         [SerializeField] protected float wallCheckDistance;
         [SerializeField] protected LayerMask wallLayerMask;
 
+        [Header("Knockback info")]
+        [SerializeField] private Vector2 knockbackDirection;
+        [SerializeField] private float knockbackDuration;
+
         protected bool isFacingRight = true;
+        protected bool isKnockedback;
 
         // Properties
 
@@ -60,10 +66,23 @@ namespace LegendOfTheRealm
         {
             Debug.Log($"{gameObject.name} take damaged!!!");
             EntityFX.PlayFlashFX();
+            StartCoroutine(nameof(KnockbackCoroutine));
+        }
+
+        private IEnumerator KnockbackCoroutine()
+        {
+            isKnockedback = true;
+            Rb.velocity = new Vector2(knockbackDirection.x * -FacingDir, knockbackDirection.y);
+
+            yield return new WaitForSeconds(knockbackDuration);
+
+            isKnockedback = false;
         }
 
         public void SetVelocity(float xVelocity, float yVelocity)
         {
+            if (isKnockedback) return;
+
             Rb.velocity = new Vector2(xVelocity, yVelocity);
             ControllFlipping(xVelocity);
         }

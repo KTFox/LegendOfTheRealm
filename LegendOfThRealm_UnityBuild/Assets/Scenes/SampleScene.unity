@@ -2197,6 +2197,8 @@ MonoBehaviour:
   wallLayerMask:
     serializedVersion: 2
     m_Bits: 2048
+  knockbackDirection: {x: 0, y: 0}
+  knockbackDuration: 0
   moveSpeed: 3
   jumpForce: 7
   rollCooldown: 0.8
@@ -2277,6 +2279,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   flashMaterial: {fileID: 2100000, guid: 615198ce70d183146b6f30048f03e98d, type: 2}
+  flashDuration: 0.2
 --- !u!1 &1486106633
 GameObject:
   m_ObjectHideFlags: 0
@@ -2555,6 +2558,8 @@ MonoBehaviour:
   wallLayerMask:
     serializedVersion: 2
     m_Bits: 2048
+  knockbackDirection: {x: 1, y: 1}
+  knockbackDuration: 0.07
   patrolSpeed: 0.5
   dwellTime: 2
   patrolPoints:
@@ -2648,6 +2653,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   flashMaterial: {fileID: 2100000, guid: 615198ce70d183146b6f30048f03e98d, type: 2}
+  flashDuration: 0.2
 --- !u!1 &1628056329
 GameObject:
   m_ObjectHideFlags: 0
