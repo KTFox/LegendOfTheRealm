@@ -8,9 +8,6 @@ namespace LegendOfTheRealm.Players
     {
         // Variables
 
-        [Header("Attack details")]
-        [SerializeField] private Vector2[] attackMovements;
-
         [Header("Move info")]
         [SerializeField] private float moveSpeed = 3f;
         [SerializeField] private float jumpForce = 7f;
@@ -34,7 +31,6 @@ namespace LegendOfTheRealm.Players
         public PlayerPrimaryAttackState primaryAttackState { get; private set; }
         #endregion
 
-        public Vector2[] AttackMovements => attackMovements;
         public float MoveSpeed => moveSpeed;
         public float JumpForce => jumpForce;
         public float RollSpeed => rollSpeed;

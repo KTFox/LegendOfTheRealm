@@ -6,6 +6,11 @@ namespace LegendOfTheRealm
     {
         // Variables
 
+        [Header("Attack details")]
+        [SerializeField] protected Transform attackCheck;
+        [SerializeField] protected float attackCheckRadius;
+        [SerializeField] protected Vector2[] attackMovements;
+
         [Header("Collision info")]
         [SerializeField] protected Transform groundCheck;
         [SerializeField] protected float groundCheckDistance;
@@ -26,6 +31,9 @@ namespace LegendOfTheRealm
         public int FacingDir { get; private set; } = 1;
         public virtual bool IsGroundDetected => Physics2D.Raycast(groundCheck.position, Vector2.down, groundCheckDistance, groundLayerMask);
         public virtual bool IsWallDetected => Physics2D.Raycast(wallCheck.position, Vector2.right * FacingDir, wallCheckDistance, wallLayerMask);
+        public Transform AttackCheck => attackCheck;
+        public float AttackCheckRadius => attackCheckRadius;
+        public Vector2[] AttackMovements => attackMovements;
 
 
         // Methods
@@ -44,6 +52,11 @@ namespace LegendOfTheRealm
         protected virtual void Update()
         {
 
+        }
+
+        public virtual void TakeDamage()
+        {
+            Debug.Log($"{gameObject.name} take damaged!!!");
         }
 
         public void SetVelocity(float xVelocity, float yVelocity)
@@ -76,6 +89,7 @@ namespace LegendOfTheRealm
             Gizmos.color = Color.red;
             Gizmos.DrawLine(groundCheck.position, new Vector2(groundCheck.position.x, groundCheck.position.y - groundCheckDistance));
             Gizmos.DrawLine(wallCheck.position, new Vector2(wallCheck.position.x + wallCheckDistance, wallCheck.position.y));
+            Gizmos.DrawWireSphere(attackCheck.position, attackCheckRadius);
         }
     }
 }
