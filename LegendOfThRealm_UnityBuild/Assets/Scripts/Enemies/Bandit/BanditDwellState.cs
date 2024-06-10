@@ -1,14 +1,10 @@
 namespace LegendOfTheRealm.Enemies.Bandits
 {
-    public class ChaseState : EnemyState
+    public class BanditDwellState : BanditPatrolState
     {
-        // Variables
-
-        private Bandit bandit;
-
         // Constructors
 
-        public ChaseState(Enemy enemy, EnemyStateMachine stateMachine, string animBoolName) : base(enemy, stateMachine, animBoolName)
+        public BanditDwellState(Enemy enemy, EnemyStateMachine stateMachine, string animBoolName) : base(enemy, stateMachine, animBoolName)
         {
             bandit = enemy as Bandit;
         }
@@ -19,11 +15,18 @@ namespace LegendOfTheRealm.Enemies.Bandits
         public override void Enter()
         {
             base.Enter();
+
+            stateTimer = bandit.DwellTime;
         }
 
         public override void Update()
         {
             base.Update();
+
+            if (stateTimer <= 0)
+            {
+                stateMachine.ChangeState(bandit.WalkAroundState);
+            }
         }
 
         public override void Exit()

@@ -1,14 +1,12 @@
+using UnityEngine;
+
 namespace LegendOfTheRealm.Enemies.Bandits
 {
-    public class BanditIDwellState : EnemyState
+    public class BanditChaseState : BanditBattleState
     {
-        // Variables
-
-        private Bandit bandit;
-
         // Constructors
 
-        public BanditIDwellState(Enemy enemy, EnemyStateMachine stateMachine, string animBoolName) : base(enemy, stateMachine, animBoolName)
+        public BanditChaseState(Enemy enemy, EnemyStateMachine stateMachine, string animBoolName) : base(enemy, stateMachine, animBoolName)
         {
             bandit = enemy as Bandit;
         }
@@ -19,17 +17,16 @@ namespace LegendOfTheRealm.Enemies.Bandits
         public override void Enter()
         {
             base.Enter();
-
-            stateTimer = bandit.DwellTime;
         }
 
         public override void Update()
         {
             base.Update();
 
-            if (stateTimer <= 0)
+            if (bandit.Target != null)
             {
-                stateMachine.ChangeState(bandit.WalkAroundState);
+                Vector2 moveDir = (bandit.Target.transform.position - bandit.transform.position).normalized;
+                bandit.SetVelocity(moveDir.x * bandit.ChaseSpeed, 0f);
             }
         }
 

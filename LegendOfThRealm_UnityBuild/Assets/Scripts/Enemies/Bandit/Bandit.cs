@@ -7,9 +7,10 @@ namespace LegendOfTheRealm.Enemies.Bandits
         // Properties
 
         #region States
-        public BanditIDwellState DwellState { get; private set; }
+        public BanditDwellState DwellState { get; private set; }
         public BanditWalkAroundState WalkAroundState { get; private set; }
-        public ChaseState ChaseState { get; private set; }
+        public BanditChaseState ChaseState { get; private set; }
+        public BanditAttackState AttackState { get; private set; }
         #endregion
 
 
@@ -19,9 +20,10 @@ namespace LegendOfTheRealm.Enemies.Bandits
         {
             base.Awake();
 
-            DwellState = new BanditIDwellState(this, StateMachine, "Idle");
+            DwellState = new BanditDwellState(this, StateMachine, "Idle");
             WalkAroundState = new BanditWalkAroundState(this, StateMachine, "Move");
-            ChaseState = new ChaseState(this, StateMachine, "Move");
+            ChaseState = new BanditChaseState(this, StateMachine, "Move");
+            AttackState = new BanditAttackState(this, StateMachine, "Attack");
         }
 
         protected override void Start()

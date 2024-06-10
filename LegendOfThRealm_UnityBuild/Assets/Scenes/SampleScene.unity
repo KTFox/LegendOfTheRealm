@@ -2472,6 +2472,8 @@ MonoBehaviour:
     m_Bits: 256
   gizmoIdleColor: {r: 0, g: 1, b: 0, a: 0.18431373}
   gimoDetectedColor: {r: 1, g: 0, b: 0, a: 0.24705882}
+  chaseSpeed: 1
+  attackRange: 0.75
 --- !u!70 &1625647148
 CapsuleCollider2D:
   m_ObjectHideFlags: 0

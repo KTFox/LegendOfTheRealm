@@ -2,11 +2,10 @@ using UnityEngine;
 
 namespace LegendOfTheRealm.Enemies.Bandits
 {
-    public class BanditWalkAroundState : EnemyState
+    public class BanditWalkAroundState : BanditPatrolState
     {
         // Variables
 
-        private Bandit bandit;
         private PatrolPoints patrolPoints;
         private int currentWaypointIndex;
 
