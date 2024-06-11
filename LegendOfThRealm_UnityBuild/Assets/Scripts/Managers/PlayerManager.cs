@@ -1,6 +1,6 @@
 using UnityEngine;
 
-namespace LegendOfTheRealm.Players
+namespace LegendOfTheRealm.Managers
 {
     public class PlayerManager : MonoBehaviour
     {

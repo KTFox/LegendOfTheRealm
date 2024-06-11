@@ -1,10 +1,15 @@
+using LegendOfTheRealm.Skills;
 using UnityEngine;
 
-namespace LegendOfTheRealm.Players
+namespace LegendOfTheRealm.Managers
 {
     public class SkillManager : MonoBehaviour
     {
         public static SkillManager Instance;
+
+        #region Skill
+        public DashSkill DashSkill { get; private set; }
+        #endregion
 
 
         // Methods
@@ -19,6 +24,8 @@ namespace LegendOfTheRealm.Players
             {
                 Instance = this;
             }
+
+            DashSkill = GetComponent<DashSkill>();
         }
     }
 }

@@ -1508,6 +1508,8 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 389234971}
+  - component: {fileID: 389234972}
+  - component: {fileID: 389234973}
   m_Layer: 0
   m_Name: SkillManager
   m_TagString: Untagged
@@ -1530,6 +1532,31 @@ Transform:
   m_Children: []
   m_Father: {fileID: 661305504}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!114 &389234972
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 389234970}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 1c3badc13ad64f14ca57826bcb6e9393, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+--- !u!114 &389234973
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 389234970}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: bca5a084db2f29a4ab58da71c28fcea0, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  cooldown: 1
 --- !u!1 &501159943
 GameObject:
   m_ObjectHideFlags: 0
@@ -2318,7 +2345,6 @@ MonoBehaviour:
   knockbackDuration: 0
   moveSpeed: 3
   jumpForce: 7
-  rollCooldown: 0.8
   rollSpeed: 8
   rollDuration: 0.3
   counterAttackDuration: 0.2
@@ -2914,6 +2940,7 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 1701438998}
+  - component: {fileID: 1701438999}
   m_Layer: 0
   m_Name: PlayerManager
   m_TagString: Untagged
@@ -2936,6 +2963,18 @@ Transform:
   m_Children: []
   m_Father: {fileID: 661305504}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!114 &1701438999
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1701438997}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: c8bf1778a1b61e84087ee32ecc1eaf40, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!1 &1725775061
 GameObject:
   m_ObjectHideFlags: 0

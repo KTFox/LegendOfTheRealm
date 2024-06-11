@@ -1,7 +1,6 @@
 using System.Collections;
 using UnityEngine;
 using LegendOfTheRealm.Managers;
-using Unity.VisualScripting;
 
 namespace LegendOfTheRealm.Players
 {
@@ -14,14 +13,11 @@ namespace LegendOfTheRealm.Players
         [SerializeField] private float jumpForce = 7f;
 
         [Header("Dash info")]
-        [SerializeField] private float rollCooldown = 0.8f;
         [SerializeField] private float rollSpeed = 8f;
         [SerializeField] private float rollDuration = 0.3f;
 
         [Header("Attack details")]
         [SerializeField] private float counterAttackDuration = 0.2f;
-
-        private float rollTimer;
 
         // Properties
 
@@ -77,12 +73,8 @@ namespace LegendOfTheRealm.Players
 
         private void CheckForDashInput()
         {
-            rollTimer -= Time.deltaTime;
-
-            if (InputManager.Instance.IsLKeyDown() && rollTimer < 0)
+            if (InputManager.Instance.IsLKeyDown() && SkillManager.Instance.DashSkill.TryUseSkill())
             {
-                rollTimer = rollCooldown;
-
                 if (IsGroundDetected)
                 {
                     stateMachine.ChangeState(RollState);

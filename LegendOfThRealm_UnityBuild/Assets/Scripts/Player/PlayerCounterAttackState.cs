@@ -34,7 +34,7 @@ namespace LegendOfTheRealm.Players
             {
                 if (collider.GetComponent<Enemy>() != null)
                 {
-                    if (collider.GetComponent<Enemy>().CanbeStunned())
+                    if (collider.GetComponent<Enemy>().TryToBeStunned())
                     {
                         stateTimer = 10f;
                         player.Animator.SetBool("SuccessCounterAttack", true);
