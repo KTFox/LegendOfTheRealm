@@ -26,7 +26,7 @@ namespace LegendOfTheRealm.Players
 
             if (player.IsGroundDetected)
             {
-                stateMachine.ChangeState(player.idleState);
+                stateMachine.ChangeState(player.IdleState);
             }
         }
 

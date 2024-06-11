@@ -1,21 +1,56 @@
-using System.Collections;
-using System.Collections.Generic;
+using LegendOfTheRealm.Enemies;
 using UnityEngine;
 
-namespace LegendOfTheRealm
+namespace LegendOfTheRealm.Players
 {
-    public class PlayerCounterAttackState : MonoBehaviour
+    public class PlayerCounterAttackState : PlayerState
     {
-        // Start is called before the first frame update
-        void Start()
+        // Constructor
+
+        public PlayerCounterAttackState(Player player, PlayerStateMachine stateMachine, string animBoolName) : base(player, stateMachine, animBoolName)
         {
-        
         }
 
-        // Update is called once per frame
-        void Update()
+
+        // Methods
+
+        public override void Enter()
         {
-        
+            base.Enter();
+
+            stateTimer = player.CounterAttackDuration;
+            player.Animator.SetBool("SuccessCounterAttack", false);
+        }
+
+        public override void Update()
+        {
+            base.Update();
+
+            player.SetVelocity(0f, 0f);
+
+            Collider2D[] colliders = Physics2D.OverlapCircleAll(player.AttackCheck.position, player.AttackCheckRadius);
+
+            foreach (Collider2D collider in colliders)
+            {
+                if (collider.GetComponent<Enemy>() != null)
+                {
+                    if (collider.GetComponent<Enemy>().CanbeStunned())
+                    {
+                        stateTimer = 10f;
+                        player.Animator.SetBool("SuccessCounterAttack", true);
+                    }
+                }
+            }
+
+            if (stateTimer <= 0f || triggerCalled)
+            {
+                stateMachine.ChangeState(player.IdleState);
+            }
+        }
+
+        public override void Exit()
+        {
+            base.Exit();
         }
     }
 }

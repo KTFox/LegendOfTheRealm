@@ -23,9 +23,14 @@ namespace LegendOfTheRealm.Players
         {
             base.Update();
 
+            if (InputManager.Instance.IsHKeyDown())
+            {
+                stateMachine.ChangeState(player.CounterAttackState);
+            }
+
             if (InputManager.Instance.IsJKeyDown())
             {
-                stateMachine.ChangeState(player.primaryAttackState);
+                stateMachine.ChangeState(player.PrimaryAttackState);
             }
 
             if (InputManager.Instance.IsKKeyDown() && player.IsGroundDetected)
@@ -35,7 +40,7 @@ namespace LegendOfTheRealm.Players
 
             if (!player.IsGroundDetected)
             {
-                stateMachine.ChangeState(player.jumpState);
+                stateMachine.ChangeState(player.JumpState);
             }
         }
 

@@ -80,7 +80,7 @@ namespace LegendOfTheRealm.Enemies
             }
         }
 
-        protected virtual bool CanbeStunned()
+        public virtual bool CanbeStunned()
         {
             if (canBeStunned)
             {

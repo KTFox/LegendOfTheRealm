@@ -38,7 +38,7 @@ namespace LegendOfTheRealm.Players
 
             if (stateTimer < 0)
             {
-                stateMachine.ChangeState(player.idleState);
+                stateMachine.ChangeState(player.IdleState);
             }
         }
 

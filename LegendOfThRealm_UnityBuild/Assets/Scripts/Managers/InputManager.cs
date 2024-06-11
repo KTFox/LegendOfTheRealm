@@ -16,6 +16,11 @@ namespace LegendOfTheRealm.Managers
             Instance = this;
         }
 
+        public bool IsHKeyDown()
+        {
+            return Input.GetKeyDown(KeyCode.H);
+        }
+
         public bool IsKKeyDown()
         {
             return Input.GetKeyDown(KeyCode.K);

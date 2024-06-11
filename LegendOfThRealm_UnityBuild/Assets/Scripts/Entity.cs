@@ -7,7 +7,7 @@ namespace LegendOfTheRealm
     {
         // Variables
 
-        [Header("Attack details")]
+        [Header("Attack info")]
         [SerializeField] protected Transform attackCheck;
         [SerializeField] protected float attackCheckRadius;
         [SerializeField] protected Vector2[] attackMovements;

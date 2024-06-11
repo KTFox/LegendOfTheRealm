@@ -44,7 +44,7 @@ namespace LegendOfTheRealm.Enemies.Bandits
             base.Update();
         }
 
-        protected override bool CanbeStunned()
+        public override bool CanbeStunned()
         {
             if (base.CanbeStunned())
             {

@@ -52,7 +52,7 @@ namespace LegendOfTheRealm.Players
 
             if (triggerCalled)
             {
-                stateMachine.ChangeState(player.idleState);
+                stateMachine.ChangeState(player.IdleState);
             }
         }
 

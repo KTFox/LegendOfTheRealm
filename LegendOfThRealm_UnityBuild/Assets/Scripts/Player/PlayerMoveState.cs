@@ -27,7 +27,7 @@ namespace LegendOfTheRealm.Players
 
             if (InputManager.Instance.GetHorizontalInput() == 0)
             {
-                stateMachine.ChangeState(player.idleState);
+                stateMachine.ChangeState(player.IdleState);
             }
         }
 

@@ -2288,6 +2288,7 @@ MonoBehaviour:
   rollCooldown: 0.8
   rollSpeed: 8
   rollDuration: 0.3
+  counterAttackDuration: 0.2
 --- !u!70 &1456994712
 CapsuleCollider2D:
   m_ObjectHideFlags: 0

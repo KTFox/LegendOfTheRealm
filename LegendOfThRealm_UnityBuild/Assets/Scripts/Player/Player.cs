@@ -1,6 +1,7 @@
 using System.Collections;
 using UnityEngine;
 using LegendOfTheRealm.Managers;
+using Unity.VisualScripting;
 
 namespace LegendOfTheRealm.Players
 {
@@ -17,24 +18,29 @@ namespace LegendOfTheRealm.Players
         [SerializeField] private float rollSpeed = 8f;
         [SerializeField] private float rollDuration = 0.3f;
 
+        [Header("Attack details")]
+        [SerializeField] private float counterAttackDuration = 0.2f;
+
         private float rollTimer;
 
         // Properties
 
         #region States
         private PlayerStateMachine stateMachine;
-        public PlayerIdleState idleState { get; private set; }
-        public PlayerMoveState moveState { get; private set; }
-        public PlayerJumpState jumpState { get; private set; }
-        public PlayerRollState rollState { get; private set; }
-        public PlayerAirDashingState airDashingState { get; private set; }
-        public PlayerPrimaryAttackState primaryAttackState { get; private set; }
+        public PlayerIdleState IdleState { get; private set; }
+        public PlayerMoveState MoveState { get; private set; }
+        public PlayerJumpState JumpState { get; private set; }
+        public PlayerRollState RollState { get; private set; }
+        public PlayerAirDashingState AirDashingState { get; private set; }
+        public PlayerPrimaryAttackState PrimaryAttackState { get; private set; }
+        public PlayerCounterAttackState CounterAttackState { get; private set; }
         #endregion
 
         public float MoveSpeed => moveSpeed;
         public float JumpForce => jumpForce;
         public float RollSpeed => rollSpeed;
         public float RollDuration => rollDuration;
+        public float CounterAttackDuration => counterAttackDuration;
         public bool IsBusy { get; private set; } = false;
 
 
@@ -45,19 +51,20 @@ namespace LegendOfTheRealm.Players
             base.Awake();
 
             stateMachine = new PlayerStateMachine();
-            idleState = new PlayerIdleState(this, stateMachine, "Idle");
-            moveState = new PlayerMoveState(this, stateMachine, "Move");
-            jumpState = new PlayerJumpState(this, stateMachine, "Jump");
-            rollState = new PlayerRollState(this, stateMachine, "Roll");
-            airDashingState = new PlayerAirDashingState(this, stateMachine, "AirDashing");
-            primaryAttackState = new PlayerPrimaryAttackState(this, stateMachine, "Attack");
+            IdleState = new PlayerIdleState(this, stateMachine, "Idle");
+            MoveState = new PlayerMoveState(this, stateMachine, "Move");
+            JumpState = new PlayerJumpState(this, stateMachine, "Jump");
+            RollState = new PlayerRollState(this, stateMachine, "Roll");
+            AirDashingState = new PlayerAirDashingState(this, stateMachine, "AirDashing");
+            PrimaryAttackState = new PlayerPrimaryAttackState(this, stateMachine, "Attack");
+            CounterAttackState = new PlayerCounterAttackState(this, stateMachine, "CounterAttack");
         }
 
         protected override void Start()
         {
             base.Start();
 
-            stateMachine.Initialize(idleState);
+            stateMachine.Initialize(IdleState);
         }
 
         protected override void Update()
@@ -78,11 +85,11 @@ namespace LegendOfTheRealm.Players
 
                 if (IsGroundDetected)
                 {
-                    stateMachine.ChangeState(rollState);
+                    stateMachine.ChangeState(RollState);
                 }
                 else
                 {
-                    stateMachine.ChangeState(airDashingState);
+                    stateMachine.ChangeState(AirDashingState);
                 }
             }
         }
