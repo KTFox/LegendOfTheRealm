@@ -9,6 +9,7 @@ namespace LegendOfTheRealm.Managers
 
         #region Skill
         public DashSkill DashSkill { get; private set; }
+        public CloneShadowSkill CloneShadowSkill { get; private set; }
         #endregion
 
 
@@ -26,6 +27,7 @@ namespace LegendOfTheRealm.Managers
             }
 
             DashSkill = GetComponent<DashSkill>();
+            CloneShadowSkill = GetComponent<CloneShadowSkill>();
         }
     }
 }
