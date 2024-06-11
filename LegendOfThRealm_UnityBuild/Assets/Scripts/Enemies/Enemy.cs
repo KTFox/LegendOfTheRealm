@@ -25,6 +25,11 @@ namespace LegendOfTheRealm.Enemies
         [SerializeField] private float attackCooldown;
         [SerializeField] private float suspiciousTime;
 
+        [Header("Stunned info")]
+        [SerializeField] protected GameObject counterImage;
+
+        protected bool canBeStunned;
+
         // Properties
 
         #region States
@@ -73,6 +78,30 @@ namespace LegendOfTheRealm.Enemies
             {
                 Target = null;
             }
+        }
+
+        protected virtual bool CanbeStunned()
+        {
+            if (canBeStunned)
+            {
+                CloseCounterAttackWindow();
+
+                return true;
+            }
+
+            return false;
+        }
+
+        public virtual void OpenCounterAttackWindow()
+        {
+            canBeStunned = true;
+            counterImage.SetActive(true);
+        }
+
+        public virtual void CloseCounterAttackWindow()
+        {
+            canBeStunned = false;
+            counterImage.SetActive(false);
         }
 
         public void AnimationFinishTrigger()

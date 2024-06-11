@@ -34,5 +34,15 @@ namespace LegendOfTheRealm.Enemies
                 }
             }
         }
+
+        private void OpenCounterAttackWindow()
+        {
+            enemy.OpenCounterAttackWindow();
+        }
+
+        private void CloseCounterAttackWindow()
+        {
+            enemy.CloseCounterAttackWindow();
+        }
     }
 }

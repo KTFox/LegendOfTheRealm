@@ -42,11 +42,17 @@ namespace LegendOfTheRealm.Enemies.Bandits
         protected override void Update()
         {
             base.Update();
+        }
 
-            if (Input.GetKeyDown(KeyCode.Space))
+        protected override bool CanbeStunned()
+        {
+            if (base.CanbeStunned())
             {
                 StateMachine.ChangeState(StunnedState);
+                return true;
             }
+
+            return false;
         }
     }
 }
