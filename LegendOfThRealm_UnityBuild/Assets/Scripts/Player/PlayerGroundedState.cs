@@ -23,17 +23,17 @@ namespace LegendOfTheRealm.Players
         {
             base.Update();
 
-            if (InputManager.Instance.IsHKeyDown())
+            if (InputManager.Instance.IsQKeyDown())
             {
                 stateMachine.ChangeState(player.CounterAttackState);
             }
 
-            if (InputManager.Instance.IsJKeyDown())
+            if (InputManager.Instance.IsLeftMouseButtonDown())
             {
                 stateMachine.ChangeState(player.PrimaryAttackState);
             }
 
-            if (InputManager.Instance.IsKKeyDown() && player.IsGroundDetected)
+            if (InputManager.Instance.IsSpaceKeyDown() && player.IsGroundDetected)
             {
                 player.SetVelocity(playerRb.velocity.x, player.JumpForce);
             }

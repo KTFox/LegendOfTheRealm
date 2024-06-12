@@ -16,24 +16,24 @@ namespace LegendOfTheRealm.Managers
             Instance = this;
         }
 
-        public bool IsHKeyDown()
+        public bool IsQKeyDown()
         {
-            return Input.GetKeyDown(KeyCode.H);
+            return Input.GetKeyDown(KeyCode.Q);
         }
 
-        public bool IsKKeyDown()
+        public bool IsSpaceKeyDown()
         {
-            return Input.GetKeyDown(KeyCode.K);
+            return Input.GetKeyDown(KeyCode.Space);
         }
 
-        public bool IsLKeyDown()
+        public bool IsShiftKeyDown()
         {
-            return Input.GetKeyDown(KeyCode.L);
+            return Input.GetKeyDown(KeyCode.LeftShift);
         }
 
-        public bool IsJKeyDown()
+        public bool IsLeftMouseButtonDown()
         {
-            return Input.GetKeyDown(KeyCode.J);
+            return Input.GetKeyDown(KeyCode.Mouse0);
         }
 
         public float GetHorizontalInput()

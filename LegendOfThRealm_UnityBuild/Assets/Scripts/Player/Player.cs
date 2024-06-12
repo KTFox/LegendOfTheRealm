@@ -73,7 +73,7 @@ namespace LegendOfTheRealm.Players
 
         private void CheckForDashInput()
         {
-            if (InputManager.Instance.IsLKeyDown() && SkillManager.Instance.DashSkill.TryUseSkill())
+            if (InputManager.Instance.IsShiftKeyDown() && SkillManager.Instance.DashSkill.TryUseSkill())
             {
                 if (IsGroundDetected)
                 {
