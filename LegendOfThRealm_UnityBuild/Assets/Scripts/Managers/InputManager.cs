@@ -36,6 +36,16 @@ namespace LegendOfTheRealm.Managers
             return Input.GetKeyDown(KeyCode.Mouse0);
         }
 
+        public bool IsRightMouseButtonDown()
+        {
+            return Input.GetKeyDown(KeyCode.Mouse1);
+        }
+
+        public bool IsRightMouseButtonUp()
+        {
+            return Input.GetKeyUp(KeyCode.Mouse1);
+        }
+
         public float GetHorizontalInput()
         {
             return Input.GetAxisRaw("Horizontal");

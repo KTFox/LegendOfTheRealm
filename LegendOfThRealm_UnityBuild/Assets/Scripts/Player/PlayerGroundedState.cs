@@ -23,6 +23,11 @@ namespace LegendOfTheRealm.Players
         {
             base.Update();
 
+            if (InputManager.Instance.IsRightMouseButtonDown())
+            {
+                stateMachine.ChangeState(player.AimSwordState);
+            }
+
             if (InputManager.Instance.IsQKeyDown())
             {
                 stateMachine.ChangeState(player.CounterAttackState);

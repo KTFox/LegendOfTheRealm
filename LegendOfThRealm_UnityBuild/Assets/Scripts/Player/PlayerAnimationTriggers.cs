@@ -1,4 +1,5 @@
 using LegendOfTheRealm.Enemies;
+using LegendOfTheRealm.Managers;
 using UnityEngine;
 
 namespace LegendOfTheRealm.Players
@@ -33,6 +34,11 @@ namespace LegendOfTheRealm.Players
                     collider.GetComponent<Enemy>().TakeDamage();
                 }
             }
+        }
+
+        private void ThrowSword()
+        {
+            SkillManager.Instance.ThrowSwordSkill.CreateSword();
         }
     }
 }

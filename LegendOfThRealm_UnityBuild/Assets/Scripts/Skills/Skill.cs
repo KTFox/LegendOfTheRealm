@@ -1,3 +1,4 @@
+using LegendOfTheRealm.Players;
 using UnityEngine;
 
 namespace LegendOfTheRealm.Skills
@@ -8,10 +9,16 @@ namespace LegendOfTheRealm.Skills
 
         [SerializeField] protected float cooldown;
 
+        protected Player player;
         protected float cooldownTimer;
 
 
         // Methods
+
+        private void Start()
+        {
+            player = FindObjectOfType<Player>();
+        }
 
         protected virtual void Update()
         {
