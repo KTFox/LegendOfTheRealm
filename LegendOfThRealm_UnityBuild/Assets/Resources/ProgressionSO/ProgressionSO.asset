@@ -16,4 +16,7 @@ MonoBehaviour:
   - characterClass: 0
     statProgresses: []
   - characterClass: 1
-    statProgresses: []
+    statProgresses:
+    - Stat: 0
+      Levels:
+      - 100

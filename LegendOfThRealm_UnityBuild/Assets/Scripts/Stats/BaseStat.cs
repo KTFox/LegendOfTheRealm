@@ -15,11 +15,9 @@ namespace LegendOfTheRealm.Stats
 
         private Experience _experience;
 
-        private int currentLevel;
-
         // Properties
 
-        public int CurrentLevel => currentLevel;
+        public int CurrentLevel { get; private set; }
         public float ExperienceToLevelUp => progressionSO.GetStat(characterClass, Stat.ExperienceToLevelUp, CurrentLevel);
 
 
@@ -30,6 +28,11 @@ namespace LegendOfTheRealm.Stats
             _experience = GetComponent<Experience>();
         }
 
+        private void Start()
+        {
+            CurrentLevel = startLevel;
+        }
+
         public float GetValueOfStat(Stat stat)
         {
             return GetBaseStat(stat);
@@ -38,7 +41,7 @@ namespace LegendOfTheRealm.Stats
 
         private float GetBaseStat(Stat stat)
         {
-            return progressionSO.GetStat(characterClass, stat, currentLevel);
+            return progressionSO.GetStat(characterClass, stat, CurrentLevel);
         }
 
         //private float GetAdditiveModifier(Stat stat)

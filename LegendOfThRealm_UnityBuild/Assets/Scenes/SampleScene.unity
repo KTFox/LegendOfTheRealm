@@ -2669,6 +2669,8 @@ GameObject:
   - component: {fileID: 1625647148}
   - component: {fileID: 1625647147}
   - component: {fileID: 1625647150}
+  - component: {fileID: 1625647152}
+  - component: {fileID: 1625647151}
   m_Layer: 9
   m_Name: Bandit
   m_TagString: Untagged
@@ -2818,6 +2820,34 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   flashMaterial: {fileID: 2100000, guid: 615198ce70d183146b6f30048f03e98d, type: 2}
   flashDuration: 0.2
+--- !u!114 &1625647151
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1625647145}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: e828dc8c9c082944481b7800aed384e3, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+--- !u!114 &1625647152
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1625647145}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 0d8bdd747c9fd9848ae8e6be5db0b2c2, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  progressionSO: {fileID: 11400000, guid: a31ebf0a6593b164bb78be29368428d7, type: 2}
+  characterClass: 1
+  startLevel: 1
+  shouldUseModifier: 0
 --- !u!1 &1628056329
 GameObject:
   m_ObjectHideFlags: 0
