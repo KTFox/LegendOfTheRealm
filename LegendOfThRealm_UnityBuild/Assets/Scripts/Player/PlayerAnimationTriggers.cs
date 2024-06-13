@@ -30,11 +30,22 @@ namespace LegendOfTheRealm.Players
 
             foreach (Collider2D collider in colliders)
             {
-                if (collider.GetComponent<Enemy>() != null)
+                Enemy enemy = collider.GetComponent<Enemy>();
+                Health health = collider.GetComponent<Health>();
+                if (enemy != null)
                 {
-                    collider.GetComponent<Health>().TakeDamage(10f);
+                    if (!health.IsDead)
+                    {
+                        health.TakeDamage(10f);
+                        enemy.FreezeTime();
+                    }
                 }
             }
+        }
+
+        private void FreezeTime()
+        {
+            player.FreezeTime();
         }
     }
 }

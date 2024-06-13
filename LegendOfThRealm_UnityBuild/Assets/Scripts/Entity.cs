@@ -7,6 +7,8 @@ namespace LegendOfTheRealm
     {
         // Variables
 
+        private const float FREEZE_TIME = 0.3f;
+
         [Header("Attack info")]
         [SerializeField] protected Transform attackCheck;
         [SerializeField] protected float attackCheckRadius;
@@ -47,19 +49,25 @@ namespace LegendOfTheRealm
             EntityFX = GetComponent<EntityFX>();
         }
 
-        protected virtual void Start()
-        {
+        protected virtual void Start() { }
 
+        protected virtual void Update() { }
+
+        public virtual void Die() { }
+
+        public void FreezeTime()
+        {
+            StartCoroutine(nameof(FreezeTimerCoroutine));
         }
 
-        protected virtual void Update()
+        private IEnumerator FreezeTimerCoroutine()
         {
+            SetVelocity(0f, 0f);
+            Animator.speed = 0f;
 
-        }
+            yield return new WaitForSeconds(FREEZE_TIME);
 
-        public virtual void Die()
-        {
-
+            Animator.speed = 1f;
         }
 
         public void SetVelocity(float xVelocity, float yVelocity)
