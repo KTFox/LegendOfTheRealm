@@ -21,12 +21,7 @@ namespace LegendOfTheRealm.Players
 
         public override void Update()
         {
-            base.Update();
-
-            if (InputManager.Instance.IsRightMouseButtonDown())
-            {
-                stateMachine.ChangeState(player.AimSwordState);
-            }
+            base.Update();  
 
             if (InputManager.Instance.IsQKeyDown())
             {

@@ -35,10 +35,5 @@ namespace LegendOfTheRealm.Players
                 }
             }
         }
-
-        private void ThrowSword()
-        {
-            SkillManager.Instance.ThrowSwordSkill.CreateSword();
-        }
     }
 }

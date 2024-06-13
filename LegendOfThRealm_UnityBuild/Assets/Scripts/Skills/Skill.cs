@@ -15,7 +15,7 @@ namespace LegendOfTheRealm.Skills
 
         // Methods
 
-        private void Start()
+        protected virtual void Start()
         {
             player = FindObjectOfType<Player>();
         }

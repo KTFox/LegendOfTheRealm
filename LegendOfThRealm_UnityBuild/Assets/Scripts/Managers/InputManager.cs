@@ -46,6 +46,11 @@ namespace LegendOfTheRealm.Managers
             return Input.GetKeyUp(KeyCode.Mouse1);
         }
 
+        public bool IsHoldRightMouseButton()
+        {
+            return Input.GetKey(KeyCode.Mouse1);
+        }
+
         public float GetHorizontalInput()
         {
             return Input.GetAxisRaw("Horizontal");

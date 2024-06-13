@@ -21,8 +21,6 @@ namespace LegendOfTheRealm.Players
         {
             base.Enter();
 
-            SkillManager.Instance.CloneShadowSkill.CreateClone(player.transform.position);
-
             stateTimer = player.RollDuration;
 
             rollDir = player.FacingDir;

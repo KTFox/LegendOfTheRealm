@@ -8,7 +8,6 @@ namespace LegendOfTheRealm
         // Variables
 
         private Rigidbody2D rb;
-        private CircleCollider2D collider2;
         private Animator animator;
         private Player player;
 
@@ -18,14 +17,12 @@ namespace LegendOfTheRealm
         private void Awake()
         {
             rb = GetComponent<Rigidbody2D>();
-            collider2 = GetComponent<CircleCollider2D>();
             animator = GetComponentInChildren<Animator>();
         }
 
-        public void Setup(Vector2 direction, float gravityScale)
+        public void Setup(Vector2 direction)
         {
             rb.velocity = direction;
-            rb.gravityScale = gravityScale;
         }
     }
 }

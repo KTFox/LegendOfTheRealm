@@ -30,8 +30,6 @@ namespace LegendOfTheRealm.Players
         public PlayerAirDashingState AirDashingState { get; private set; }
         public PlayerPrimaryAttackState PrimaryAttackState { get; private set; }
         public PlayerCounterAttackState CounterAttackState { get; private set; }
-        public PlayerAimSwordState AimSwordState {  get; private set; }
-        public PlayerCatchSwordState CatchSwordState { get; private set; }
         #endregion
 
         public float MoveSpeed => moveSpeed;
@@ -56,8 +54,6 @@ namespace LegendOfTheRealm.Players
             AirDashingState = new PlayerAirDashingState(this, stateMachine, "AirDashing");
             PrimaryAttackState = new PlayerPrimaryAttackState(this, stateMachine, "Attack");
             CounterAttackState = new PlayerCounterAttackState(this, stateMachine, "CounterAttack");
-            AimSwordState = new PlayerAimSwordState(this, stateMachine, "AimSword");
-            CatchSwordState = new PlayerCatchSwordState(this, stateMachine, "CatchSword");
         }
 
         protected override void Start()
@@ -77,7 +73,7 @@ namespace LegendOfTheRealm.Players
 
         private void CheckForDashInput()
         {
-            if (InputManager.Instance.IsShiftKeyDown() && SkillManager.Instance.DashSkill.TryUseSkill())
+            if (InputManager.Instance.IsShiftKeyDown())
             {
                 if (IsGroundDetected)
                 {
