@@ -1,5 +1,3 @@
-using UnityEngine;
-
 namespace LegendOfTheRealm.Enemies.Bandits
 {
     public class Bandit : Enemy
@@ -14,6 +12,7 @@ namespace LegendOfTheRealm.Enemies.Bandits
         public BanditAttackCooldownState CooldownState { get; private set; }
         public BanditSuspiciousState SuspiciousState { get; private set; }
         public BanditStunnedState StunnedState { get; private set; }
+        public BanditDeadState DeadState { get; private set; }
         #endregion
 
 
@@ -23,6 +22,7 @@ namespace LegendOfTheRealm.Enemies.Bandits
         {
             base.Awake();
 
+            #region States caching
             DwellState = new BanditDwellState(this, StateMachine, "Idle");
             WalkAroundState = new BanditWalkAroundState(this, StateMachine, "Move");
             ChaseState = new BanditChaseState(this, StateMachine, "Move");
@@ -30,6 +30,8 @@ namespace LegendOfTheRealm.Enemies.Bandits
             CooldownState = new BanditAttackCooldownState(this, StateMachine, "Idle");
             SuspiciousState = new BanditSuspiciousState(this, StateMachine, "Idle");
             StunnedState = new BanditStunnedState(this, StateMachine, "Stunned");
+            DeadState = new BanditDeadState(this, StateMachine, "Die");
+            #endregion
         }
 
         protected override void Start()
@@ -53,6 +55,13 @@ namespace LegendOfTheRealm.Enemies.Bandits
             }
 
             return false;
+        }
+
+        public override void Die()
+        {
+            base.Die();
+
+            StateMachine.ChangeState(DeadState);
         }
     }
 }

@@ -22,6 +22,7 @@ namespace LegendOfTheRealm.Attributes
         // Events
 
         public UnityEvent OnTakeDamage;
+        public UnityEvent OnDeath;
 
 
         // Methods
@@ -40,7 +41,14 @@ namespace LegendOfTheRealm.Attributes
         {
             currentHealth.Value = Mathf.Max(currentHealth.Value - damage, 0f);
 
-            OnTakeDamage?.Invoke();
+            if (IsDead)
+            {
+                OnDeath?.Invoke();
+            }
+            else
+            {
+                OnTakeDamage?.Invoke();
+            }
         }
 
         public void Heal(float healingAmount)

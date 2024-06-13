@@ -30,6 +30,7 @@ namespace LegendOfTheRealm.Players
         public PlayerAirDashingState AirDashingState { get; private set; }
         public PlayerPrimaryAttackState PrimaryAttackState { get; private set; }
         public PlayerCounterAttackState CounterAttackState { get; private set; }
+        public PlayerDeathState DeathState { get; private set; }
         #endregion
 
         public float MoveSpeed => moveSpeed;
@@ -55,6 +56,7 @@ namespace LegendOfTheRealm.Players
             AirDashingState = new PlayerAirDashingState(this, stateMachine, "AirDashing");
             PrimaryAttackState = new PlayerPrimaryAttackState(this, stateMachine, "Attack");
             CounterAttackState = new PlayerCounterAttackState(this, stateMachine, "CounterAttack");
+            DeathState = new PlayerDeathState(this, stateMachine, "Die");
             #endregion
         }
 
@@ -102,6 +104,13 @@ namespace LegendOfTheRealm.Players
         private void InputManager_OnCounterAttack()
         {
             stateMachine.CurrentState.OnCounterAttack();
+        }
+
+        public override void Die()
+        {
+            base.Die();
+
+            stateMachine.ChangeState(DeathState);
         }
 
         public IEnumerator BusyFor(float seconds)

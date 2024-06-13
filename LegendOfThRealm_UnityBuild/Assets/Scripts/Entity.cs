@@ -57,6 +57,11 @@ namespace LegendOfTheRealm
 
         }
 
+        public virtual void Die()
+        {
+
+        }
+
         public void SetVelocity(float xVelocity, float yVelocity)
         {
             Rb.velocity = new Vector2(xVelocity, yVelocity);
