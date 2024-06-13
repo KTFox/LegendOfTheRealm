@@ -1,3 +1,4 @@
+using LegendOfTheRealm.Attributes;
 using LegendOfTheRealm.Enemies;
 using UnityEngine;
 
@@ -7,9 +8,7 @@ namespace LegendOfTheRealm.Players
     {
         // Constructor
 
-        public PlayerCounterAttackState(Player player, PlayerStateMachine stateMachine, string animBoolName) : base(player, stateMachine, animBoolName)
-        {
-        }
+        public PlayerCounterAttackState(Player player, PlayerStateMachine stateMachine, string animBoolName) : base(player, stateMachine, animBoolName) { }
 
 
         // Methods
@@ -38,6 +37,7 @@ namespace LegendOfTheRealm.Players
                     {
                         stateTimer = 10f;
                         player.Animator.SetBool("SuccessCounterAttack", true);
+                        collider.GetComponent<Health>().TakeDamage(10f);
                     }
                 }
             }
