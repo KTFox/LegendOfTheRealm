@@ -1,15 +1,10 @@
-using LegendOfTheRealm.Managers;
-
 namespace LegendOfTheRealm.Players
 {
     public class PlayerGroundedState : PlayerState
     {
         // Constructors
 
-        public PlayerGroundedState(Player player, PlayerStateMachine stateMachine, string animBoolName) : base(player, stateMachine, animBoolName)
-        {
-
-        }
+        public PlayerGroundedState(Player player, PlayerStateMachine stateMachine, string animBoolName) : base(player, stateMachine, animBoolName) { }
 
 
         // Methods

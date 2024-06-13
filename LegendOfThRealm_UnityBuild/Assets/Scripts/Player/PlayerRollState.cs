@@ -1,5 +1,3 @@
-using LegendOfTheRealm.Managers;
-
 namespace LegendOfTheRealm.Players
 {
     public class PlayerRollState : PlayerState
@@ -10,9 +8,7 @@ namespace LegendOfTheRealm.Players
 
         // Constructors
 
-        public PlayerRollState(Player player, PlayerStateMachine stateMachine, string animBoolName) : base(player, stateMachine, animBoolName)
-        {
-        }
+        public PlayerRollState(Player player, PlayerStateMachine stateMachine, string animBoolName) : base(player, stateMachine, animBoolName) { }
 
 
         // Methods
@@ -22,15 +18,7 @@ namespace LegendOfTheRealm.Players
             base.Enter();
 
             stateTimer = player.RollDuration;
-
             rollDir = player.FacingDir;
-
-            // TO-DO: change input
-
-            //if (InputManager.Instance.GetHorizontalInput() != 0)
-            //{
-            //    rollDir = InputManager.Instance.GetHorizontalInput();
-            //}
         }
 
         public override void Update()

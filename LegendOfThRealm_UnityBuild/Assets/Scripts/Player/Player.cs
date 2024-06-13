@@ -63,6 +63,7 @@ namespace LegendOfTheRealm.Players
             stateMachine.Initialize(IdleState);
 
             InputManager.Instance.OnJump += InputManager_OnJump;
+            InputManager.Instance.OnDash += InputManager_OnDash;
         }
 
         protected override void Update()
@@ -70,7 +71,6 @@ namespace LegendOfTheRealm.Players
             base.Update();
 
             stateMachine.CurrentState.Update();
-            CheckForDashInput();
         }
 
         private void InputManager_OnJump()
@@ -78,21 +78,16 @@ namespace LegendOfTheRealm.Players
             stateMachine.CurrentState.OnJump();
         }
 
-        private void CheckForDashInput()
+        private void InputManager_OnDash()
         {
-            // TO-DO: change input
-
-            //if (InputManager.Instance.IsShiftKeyDown())
-            //{
-            //    if (IsGroundDetected)
-            //    {
-            //        stateMachine.ChangeState(RollState);
-            //    }
-            //    else
-            //    {
-            //        stateMachine.ChangeState(AirDashingState);
-            //    }
-            //}
+            if (IsGroundDetected)
+            {
+                stateMachine.ChangeState(RollState);
+            }
+            else
+            {
+                stateMachine.ChangeState(AirDashingState);
+            }
         }
 
         public IEnumerator BusyFor(float seconds)

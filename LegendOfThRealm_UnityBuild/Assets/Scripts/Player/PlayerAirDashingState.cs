@@ -1,14 +1,10 @@
-using UnityEngine;
-
 namespace LegendOfTheRealm.Players
 {
     public class PlayerAirDashingState : PlayerState
     {
         // Constructors
 
-        public PlayerAirDashingState(Player player, PlayerStateMachine stateMachine, string animBoolName) : base(player, stateMachine, animBoolName)
-        {
-        }
+        public PlayerAirDashingState(Player player, PlayerStateMachine stateMachine, string animBoolName) : base(player, stateMachine, animBoolName) { }
 
 
         // Methods
