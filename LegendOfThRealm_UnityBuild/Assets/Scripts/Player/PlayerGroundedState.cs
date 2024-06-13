@@ -25,11 +25,6 @@ namespace LegendOfTheRealm.Players
             //    stateMachine.ChangeState(player.CounterAttackState);
             //}
 
-            //if (InputManager.Instance.IsLeftMouseButtonDown())
-            //{
-            //    stateMachine.ChangeState(player.PrimaryAttackState);
-            //}
-
             if (!player.IsGroundDetected)
             {
                 stateMachine.ChangeState(player.JumpState);
@@ -49,6 +44,13 @@ namespace LegendOfTheRealm.Players
             {
                 player.SetVelocity(playerRb.velocity.x, player.JumpForce);
             }
+        }
+
+        public override void OnAttack()
+        {
+            base.OnAttack();
+
+            stateMachine.ChangeState(player.PrimaryAttackState);
         }
     }
 }

@@ -15,6 +15,7 @@ namespace LegendOfTheRealm.Managers
 
         public event Action OnJump;
         public event Action OnDash;
+        public event Action OnAttack;
 
 
         // Methods
@@ -27,6 +28,7 @@ namespace LegendOfTheRealm.Managers
             inputAction.Player.Enable();
             inputAction.Player.Jump.performed += Jump_performed;
             inputAction.Player.Dash.performed += Dash_performed;
+            inputAction.Player.Attack.performed += Attack_performed;
         }
 
         private void OnDestroy()
@@ -44,6 +46,11 @@ namespace LegendOfTheRealm.Managers
         private void Dash_performed(UnityEngine.InputSystem.InputAction.CallbackContext obj)
         {
             OnDash?.Invoke();
+        }
+
+        private void Attack_performed(UnityEngine.InputSystem.InputAction.CallbackContext obj)
+        {
+            OnAttack?.Invoke();
         }
 
         public Vector2 GetNormallizedMovementVector()

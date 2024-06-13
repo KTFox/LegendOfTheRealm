@@ -64,6 +64,7 @@ namespace LegendOfTheRealm.Players
 
             InputManager.Instance.OnJump += InputManager_OnJump;
             InputManager.Instance.OnDash += InputManager_OnDash;
+            InputManager.Instance.OnAttack += InputManager_OnAttack;
         }
 
         protected override void Update()
@@ -88,6 +89,11 @@ namespace LegendOfTheRealm.Players
             {
                 stateMachine.ChangeState(AirDashingState);
             }
+        }
+
+        private void InputManager_OnAttack()
+        {
+            stateMachine.CurrentState.OnAttack();
         }
 
         public IEnumerator BusyFor(float seconds)

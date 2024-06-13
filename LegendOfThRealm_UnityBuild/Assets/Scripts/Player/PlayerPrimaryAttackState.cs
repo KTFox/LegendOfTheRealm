@@ -1,5 +1,4 @@
 using UnityEngine;
-using LegendOfTheRealm.Managers;
 
 namespace LegendOfTheRealm.Players
 {
@@ -13,9 +12,7 @@ namespace LegendOfTheRealm.Players
 
         // Constructors
 
-        public PlayerPrimaryAttackState(Player player, PlayerStateMachine stateMachine, string animBoolName) : base(player, stateMachine, animBoolName)
-        {
-        }
+        public PlayerPrimaryAttackState(Player player, PlayerStateMachine stateMachine, string animBoolName) : base(player, stateMachine, animBoolName) { }
 
 
         // Methods
@@ -31,15 +28,7 @@ namespace LegendOfTheRealm.Players
 
             player.Animator.SetInteger("ComboCounter", comboCounter);
 
-            float attackDir = player.FacingDir;
-
-            // TO-DO: change input
-
-            //if (InputManager.Instance.GetHorizontalInput() != 0)
-            //{
-            //    attackDir = InputManager.Instance.GetHorizontalInput();
-            //}
-            player.SetVelocity(player.AttackMovements[comboCounter].x * attackDir, player.AttackMovements[comboCounter].y);
+            player.SetVelocity(player.AttackMovements[comboCounter].x * player.FacingDir, player.AttackMovements[comboCounter].y);
 
             stateTimer = 0.1f;
         }

@@ -51,6 +51,8 @@ namespace LegendOfTheRealm.Players
 
         public virtual void OnJump() { }
 
+        public virtual void OnAttack() { }
+
         public virtual void AnimationFinishTrigger()
         {
             triggerCalled = true;
