@@ -22,7 +22,9 @@ namespace LegendOfTheRealm.Players
         {
             base.Update();
 
-            if (InputManager.Instance.GetHorizontalInput() != 0 && !player.IsBusy)
+            // TO-DO: change input
+
+            if (inputManger.GetNormallizedMovementVector().x != 0 && !player.IsBusy)
             {
                 stateMachine.ChangeState(player.MoveState);
             }

@@ -23,25 +23,27 @@ namespace LegendOfTheRealm.Players
         {
             base.Update();  
 
-            if (InputManager.Instance.IsQKeyDown())
-            {
-                stateMachine.ChangeState(player.CounterAttackState);
-            }
+            // TO-DO: change input
 
-            if (InputManager.Instance.IsLeftMouseButtonDown())
-            {
-                stateMachine.ChangeState(player.PrimaryAttackState);
-            }
+            //if (InputManager.Instance.IsQKeyDown())
+            //{
+            //    stateMachine.ChangeState(player.CounterAttackState);
+            //}
 
-            if (InputManager.Instance.IsSpaceKeyDown() && player.IsGroundDetected)
-            {
-                player.SetVelocity(playerRb.velocity.x, player.JumpForce);
-            }
+            //if (InputManager.Instance.IsLeftMouseButtonDown())
+            //{
+            //    stateMachine.ChangeState(player.PrimaryAttackState);
+            //}
 
-            if (!player.IsGroundDetected)
-            {
-                stateMachine.ChangeState(player.JumpState);
-            }
+            //if (InputManager.Instance.IsSpaceKeyDown() && player.IsGroundDetected)
+            //{
+            //    player.SetVelocity(playerRb.velocity.x, player.JumpForce);
+            //}
+
+            //if (!player.IsGroundDetected)
+            //{
+            //    stateMachine.ChangeState(player.JumpState);
+            //}
         }
 
         public override void Exit()

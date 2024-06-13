@@ -1,3 +1,4 @@
+using System;
 using UnityEngine;
 
 namespace LegendOfTheRealm.Managers
@@ -8,52 +9,23 @@ namespace LegendOfTheRealm.Managers
 
         public static InputManager Instance;
 
+        private PlayerInputAction inputAction;
+
+        // Events
+
 
         // Methods
 
         private void Awake()
         {
             Instance = this;
+            inputAction = new PlayerInputAction();
+            inputAction.Player.Enable();
         }
 
-        public bool IsQKeyDown()
+        public Vector2 GetNormallizedMovementVector()
         {
-            return Input.GetKeyDown(KeyCode.Q);
-        }
-
-        public bool IsSpaceKeyDown()
-        {
-            return Input.GetKeyDown(KeyCode.Space);
-        }
-
-        public bool IsShiftKeyDown()
-        {
-            return Input.GetKeyDown(KeyCode.LeftShift);
-        }
-
-        public bool IsLeftMouseButtonDown()
-        {
-            return Input.GetKeyDown(KeyCode.Mouse0);
-        }
-
-        public bool IsRightMouseButtonDown()
-        {
-            return Input.GetKeyDown(KeyCode.Mouse1);
-        }
-
-        public bool IsRightMouseButtonUp()
-        {
-            return Input.GetKeyUp(KeyCode.Mouse1);
-        }
-
-        public bool IsHoldRightMouseButton()
-        {
-            return Input.GetKey(KeyCode.Mouse1);
-        }
-
-        public float GetHorizontalInput()
-        {
-            return Input.GetAxisRaw("Horizontal");
+            return inputAction.Player.Move.ReadValue<Vector2>().normalized;
         }
     }
 }

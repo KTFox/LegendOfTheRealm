@@ -24,10 +24,13 @@ namespace LegendOfTheRealm.Players
             stateTimer = player.RollDuration;
 
             rollDir = player.FacingDir;
-            if (InputManager.Instance.GetHorizontalInput() != 0)
-            {
-                rollDir = InputManager.Instance.GetHorizontalInput();
-            }
+
+            // TO-DO: change input
+
+            //if (InputManager.Instance.GetHorizontalInput() != 0)
+            //{
+            //    rollDir = InputManager.Instance.GetHorizontalInput();
+            //}
         }
 
         public override void Update()

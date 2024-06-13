@@ -73,17 +73,19 @@ namespace LegendOfTheRealm.Players
 
         private void CheckForDashInput()
         {
-            if (InputManager.Instance.IsShiftKeyDown())
-            {
-                if (IsGroundDetected)
-                {
-                    stateMachine.ChangeState(RollState);
-                }
-                else
-                {
-                    stateMachine.ChangeState(AirDashingState);
-                }
-            }
+            // TO-DO: change input
+
+            //if (InputManager.Instance.IsShiftKeyDown())
+            //{
+            //    if (IsGroundDetected)
+            //    {
+            //        stateMachine.ChangeState(RollState);
+            //    }
+            //    else
+            //    {
+            //        stateMachine.ChangeState(AirDashingState);
+            //    }
+            //}
         }
 
         public IEnumerator BusyFor(float seconds)

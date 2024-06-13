@@ -22,7 +22,9 @@ namespace LegendOfTheRealm.Players
         {
             base.Update();
 
-            player.SetVelocity(InputManager.Instance.GetHorizontalInput() * player.MoveSpeed, playerRb.velocity.y);
+            // TO-DO: change input
+
+            //player.SetVelocity(InputManager.Instance.GetHorizontalInput() * player.MoveSpeed, playerRb.velocity.y);
 
             if (player.IsGroundDetected)
             {

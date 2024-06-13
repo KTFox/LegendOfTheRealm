@@ -1,3 +1,4 @@
+using LegendOfTheRealm.Managers;
 using UnityEngine;
 
 namespace LegendOfTheRealm.Players
@@ -6,6 +7,7 @@ namespace LegendOfTheRealm.Players
     {
         // Variables
 
+        protected InputManager inputManger;
         protected PlayerStateMachine stateMachine;
         protected Player player;
         protected Rigidbody2D playerRb;
@@ -19,6 +21,8 @@ namespace LegendOfTheRealm.Players
 
         public PlayerState(Player player, PlayerStateMachine stateMachine, string animBoolName)
         {
+            inputManger = InputManager.Instance;
+
             this.player = player;
             this.stateMachine = stateMachine;
             this.animBoolName = animBoolName;

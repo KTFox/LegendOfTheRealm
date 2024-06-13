@@ -33,18 +33,20 @@ namespace LegendOfTheRealm.Skills
         {
             base.Update();
 
-            if (InputManager.Instance.IsRightMouseButtonUp())
-            {
-                finalDirection = new Vector2(GetAimDirection().x, GetAimDirection().y);
-            }
+            // TO-DO: change input
 
-            if (InputManager.Instance.IsHoldRightMouseButton())
-            {
-                for (int i = 0; i < numberOfDots; i++)
-                {
-                    dots[i].transform.position = GetDotPosition(i * spaceBetweenDots);
-                }
-            }
+            //if (InputManager.Instance.IsRightMouseButtonUp())
+            //{
+            //    finalDirection = new Vector2(GetAimDirection().x, GetAimDirection().y);
+            //}
+
+            //if (InputManager.Instance.IsHoldRightMouseButton())
+            //{
+            //    for (int i = 0; i < numberOfDots; i++)
+            //    {
+            //        dots[i].transform.position = GetDotPosition(i * spaceBetweenDots);
+            //    }
+            //}
         }
 
         private void GenerateAimingDots()

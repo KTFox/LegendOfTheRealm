@@ -23,9 +23,11 @@ namespace LegendOfTheRealm.Players
         {
             base.Update();
 
-            player.SetVelocity(InputManager.Instance.GetHorizontalInput() * player.MoveSpeed, playerRb.velocity.y);
+            // TO-DO: change input
 
-            if (InputManager.Instance.GetHorizontalInput() == 0)
+            player.SetVelocity(inputManger.GetNormallizedMovementVector().x * player.MoveSpeed, playerRb.velocity.y);
+
+            if (inputManger.GetNormallizedMovementVector().x == 0)
             {
                 stateMachine.ChangeState(player.IdleState);
             }
