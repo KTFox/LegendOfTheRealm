@@ -1,3 +1,4 @@
+using LegendOfTheRealm.Attributes;
 using LegendOfTheRealm.Players;
 using UnityEngine;
 
@@ -30,7 +31,7 @@ namespace LegendOfTheRealm.Enemies
             {
                 if (collider.GetComponent<Player>() != null)
                 {
-                    collider.GetComponent<Player>().TakeDamage();
+                    collider.GetComponent<Health>().TakeDamage(10f);
                 }
             }
         }

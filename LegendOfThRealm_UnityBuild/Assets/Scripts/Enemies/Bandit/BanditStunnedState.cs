@@ -21,8 +21,6 @@ namespace LegendOfTheRealm.Enemies.Bandits
         public override void Enter()
         {
             base.Enter();
-
-            bandit.Rb.velocity = new Vector2(bandit.KnockbackDirection.x * -bandit.FacingDir, bandit.KnockbackDirection.y);
         }
 
         public override void Update()

@@ -1,6 +1,6 @@
-
 namespace LegendOfTheRealm.Utilities
 {
+    [System.Serializable]
     public class LazyValue<T>
     {
         // Variables

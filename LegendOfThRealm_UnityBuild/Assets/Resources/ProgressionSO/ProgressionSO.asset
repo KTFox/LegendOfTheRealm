@@ -14,7 +14,10 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   characterProgresses:
   - characterClass: 0
-    statProgresses: []
+    statProgresses:
+    - Stat: 0
+      Levels:
+      - 100
   - characterClass: 1
     statProgresses:
     - Stat: 0

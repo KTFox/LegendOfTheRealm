@@ -1,4 +1,5 @@
 using DG.Tweening;
+using LegendOfTheRealm.Attributes;
 using LegendOfTheRealm.Enemies;
 using System.Collections;
 using UnityEngine;
@@ -92,7 +93,7 @@ namespace LegendOfTheRealm.Skills
             {
                 if (hit.GetComponent<Enemy>() != null)
                 {
-                    hit.GetComponent<Enemy>().TakeDamage();
+                    hit.GetComponent<Health>().TakeDamage(10f);
                 }
             }
         }
