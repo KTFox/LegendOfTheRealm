@@ -46,6 +46,7 @@ namespace LegendOfTheRealm.Players
         {
             base.Awake();
 
+            #region Player states caching
             stateMachine = new PlayerStateMachine();
             IdleState = new PlayerIdleState(this, stateMachine, "Idle");
             MoveState = new PlayerMoveState(this, stateMachine, "Move");
@@ -54,6 +55,7 @@ namespace LegendOfTheRealm.Players
             AirDashingState = new PlayerAirDashingState(this, stateMachine, "AirDashing");
             PrimaryAttackState = new PlayerPrimaryAttackState(this, stateMachine, "Attack");
             CounterAttackState = new PlayerCounterAttackState(this, stateMachine, "CounterAttack");
+            #endregion
         }
 
         protected override void Start()
@@ -65,6 +67,7 @@ namespace LegendOfTheRealm.Players
             InputManager.Instance.OnJump += InputManager_OnJump;
             InputManager.Instance.OnDash += InputManager_OnDash;
             InputManager.Instance.OnAttack += InputManager_OnAttack;
+            InputManager.Instance.OnCounterAttack += InputManager_OnCounterAttack;
         }
 
         protected override void Update()
@@ -94,6 +97,11 @@ namespace LegendOfTheRealm.Players
         private void InputManager_OnAttack()
         {
             stateMachine.CurrentState.OnAttack();
+        }
+
+        private void InputManager_OnCounterAttack()
+        {
+            stateMachine.CurrentState.OnCounterAttack();
         }
 
         public IEnumerator BusyFor(float seconds)

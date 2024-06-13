@@ -18,13 +18,6 @@ namespace LegendOfTheRealm.Players
         {
             base.Update();
 
-            // TO-DO: change input
-
-            //if (InputManager.Instance.IsQKeyDown())
-            //{
-            //    stateMachine.ChangeState(player.CounterAttackState);
-            //}
-
             if (!player.IsGroundDetected)
             {
                 stateMachine.ChangeState(player.JumpState);
@@ -51,6 +44,13 @@ namespace LegendOfTheRealm.Players
             base.OnAttack();
 
             stateMachine.ChangeState(player.PrimaryAttackState);
+        }
+
+        public override void OnCounterAttack()
+        {
+            base.OnCounterAttack();
+
+            stateMachine.ChangeState(player.CounterAttackState);
         }
     }
 }

@@ -53,6 +53,8 @@ namespace LegendOfTheRealm.Players
 
         public virtual void OnAttack() { }
 
+        public virtual void OnCounterAttack() { }
+
         public virtual void AnimationFinishTrigger()
         {
             triggerCalled = true;
