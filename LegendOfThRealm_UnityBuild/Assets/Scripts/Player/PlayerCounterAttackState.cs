@@ -1,5 +1,6 @@
 using LegendOfTheRealm.Attributes;
 using LegendOfTheRealm.Enemies;
+using LegendOfTheRealm.Stats;
 using UnityEngine;
 
 namespace LegendOfTheRealm.Players
@@ -37,7 +38,10 @@ namespace LegendOfTheRealm.Players
                     {
                         stateTimer = 10f;
                         player.Animator.SetBool("SuccessCounterAttack", true);
-                        collider.GetComponent<Health>().TakeDamage(10f);
+
+                        float damage = player.BaseStat.GetValueOfStat(Stat.PhysicalDamage);
+                        collider.GetComponent<Health>().TakeDamage(damage);
+
                         player.EntityFX.PlayCameraShakeFX();
                     }
                 }

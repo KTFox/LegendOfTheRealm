@@ -1,5 +1,6 @@
 using LegendOfTheRealm.Attributes;
 using LegendOfTheRealm.Players;
+using LegendOfTheRealm.Stats;
 using UnityEngine;
 
 namespace LegendOfTheRealm.Enemies
@@ -31,7 +32,10 @@ namespace LegendOfTheRealm.Enemies
             {
                 if (collider.GetComponent<Player>() != null)
                 {
+                    float damage = enemy.BaseStat.GetValueOfStat(Stat.PhysicalDamage);
                     collider.GetComponent<Health>().TakeDamage(10f);
+
+                    Debug.Log($"{collider.gameObject.name} take {damage} damage!!!");
                 }
             }
         }

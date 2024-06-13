@@ -1,3 +1,4 @@
+using LegendOfTheRealm.Stats;
 using System.Collections;
 using UnityEngine;
 
@@ -30,6 +31,7 @@ namespace LegendOfTheRealm
         public Rigidbody2D Rb { get; private set; }
         public Animator Animator { get; private set; }
         public EntityFX EntityFX { get; private set; }
+        public BaseStat BaseStat { get; private set; }
         #endregion
 
         public int FacingDir { get; private set; } = 1;
@@ -47,6 +49,7 @@ namespace LegendOfTheRealm
             Rb = GetComponent<Rigidbody2D>();
             Animator = GetComponentInChildren<Animator>();
             EntityFX = GetComponent<EntityFX>();
+            BaseStat = GetComponent<BaseStat>();
         }
 
         protected virtual void Start() { }

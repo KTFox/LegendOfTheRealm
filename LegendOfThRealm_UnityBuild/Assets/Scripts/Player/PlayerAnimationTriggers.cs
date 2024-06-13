@@ -1,6 +1,7 @@
 using LegendOfTheRealm.Attributes;
 using LegendOfTheRealm.Enemies;
 using LegendOfTheRealm.Managers;
+using LegendOfTheRealm.Stats;
 using UnityEngine;
 
 namespace LegendOfTheRealm.Players
@@ -36,7 +37,11 @@ namespace LegendOfTheRealm.Players
                 {
                     if (!health.IsDead)
                     {
-                        health.TakeDamage(10f);
+                        float damage = player.BaseStat.GetValueOfStat(Stat.PhysicalDamage);
+                        health.TakeDamage(damage);
+
+                        Debug.Log($"{collider.gameObject.name} take {damage} damage!!!");
+
                         enemy.FreezeTime();
                         player.EntityFX.PlayCameraShakeFX();
                     }

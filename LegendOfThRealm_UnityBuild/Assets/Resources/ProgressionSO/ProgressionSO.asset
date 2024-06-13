@@ -18,8 +18,14 @@ MonoBehaviour:
     - Stat: 0
       Levels:
       - 1000
+    - Stat: 2
+      Levels:
+      - 20
   - characterClass: 1
     statProgresses:
     - Stat: 0
       Levels:
       - 1000
+    - Stat: 2
+      Levels:
+      - 10
