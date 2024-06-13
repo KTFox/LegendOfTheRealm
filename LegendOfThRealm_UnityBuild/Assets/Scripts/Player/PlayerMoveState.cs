@@ -23,8 +23,6 @@ namespace LegendOfTheRealm.Players
         {
             base.Update();
 
-            // TO-DO: change input
-
             player.SetVelocity(inputManger.GetNormallizedMovementVector().x * player.MoveSpeed, playerRb.velocity.y);
 
             if (inputManger.GetNormallizedMovementVector().x == 0)

@@ -13,6 +13,8 @@ namespace LegendOfTheRealm.Managers
 
         // Events
 
+        public event Action OnJump;
+
 
         // Methods
 
@@ -20,7 +22,20 @@ namespace LegendOfTheRealm.Managers
         {
             Instance = this;
             inputAction = new PlayerInputAction();
+
             inputAction.Player.Enable();
+            inputAction.Player.Jump.performed += Jump_performed;
+        }
+
+        private void OnDestroy()
+        {
+            inputAction.Player.Disable();
+            inputAction.Player.Jump.performed -= Jump_performed;
+        }
+
+        private void Jump_performed(UnityEngine.InputSystem.InputAction.CallbackContext obj)
+        {
+            OnJump?.Invoke();
         }
 
         public Vector2 GetNormallizedMovementVector()

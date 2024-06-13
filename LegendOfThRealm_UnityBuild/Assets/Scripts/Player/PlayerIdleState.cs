@@ -22,8 +22,6 @@ namespace LegendOfTheRealm.Players
         {
             base.Update();
 
-            // TO-DO: change input
-
             if (inputManger.GetNormallizedMovementVector().x != 0 && !player.IsBusy)
             {
                 stateMachine.ChangeState(player.MoveState);

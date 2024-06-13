@@ -49,6 +49,8 @@ namespace LegendOfTheRealm.Players
             player.Animator.SetBool(animBoolName, false);
         }
 
+        public virtual void OnJump() { }
+
         public virtual void AnimationFinishTrigger()
         {
             triggerCalled = true;

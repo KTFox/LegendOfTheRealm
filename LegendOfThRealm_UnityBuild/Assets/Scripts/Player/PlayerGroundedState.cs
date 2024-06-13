@@ -21,7 +21,7 @@ namespace LegendOfTheRealm.Players
 
         public override void Update()
         {
-            base.Update();  
+            base.Update();
 
             // TO-DO: change input
 
@@ -35,20 +35,25 @@ namespace LegendOfTheRealm.Players
             //    stateMachine.ChangeState(player.PrimaryAttackState);
             //}
 
-            //if (InputManager.Instance.IsSpaceKeyDown() && player.IsGroundDetected)
-            //{
-            //    player.SetVelocity(playerRb.velocity.x, player.JumpForce);
-            //}
-
-            //if (!player.IsGroundDetected)
-            //{
-            //    stateMachine.ChangeState(player.JumpState);
-            //}
+            if (!player.IsGroundDetected)
+            {
+                stateMachine.ChangeState(player.JumpState);
+            }
         }
 
         public override void Exit()
         {
             base.Exit();
+        }
+
+        public override void OnJump()
+        {
+            base.OnJump();
+
+            if (player.IsGroundDetected)
+            {
+                player.SetVelocity(playerRb.velocity.x, player.JumpForce);
+            }
         }
     }
 }

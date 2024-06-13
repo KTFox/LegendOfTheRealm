@@ -61,6 +61,8 @@ namespace LegendOfTheRealm.Players
             base.Start();
 
             stateMachine.Initialize(IdleState);
+
+            InputManager.Instance.OnJump += InputManager_OnJump;
         }
 
         protected override void Update()
@@ -69,6 +71,11 @@ namespace LegendOfTheRealm.Players
 
             stateMachine.CurrentState.Update();
             CheckForDashInput();
+        }
+
+        private void InputManager_OnJump()
+        {
+            stateMachine.CurrentState.OnJump();
         }
 
         private void CheckForDashInput()
