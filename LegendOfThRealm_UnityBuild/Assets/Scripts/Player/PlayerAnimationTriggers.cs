@@ -38,6 +38,7 @@ namespace LegendOfTheRealm.Players
                     {
                         health.TakeDamage(10f);
                         enemy.FreezeTime();
+                        player.EntityFX.PlayCameraShakeFX();
                     }
                 }
             }

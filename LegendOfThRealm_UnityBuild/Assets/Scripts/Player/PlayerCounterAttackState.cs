@@ -38,6 +38,7 @@ namespace LegendOfTheRealm.Players
                         stateTimer = 10f;
                         player.Animator.SetBool("SuccessCounterAttack", true);
                         collider.GetComponent<Health>().TakeDamage(10f);
+                        player.EntityFX.PlayCameraShakeFX();
                     }
                 }
             }

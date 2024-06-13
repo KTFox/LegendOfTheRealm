@@ -17,9 +17,9 @@ MonoBehaviour:
     statProgresses:
     - Stat: 0
       Levels:
-      - 100
+      - 1000
   - characterClass: 1
     statProgresses:
     - Stat: 0
       Levels:
-      - 100
+      - 1000
