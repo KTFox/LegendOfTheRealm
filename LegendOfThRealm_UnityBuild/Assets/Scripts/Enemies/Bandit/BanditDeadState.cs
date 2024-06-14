@@ -19,6 +19,7 @@ namespace LegendOfTheRealm.Enemies.Bandits
             base.Enter();
 
             bandit.SetVelocity(0f, 0f);
+            bandit.HealthBar.SetActive(false);
         }
     }
 }

@@ -1,4 +1,5 @@
 using UnityEngine;
+using UnityEngine.UI;
 
 namespace LegendOfTheRealm.Enemies
 {
@@ -25,6 +26,9 @@ namespace LegendOfTheRealm.Enemies
         [SerializeField] private float attackCooldown;
         [SerializeField] private float suspiciousTime;
 
+        [Header("UI")]
+        [SerializeField] private GameObject healthBar;
+
         protected bool canBeStunned;
 
         // Properties
@@ -43,6 +47,7 @@ namespace LegendOfTheRealm.Enemies
         public float AttackRange => attackRange;
         public float AttackCooldown => attackCooldown;
         public float SuspiciousTime => suspiciousTime;
+        public GameObject HealthBar => healthBar;
 
 
         // Methods
