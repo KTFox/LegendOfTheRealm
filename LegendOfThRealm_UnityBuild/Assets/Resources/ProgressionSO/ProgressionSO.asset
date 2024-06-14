@@ -17,15 +17,15 @@ MonoBehaviour:
     statProgresses:
     - Stat: 0
       Levels:
-      - 1000
+      - 100
     - Stat: 2
       Levels:
-      - 20
+      - 5
   - characterClass: 1
     statProgresses:
     - Stat: 0
       Levels:
-      - 1000
+      - 50
     - Stat: 2
       Levels:
       - 10

@@ -14,9 +14,9 @@ namespace LegendOfTheRealm.Attributes
         // Properties
 
         public float CurrentHealth => currentHealth.Value;
-        public float CurrentHealthFraction => currentHealth.Value / GetComponent<BaseStat>().GetValueOfStat(Stat.Health);
-        public float CurrentHealthPercentage => CurrentHealthFraction * 100;
         public float MaxHealth => GetComponent<BaseStat>().GetValueOfStat(Stat.Health);
+        public float CurrentHealthFraction => currentHealth.Value / MaxHealth;
+        public float CurrentHealthPercentage => CurrentHealthFraction * 100;
         public bool IsDead => currentHealth.Value <= 0f;
 
         // Events

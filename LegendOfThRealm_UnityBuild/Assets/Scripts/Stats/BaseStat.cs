@@ -1,3 +1,4 @@
+using LegendOfTheRealm.Utilities;
 using System;
 using UnityEngine;
 
@@ -13,11 +14,13 @@ namespace LegendOfTheRealm.Stats
         [SerializeField] private int startLevel = 1;
         [SerializeField] private bool shouldUseModifier;
 
-        private Experience _experience;
+        private Experience experience;
+
+        private LazyValue<int> currentLevel;
 
         // Properties
 
-        public int CurrentLevel { get; private set; }
+        public int CurrentLevel => currentLevel.Value;
         public float ExperienceToLevelUp => progressionSO.GetStat(characterClass, Stat.ExperienceToLevelUp, CurrentLevel);
 
 
@@ -25,12 +28,13 @@ namespace LegendOfTheRealm.Stats
 
         private void Awake()
         {
-            _experience = GetComponent<Experience>();
+            experience = GetComponent<Experience>();
+            currentLevel = new LazyValue<int>(GetInitialLevel);
         }
 
-        private void Start()
+        private int GetInitialLevel()
         {
-            CurrentLevel = startLevel;
+            return startLevel;
         }
 
         public float GetValueOfStat(Stat stat)
