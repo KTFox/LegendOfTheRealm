@@ -1,7 +1,6 @@
 using LegendOfTheRealm.Players;
 using System;
 using System.Collections.Generic;
-using System.Reflection;
 using UnityEngine;
 
 namespace LegendOfTheRealm.Inventories
@@ -18,7 +17,7 @@ namespace LegendOfTheRealm.Inventories
 
         public static Inventory PlayerInventory => FindObjectOfType<Player>().GetComponent<Inventory>();
         public int Size => size;
-        // public bool HasEmptySlot
+        public bool HasEmptySlot => GetFreeSlotsAmount() > 0;
 
         // Events
 
@@ -41,18 +40,67 @@ namespace LegendOfTheRealm.Inventories
             slots = new InventorySlot[size];
         }
 
-        public bool AddItemToSlot(int slotIndex, InventoryItemSO item, int quantity)
+        public bool AddItemToFirstEmptySlot(InventoryItemSO item, int quantity)
         {
-            if (slots[slotIndex].Item != null)
+            int index = GetAvailableSlotIndexFor(item);
+
+            if (index < 0)
             {
-                return AddItemToFirstEmptySlot(item, quantity);
+                return false;
             }
+
+            slots[index].Item = item;
+            slots[index].Quantity += quantity;
+
+            OnInventoryUpdated?.Invoke();
+
+            return true;
         }
 
-        private bool AddItemToFirstEmptySlot(InventoryItemSO item, int quantity)
+        #region AddItemToFirstEmptySlot details
+        private int GetAvailableSlotIndexFor(InventoryItemSO item)
         {
+            int i = GetFirstStackedSlotIndexOf(item);
 
+            if (i < 0)
+            {
+                i = GetFirstEmptySlotIndex();
+            }
+
+            return i;
         }
+
+        private int GetFirstStackedSlotIndexOf(InventoryItemSO item)
+        {
+            if (!item.Stackable)
+            {
+                return -1;
+            }
+
+            for (int i = 0; i < slots.Length; i++)
+            {
+                if (ReferenceEquals(slots[i], item))
+                {
+                    return i;
+                }
+            }
+
+            return -1;
+        }
+
+        private int GetFirstEmptySlotIndex()
+        {
+            for (int i = 0; i < slots.Length; i++)
+            {
+                if (slots[i].Item == null)
+                {
+                    return i;
+                }
+            }
+
+            return -1;
+        }
+        #endregion
 
         public void RemoveFromSlot(int slotIndex, int quantity)
         {
@@ -67,9 +115,9 @@ namespace LegendOfTheRealm.Inventories
             OnInventoryUpdated?.Invoke();
         }
 
-        public bool HasSpaceFor(IEnumerable<InventoryItemSO> items)
+        public bool HasEnoughSpaceFor(IEnumerable<InventoryItemSO> items)
         {
-            int freeSlotsNumber = GetFreeSlotsNumber();
+            int freeSlotsNumber = GetFreeSlotsAmount();
             var stackedItems = new List<InventoryItemSO>();
 
             foreach (InventoryItemSO item in items)
@@ -93,60 +141,12 @@ namespace LegendOfTheRealm.Inventories
             return true;
         }
 
-        public InventoryItemSO GetItemInSlot(int slotIndex)
-        {
-            return slots[slotIndex].Item;
-        }
-
-        public int GetItemQuantityInSlot(int index)
-        {
-            return slots[index].Quantity;
-        }
-
-        private int FindSlotIndex(InventoryItemSO item)
-        {
-            int i = FindStackIndex(item);
-
-            if (i < 0)
-            {
-                i = FindFirstEmptySlotIndex();
-            }
-
-            return i;
-        }
-
-        private int FindFirstEmptySlotIndex()
-        {
-            for (int i = 0; i < slots.Length; i++)
-            {
-                if (slots[i].Item == null)
-                {
-                    return i;
-                }
-            }
-
-            return -1;
-        }
-
-        private int FindStackIndex(InventoryItemSO item)
-        {
-            if (!item.Stackable)
-            {
-                return -1;
-            }
-
-            for (int i = 0; i < slots.Length; i++)
-            {
-                if (ReferenceEquals(slots[i], item))
-                {
-                    return i;
-                }
-            }
-
-            return -1;
-        }
-
-        private int GetFreeSlotsNumber()
+        #region HasEnoughSpaceFor details
+        /// <summary>
+        /// Returns the number of slots with no items inside.
+        /// </summary>
+        /// <returns></returns>
+        private int GetFreeSlotsAmount()
         {
             int count = 0;
 
@@ -172,6 +172,17 @@ namespace LegendOfTheRealm.Inventories
             }
 
             return false;
+        }
+        #endregion
+
+        public InventoryItemSO GetItemInSlot(int slotIndex)
+        {
+            return slots[slotIndex].Item;
+        }
+
+        public int GetItemQuantityInSlot(int index)
+        {
+            return slots[index].Quantity;
         }
     }
 }
