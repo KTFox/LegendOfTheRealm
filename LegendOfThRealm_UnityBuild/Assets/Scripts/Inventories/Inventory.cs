@@ -38,6 +38,7 @@ namespace LegendOfTheRealm.Inventories
         private void Awake()
         {
             slots = new InventorySlot[size];
+            slots[0].Item = InventoryItemSO.GetItemFromID("9192e0db-f7dc-422e-a854-7d1fd732c622");
         }
 
         public bool AddItemToFirstEmptySlot(InventoryItemSO item, int quantity)

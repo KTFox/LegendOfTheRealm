@@ -1,9 +1,11 @@
-using System.Collections.Generic;
 using UnityEngine;
+using System;
+using System.Collections.Generic;
 
 namespace LegendOfTheRealm.Inventories
 {
-    public class InventoryItemSO : ScriptableObject
+    [CreateAssetMenu(menuName = "InventoryItem")]
+    public class InventoryItemSO : ScriptableObject, ISerializationCallbackReceiver
     {
         // Variables
 
@@ -54,5 +56,17 @@ namespace LegendOfTheRealm.Inventories
 
             return itemLookupTable[id];
         }
+
+        #region ISerializationCallbackReceiver implements
+        void ISerializationCallbackReceiver.OnBeforeSerialize()
+        {
+            if (string.IsNullOrWhiteSpace(itemID))
+            {
+                itemID = Guid.NewGuid().ToString();
+            }
+        }
+
+        void ISerializationCallbackReceiver.OnAfterDeserialize() { }
+        #endregion
     }
 }

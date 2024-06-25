@@ -1,5 +1,5 @@
-using LegendOfTheRealm.Inventories;
 using UnityEngine;
+using LegendOfTheRealm.Inventories;
 
 namespace LegendOfTheRealm.UI.Inventories
 {
@@ -19,10 +19,10 @@ namespace LegendOfTheRealm.UI.Inventories
             playerInventory = Inventory.PlayerInventory;
         }
 
-        //private void OnEnable()
-        //{
-        //    playerInventory.OnInventoryUpdated += PlayerInventory_InventoryUpdated;
-        //}
+        private void OnEnable()
+        {
+            playerInventory.OnInventoryUpdated += PlayerInventory_InventoryUpdated;
+        }
 
         private void Start()
         {
@@ -39,7 +39,7 @@ namespace LegendOfTheRealm.UI.Inventories
             for (int i = 0; i < playerInventory.Size; i++)
             {
                 var inventorySlotUI = Instantiate(inventorySlotPrefab, transform);
-                //inventorySlotUI.SetUp(playerInventory, i);
+                inventorySlotUI.SetUp(playerInventory, i);
             }
         }
     }
