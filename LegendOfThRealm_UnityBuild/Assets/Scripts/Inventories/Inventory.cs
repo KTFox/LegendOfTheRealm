@@ -1,7 +1,7 @@
-using LegendOfTheRealm.Players;
+using UnityEngine;
 using System;
 using System.Collections.Generic;
-using UnityEngine;
+using LegendOfTheRealm.Players;
 
 namespace LegendOfTheRealm.Inventories
 {

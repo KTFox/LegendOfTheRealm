@@ -1,6 +1,6 @@
+using UnityEngine;
 using LegendOfTheRealm.Inventories;
 using LegendOfTheRealm.Utilities.UI;
-using UnityEngine;
 
 namespace LegendOfTheRealm.UI.Inventories
 {
@@ -15,8 +15,8 @@ namespace LegendOfTheRealm.UI.Inventories
 
         // Properties
 
-        public InventoryItemSO InventoryItemSO => inventory.GetItemInSlot(slotIndex);
-        public int ItemQuantity => inventory.GetItemQuantityInSlot(slotIndex);
+        public InventoryItemSO Item => inventory.GetItemInSlot(slotIndex);
+        public int Quantity => inventory.GetItemQuantityInSlot(slotIndex);
 
 
         // Methods
@@ -28,9 +28,9 @@ namespace LegendOfTheRealm.UI.Inventories
             inventoryItemIcon.SetItem(inventory.GetItemInSlot(slotIndex), inventory.GetItemQuantityInSlot(slotIndex));
         }
 
-        public void AddItems(InventoryItemSO inventoryItemSO, int quantity)
+        public void AddItems(InventoryItemSO item, int quantity)
         {
-            inventory.AddItemToSlot(slotIndex, inventoryItemSO, quantity);
+            inventory.AddItemToFirstEmptySlot(item, quantity);
         }
 
         public void RemoveItems(int quantity)
@@ -40,7 +40,7 @@ namespace LegendOfTheRealm.UI.Inventories
 
         public int GetMaxAcceptable(InventoryItemSO inventoryItemSO)
         {
-            if (InventoryItemSO == null)
+            if (Item == null)
             {
                 return int.MaxValue;
             }

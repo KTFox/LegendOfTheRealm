@@ -2,8 +2,8 @@ namespace LegendOfTheRealm.Utilities.UI
 {
     public interface IDragSource<T> where T : class
     {
-        T InventoryItemSO { get; }
-        int ItemQuantity { get; }
+        T Item { get; }
+        int Quantity { get; }
 
         void RemoveItems(int quantity);
     }

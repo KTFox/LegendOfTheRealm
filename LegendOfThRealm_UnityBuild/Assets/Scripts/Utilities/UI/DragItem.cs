@@ -85,7 +85,7 @@ namespace LegendOfTheRealm.Utilities.UI
             var destinationContainer = destination as IDragContainer<T>;
             var sourceContainer = source as IDragContainer<T>;
 
-            if (destinationContainer == null || sourceContainer == null || ReferenceEquals(destinationContainer.InventoryItemSO, sourceContainer.InventoryItemSO))
+            if (destinationContainer == null || sourceContainer == null || ReferenceEquals(destinationContainer.Item, sourceContainer.Item))
             {
                 AttempSimpleTransfer(destination);
 
@@ -97,9 +97,9 @@ namespace LegendOfTheRealm.Utilities.UI
 
         private void AttempSimpleTransfer(IDragDestination<T> destination)
         {
-            T draggingItem = source.InventoryItemSO;
+            T draggingItem = source.Item;
 
-            int draggingQuantity = source.ItemQuantity;
+            int draggingQuantity = source.Quantity;
             int acceptableQuantity = destination.GetMaxAcceptable(draggingItem);
             int quantityToTransfer = Mathf.Min(draggingQuantity, acceptableQuantity);
 
@@ -112,10 +112,10 @@ namespace LegendOfTheRealm.Utilities.UI
 
         private void AttempSwap(IDragContainer<T> destination, IDragContainer<T> source)
         {
-            T removedItemFromSource = source.InventoryItemSO;
-            T removedItemFromDestination = destination.InventoryItemSO;
-            int removedItemNumberFromSource = source.ItemQuantity;
-            int removedItemNumberFromDestination = destination.ItemQuantity;
+            T removedItemFromSource = source.Item;
+            T removedItemFromDestination = destination.Item;
+            int removedItemNumberFromSource = source.Quantity;
+            int removedItemNumberFromDestination = destination.Quantity;
 
             // Provisionally remove items from both sides
 

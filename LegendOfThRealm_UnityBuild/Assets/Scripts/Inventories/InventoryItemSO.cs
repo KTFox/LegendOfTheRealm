@@ -39,7 +39,7 @@ namespace LegendOfTheRealm.Inventories
                 {
                     if (itemLookupTable.ContainsKey(item.itemID))
                     {
-                        Debug.LogError($"It looks like that InventoryItemSO({item.itemID}) in Resources folder has been duplicated");
+                        Debug.LogError($"It looks like that Item({item.itemID}) in Resources folder has been duplicated");
                         continue;
                     }
 

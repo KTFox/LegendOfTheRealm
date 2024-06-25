@@ -1,6 +1,4 @@
 namespace LegendOfTheRealm.Utilities.UI
 {
-    public interface IDragContainer<T> : IDragDestination<T>, IDragSource<T> where T : class
-    {
-    }
+    public interface IDragContainer<T> : IDragDestination<T>, IDragSource<T> where T : class { }
 }
