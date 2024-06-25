@@ -40,7 +40,7 @@ namespace LegendOfTheRealm.UI.Inventories
 
         public int GetMaxAcceptable(InventoryItemSO inventoryItemSO)
         {
-            if (Item == null)
+            if (Item == null || Item.Stackable)
             {
                 return int.MaxValue;
             }

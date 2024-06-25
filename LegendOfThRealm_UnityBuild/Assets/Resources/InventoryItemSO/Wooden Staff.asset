@@ -1,0 +1,20 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 175d3a1bc27fcc74db13e9cb7349635e, type: 3}
+  m_Name: Wooden Staff
+  m_EditorClassIdentifier: 
+  itemID: 08f257ea-2bd4-474c-8e44-a493075786d7
+  displayName: Wooden Staff
+  description: A simple staff made from sturdy oak. Perfect for novice wizards.
+  icon: {fileID: 1463129198, guid: 9e68bfbf7b403ad4497ac7212994ef17, type: 3}
+  stackable: 0
+  price: 0

@@ -85,7 +85,7 @@ namespace LegendOfTheRealm.Utilities.UI
             var destinationContainer = destination as IDragContainer<T>;
             var sourceContainer = source as IDragContainer<T>;
 
-            if (destinationContainer == null || sourceContainer == null || ReferenceEquals(destinationContainer.Item, sourceContainer.Item))
+            if (destinationContainer.Item == null || ReferenceEquals(destinationContainer.Item, sourceContainer.Item))
             {
                 AttempSimpleTransfer(destination);
 
@@ -97,6 +97,8 @@ namespace LegendOfTheRealm.Utilities.UI
 
         private void AttempSimpleTransfer(IDragDestination<T> destination)
         {
+            Debug.Log("Attemp simple transfer");
+
             T draggingItem = source.Item;
 
             int draggingQuantity = source.Quantity;
@@ -112,6 +114,8 @@ namespace LegendOfTheRealm.Utilities.UI
 
         private void AttempSwap(IDragContainer<T> destination, IDragContainer<T> source)
         {
+            Debug.Log("Attemp swap");
+
             T removedItemFromSource = source.Item;
             T removedItemFromDestination = destination.Item;
             int removedItemNumberFromSource = source.Quantity;

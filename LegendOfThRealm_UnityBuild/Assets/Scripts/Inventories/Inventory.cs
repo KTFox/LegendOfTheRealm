@@ -38,24 +38,28 @@ namespace LegendOfTheRealm.Inventories
         private void Awake()
         {
             slots = new InventorySlot[size];
+
             slots[0].Item = InventoryItemSO.GetItemFromID("9192e0db-f7dc-422e-a854-7d1fd732c622");
             slots[0].Quantity = 1;
+
+            slots[1].Item = InventoryItemSO.GetItemFromID("7ef061b1-22a8-4b20-b80a-91611490818d");
+            slots[1].Quantity = 10;
+
+            slots[2].Item = InventoryItemSO.GetItemFromID("fb79b9d0-20cf-4825-a1ea-94f670122885");
+            slots[2].Quantity = 5;
+
+            slots[3].Item = InventoryItemSO.GetItemFromID("7ef061b1-22a8-4b20-b80a-91611490818d");
+            slots[3].Quantity = 15;
+
+            slots[4].Item = InventoryItemSO.GetItemFromID("9192e0db-f7dc-422e-a854-7d1fd732c622");
+            slots[4].Quantity = 1;
+
+            slots[5].Item = InventoryItemSO.GetItemFromID("08f257ea-2bd4-474c-8e44-a493075786d7");
+            slots[5].Quantity = 1;
         }
 
         public bool AddItemToSlot(int slotIndex, InventoryItemSO item, int quantity)
         {
-            if (slots[slotIndex].Item != null)
-            {
-                return AddItemToFirstEmptySlot(item, quantity);
-            }
-
-            var i = GetFirstStackedSlotIndexOf(item);
-
-            if (i >= 0)
-            {
-                slotIndex = i;
-            }
-
             slots[slotIndex].Item = item;
             slots[slotIndex].Quantity += quantity;
 
