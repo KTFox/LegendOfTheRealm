@@ -1,10 +1,11 @@
-using LegendOfTheRealm.Inventories;
-using TMPro;
 using UnityEngine;
 using UnityEngine.UI;
+using TMPro;
+using LegendOfTheRealm.Inventories;
 
 namespace LegendOfTheRealm.UI.Inventories
 {
+    [RequireComponent(typeof(Image))]
     public class InventoryItemIcon : MonoBehaviour
     {
         // Variables
@@ -15,23 +16,23 @@ namespace LegendOfTheRealm.UI.Inventories
 
         // Methods
 
-        public void SetItem(InventoryItemSO inventoryItemSO)
+        public void SetItem(InventoryItemSO item)
         {
-            SetItem(inventoryItemSO, 0);
+            SetItem(item, 0);
         }
 
-        public void SetItem(InventoryItemSO inventoryItemSO, int quantity)
+        public void SetItem(InventoryItemSO item, int quantity)
         {
             var itemImage = GetComponent<Image>();
 
-            if (inventoryItemSO == null)
+            if (item == null)
             {
                 itemImage.enabled = false;
             }
             else
             {
                 itemImage.enabled = true;
-                itemImage.sprite = inventoryItemSO.Icon;
+                itemImage.sprite = item.Icon;
             }
 
             if (itemQuantityText)
