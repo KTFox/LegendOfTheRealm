@@ -3372,7 +3372,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: f4e622b274323944c8e899f53e1554e6, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  inventorySlotPrefab: {fileID: -7202153691505492598, guid: c4fda5644957f5d4fa96b6fb0d324029, type: 3}
+  inventorySlotPrefab: {fileID: 3015128114847665673, guid: c4fda5644957f5d4fa96b6fb0d324029, type: 3}
 --- !u!114 &714091389
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -7140,8 +7140,7 @@ PrefabInstance:
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
       objectReference: {fileID: 0}
-    m_RemovedComponents:
-    - {fileID: -7202153691505492598, guid: c4fda5644957f5d4fa96b6fb0d324029, type: 3}
+    m_RemovedComponents: []
     m_RemovedGameObjects: []
     m_AddedGameObjects: []
     m_AddedComponents: []

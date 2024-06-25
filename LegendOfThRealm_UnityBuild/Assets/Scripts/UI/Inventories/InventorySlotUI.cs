@@ -30,7 +30,7 @@ namespace LegendOfTheRealm.UI.Inventories
 
         public void AddItems(InventoryItemSO item, int quantity)
         {
-            inventory.AddItemToFirstEmptySlot(item, quantity);
+            inventory.AddItemToSlot(slotIndex, item, quantity);
         }
 
         public void RemoveItems(int quantity)

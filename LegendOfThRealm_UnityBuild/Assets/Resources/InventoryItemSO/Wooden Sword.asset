@@ -12,9 +12,10 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 175d3a1bc27fcc74db13e9cb7349635e, type: 3}
   m_Name: Wooden Sword
   m_EditorClassIdentifier: 
-  itemID: 
-  displayName: 
-  description: 
-  icon: {fileID: 0}
+  itemID: 9192e0db-f7dc-422e-a854-7d1fd732c622
+  displayName: Wooden Sword
+  description: A basic weapon made of sturdy oak wood. Ideal for beginner adventurers,
+    it's lightweight and easy to handle, perfect for training and early battles.
+  icon: {fileID: -163862723, guid: 9e68bfbf7b403ad4497ac7212994ef17, type: 3}
   stackable: 0
   price: 0
