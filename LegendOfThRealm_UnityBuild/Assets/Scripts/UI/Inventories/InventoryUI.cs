@@ -3,7 +3,7 @@ using UnityEngine;
 
 namespace LegendOfTheRealm.UI.Inventories
 {
-    public class InventoryContentUI : MonoBehaviour
+    public class InventoryUI : MonoBehaviour
     {
         // Variables
 
