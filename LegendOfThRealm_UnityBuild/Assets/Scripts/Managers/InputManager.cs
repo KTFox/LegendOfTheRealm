@@ -17,6 +17,7 @@ namespace LegendOfTheRealm.Managers
         public event Action OnDash;
         public event Action OnAttack;
         public event Action OnCounterAttack;
+        public event Action OnToggleBookUI;
 
 
         // Methods
@@ -31,6 +32,7 @@ namespace LegendOfTheRealm.Managers
             inputAction.Player.Dash.performed += Dash_performed;
             inputAction.Player.Attack.performed += Attack_performed;
             inputAction.Player.AttackCounter.performed += AttackCounter_performed;
+            inputAction.Player.ToggleBookUI.performed += ToggleBookUI_performed;
         }
 
         private void OnDestroy()
@@ -60,6 +62,11 @@ namespace LegendOfTheRealm.Managers
         private void AttackCounter_performed(UnityEngine.InputSystem.InputAction.CallbackContext obj)
         {
             OnCounterAttack?.Invoke();
+        }
+
+        private void ToggleBookUI_performed(UnityEngine.InputSystem.InputAction.CallbackContext obj)
+        {
+            OnToggleBookUI?.Invoke();
         }
 
         public Vector2 GetNormallizedMovementVector()

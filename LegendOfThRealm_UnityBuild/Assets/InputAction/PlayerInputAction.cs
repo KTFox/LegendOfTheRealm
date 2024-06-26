@@ -71,6 +71,15 @@ public partial class @PlayerInputAction: IInputActionCollection2, IDisposable
                     ""processors"": """",
                     ""interactions"": """",
                     ""initialStateCheck"": false
+                },
+                {
+                    ""name"": ""ToggleBookUI"",
+                    ""type"": ""Button"",
+                    ""id"": ""a10c580d-76c6-4fdf-ad11-6ceb512c5cec"",
+                    ""expectedControlType"": ""Button"",
+                    ""processors"": """",
+                    ""interactions"": """",
+                    ""initialStateCheck"": false
                 }
             ],
             ""bindings"": [
@@ -172,6 +181,17 @@ public partial class @PlayerInputAction: IInputActionCollection2, IDisposable
                     ""action"": ""AttackCounter"",
                     ""isComposite"": false,
                     ""isPartOfComposite"": false
+                },
+                {
+                    ""name"": """",
+                    ""id"": ""14ddcce8-3135-4f11-a25c-725b856adb5a"",
+                    ""path"": ""<Keyboard>/escape"",
+                    ""interactions"": """",
+                    ""processors"": """",
+                    ""groups"": """",
+                    ""action"": ""ToggleBookUI"",
+                    ""isComposite"": false,
+                    ""isPartOfComposite"": false
                 }
             ]
         }
@@ -185,6 +205,7 @@ public partial class @PlayerInputAction: IInputActionCollection2, IDisposable
         m_Player_Attack = m_Player.FindAction("Attack", throwIfNotFound: true);
         m_Player_Dash = m_Player.FindAction("Dash", throwIfNotFound: true);
         m_Player_AttackCounter = m_Player.FindAction("AttackCounter", throwIfNotFound: true);
+        m_Player_ToggleBookUI = m_Player.FindAction("ToggleBookUI", throwIfNotFound: true);
     }
 
     public void Dispose()
@@ -251,6 +272,7 @@ public partial class @PlayerInputAction: IInputActionCollection2, IDisposable
     private readonly InputAction m_Player_Attack;
     private readonly InputAction m_Player_Dash;
     private readonly InputAction m_Player_AttackCounter;
+    private readonly InputAction m_Player_ToggleBookUI;
     public struct PlayerActions
     {
         private @PlayerInputAction m_Wrapper;
@@ -260,6 +282,7 @@ public partial class @PlayerInputAction: IInputActionCollection2, IDisposable
         public InputAction @Attack => m_Wrapper.m_Player_Attack;
         public InputAction @Dash => m_Wrapper.m_Player_Dash;
         public InputAction @AttackCounter => m_Wrapper.m_Player_AttackCounter;
+        public InputAction @ToggleBookUI => m_Wrapper.m_Player_ToggleBookUI;
         public InputActionMap Get() { return m_Wrapper.m_Player; }
         public void Enable() { Get().Enable(); }
         public void Disable() { Get().Disable(); }
@@ -284,6 +307,9 @@ public partial class @PlayerInputAction: IInputActionCollection2, IDisposable
             @AttackCounter.started += instance.OnAttackCounter;
             @AttackCounter.performed += instance.OnAttackCounter;
             @AttackCounter.canceled += instance.OnAttackCounter;
+            @ToggleBookUI.started += instance.OnToggleBookUI;
+            @ToggleBookUI.performed += instance.OnToggleBookUI;
+            @ToggleBookUI.canceled += instance.OnToggleBookUI;
         }
 
         private void UnregisterCallbacks(IPlayerActions instance)
@@ -303,6 +329,9 @@ public partial class @PlayerInputAction: IInputActionCollection2, IDisposable
             @AttackCounter.started -= instance.OnAttackCounter;
             @AttackCounter.performed -= instance.OnAttackCounter;
             @AttackCounter.canceled -= instance.OnAttackCounter;
+            @ToggleBookUI.started -= instance.OnToggleBookUI;
+            @ToggleBookUI.performed -= instance.OnToggleBookUI;
+            @ToggleBookUI.canceled -= instance.OnToggleBookUI;
         }
 
         public void RemoveCallbacks(IPlayerActions instance)
@@ -327,5 +356,6 @@ public partial class @PlayerInputAction: IInputActionCollection2, IDisposable
         void OnAttack(InputAction.CallbackContext context);
         void OnDash(InputAction.CallbackContext context);
         void OnAttackCounter(InputAction.CallbackContext context);
+        void OnToggleBookUI(InputAction.CallbackContext context);
     }
 }
