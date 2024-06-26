@@ -1,0 +1,22 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: ee00fe3d92201cb47a92b57821ef0f77, type: 3}
+  m_Name: Normal Wooden Shield
+  m_EditorClassIdentifier: 
+  itemID: 30e1bb26-200d-4186-bbb7-5cfc79cd4284
+  displayName: Normal Wooden Shield
+  description: A basic shield made of sturdy wood. Offers minimal protection but
+    is light and easy to handle.
+  icon: {fileID: -1630358623, guid: 9e68bfbf7b403ad4497ac7212994ef17, type: 3}
+  stackable: 0
+  price: 0
+  location: 4

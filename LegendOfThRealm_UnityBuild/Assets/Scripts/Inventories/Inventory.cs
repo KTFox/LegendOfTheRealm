@@ -39,23 +39,26 @@ namespace LegendOfTheRealm.Inventories
         {
             slots = new InventorySlot[size];
 
-            slots[0].Item = InventoryItemSO.GetItemFromID("9192e0db-f7dc-422e-a854-7d1fd732c622");
+            slots[0].Item = InventoryItemSO.GetItemFromID("0ee9dc36-54e4-43a1-b42f-0d657e46bea0");
             slots[0].Quantity = 1;
 
-            slots[1].Item = InventoryItemSO.GetItemFromID("7ef061b1-22a8-4b20-b80a-91611490818d");
-            slots[1].Quantity = 10;
+            slots[1].Item = InventoryItemSO.GetItemFromID("15e429cb-95e2-4592-acdd-9ccfffca1654");
+            slots[1].Quantity = 1;
 
-            slots[2].Item = InventoryItemSO.GetItemFromID("fb79b9d0-20cf-4825-a1ea-94f670122885");
-            slots[2].Quantity = 5;
+            slots[2].Item = InventoryItemSO.GetItemFromID("be79b38a-7596-4aec-ad79-db014a1bafbb");
+            slots[2].Quantity = 1;
 
-            slots[3].Item = InventoryItemSO.GetItemFromID("7ef061b1-22a8-4b20-b80a-91611490818d");
-            slots[3].Quantity = 15;
+            slots[3].Item = InventoryItemSO.GetItemFromID("544b5650-b2aa-48aa-8110-640562bf48be");
+            slots[3].Quantity = 1;
 
-            slots[4].Item = InventoryItemSO.GetItemFromID("9192e0db-f7dc-422e-a854-7d1fd732c622");
+            slots[4].Item = InventoryItemSO.GetItemFromID("61eb863d-6451-4427-8278-208fa8b94657");
             slots[4].Quantity = 1;
 
-            slots[5].Item = InventoryItemSO.GetItemFromID("08f257ea-2bd4-474c-8e44-a493075786d7");
+            slots[5].Item = InventoryItemSO.GetItemFromID("30e1bb26-200d-4186-bbb7-5cfc79cd4284");
             slots[5].Quantity = 1;
+
+            slots[6].Item = InventoryItemSO.GetItemFromID("f1bcb013-b2f0-4421-a5b3-e02ed615d709");
+            slots[6].Quantity = 1;
         }
 
         public bool AddItemToSlot(int slotIndex, InventoryItemSO item, int quantity)

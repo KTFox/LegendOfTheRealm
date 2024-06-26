@@ -4,7 +4,6 @@ using System.Collections.Generic;
 
 namespace LegendOfTheRealm.Inventories
 {
-    [CreateAssetMenu(menuName = "InventoryItem")]
     public class InventoryItemSO : ScriptableObject, ISerializationCallbackReceiver
     {
         // Variables

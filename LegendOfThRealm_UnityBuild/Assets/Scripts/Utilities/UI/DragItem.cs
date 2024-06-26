@@ -3,6 +3,7 @@ using UnityEngine.EventSystems;
 
 namespace LegendOfTheRealm.Utilities.UI
 {
+    [RequireComponent(typeof(CanvasGroup))]
     public class DragItem<T> : MonoBehaviour, IBeginDragHandler, IDragHandler, IEndDragHandler where T : class
     {
         // Variables
