@@ -123,6 +123,17 @@ NavMeshSettings:
     debug:
       m_Flags: 0
   m_NavMeshData: {fileID: 0}
+--- !u!114 &18303516 stripped
+MonoBehaviour:
+  m_CorrespondingSourceObject: {fileID: 3849778618032345217, guid: 9076ef1f2117e1b4a93c1cdd84441924, type: 3}
+  m_PrefabInstance: {fileID: 1676484897}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 67db9e8f0e2ae9c40bc1e2b64352a6b4, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!1 &27466290
 GameObject:
   m_ObjectHideFlags: 0
@@ -584,6 +595,28 @@ CanvasRenderer:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 141783794}
   m_CullTransparentMesh: 1
+--- !u!114 &164011185 stripped
+MonoBehaviour:
+  m_CorrespondingSourceObject: {fileID: 3849778618032345217, guid: 9076ef1f2117e1b4a93c1cdd84441924, type: 3}
+  m_PrefabInstance: {fileID: 3073911273016898313}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 67db9e8f0e2ae9c40bc1e2b64352a6b4, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+--- !u!114 &164606750 stripped
+MonoBehaviour:
+  m_CorrespondingSourceObject: {fileID: 6094679784867783542, guid: a0d95f2c0d71b4b4d836d6568eb85bac, type: 3}
+  m_PrefabInstance: {fileID: 403557207}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: f4688fdb7df04437aeb418b961361dc5, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!1 &195745452
 GameObject:
   m_ObjectHideFlags: 0
@@ -1704,6 +1737,17 @@ Tilemap:
     e31: 0
     e32: 0
     e33: 1
+--- !u!114 &240871150 stripped
+MonoBehaviour:
+  m_CorrespondingSourceObject: {fileID: 8752833601407297732, guid: 9076ef1f2117e1b4a93c1cdd84441924, type: 3}
+  m_PrefabInstance: {fileID: 3073911273016898313}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: f4688fdb7df04437aeb418b961361dc5, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!1001 &246969859
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -1712,6 +1756,10 @@ PrefabInstance:
     serializedVersion: 3
     m_TransformParent: {fileID: 1354847169}
     m_Modifications:
+    - target: {fileID: 201675855107690485, guid: a0d95f2c0d71b4b4d836d6568eb85bac, type: 3}
+      propertyPath: m_Name
+      value: Magical Defence Value
+      objectReference: {fileID: 0}
     - target: {fileID: 4111315578131069131, guid: a0d95f2c0d71b4b4d836d6568eb85bac, type: 3}
       propertyPath: m_Pivot.x
       value: 0.5
@@ -2023,6 +2071,17 @@ MonoBehaviour:
   m_OnValueChanged:
     m_PersistentCalls:
       m_Calls: []
+--- !u!114 &342389981 stripped
+MonoBehaviour:
+  m_CorrespondingSourceObject: {fileID: 6094679784867783542, guid: a0d95f2c0d71b4b4d836d6568eb85bac, type: 3}
+  m_PrefabInstance: {fileID: 1038220319}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: f4688fdb7df04437aeb418b961361dc5, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!1 &354211513
 GameObject:
   m_ObjectHideFlags: 0
@@ -2384,6 +2443,10 @@ PrefabInstance:
     serializedVersion: 3
     m_TransformParent: {fileID: 1354847169}
     m_Modifications:
+    - target: {fileID: 201675855107690485, guid: a0d95f2c0d71b4b4d836d6568eb85bac, type: 3}
+      propertyPath: m_Name
+      value: Magical Damage Value
+      objectReference: {fileID: 0}
     - target: {fileID: 4111315578131069131, guid: a0d95f2c0d71b4b4d836d6568eb85bac, type: 3}
       propertyPath: m_Pivot.x
       value: 0.5
@@ -2466,7 +2529,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 5104100029420071882, guid: a0d95f2c0d71b4b4d836d6568eb85bac, type: 3}
       propertyPath: m_Name
-      value: Magical Attack Info Panel
+      value: Magical Damage Info Panel
       objectReference: {fileID: 0}
     - target: {fileID: 8889275606196313175, guid: a0d95f2c0d71b4b4d836d6568eb85bac, type: 3}
       propertyPath: m_Sprite
@@ -2991,7 +3054,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 6683291539982747981, guid: 35bd9001087c2a34a83206fa900853ce, type: 3}
       propertyPath: m_Name
-      value: Value
+      value: Level value
       objectReference: {fileID: 0}
     - target: {fileID: 7825764051584647816, guid: 35bd9001087c2a34a83206fa900853ce, type: 3}
       propertyPath: m_Pivot.x
@@ -3370,6 +3433,17 @@ RectTransform:
   m_CorrespondingSourceObject: {fileID: 3490585765201375321, guid: c4fda5644957f5d4fa96b6fb0d324029, type: 3}
   m_PrefabInstance: {fileID: 1284466064970550787}
   m_PrefabAsset: {fileID: 0}
+--- !u!114 &512132015 stripped
+MonoBehaviour:
+  m_CorrespondingSourceObject: {fileID: 6094679784867783542, guid: a0d95f2c0d71b4b4d836d6568eb85bac, type: 3}
+  m_PrefabInstance: {fileID: 246969859}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: f4688fdb7df04437aeb418b961361dc5, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!224 &518561968 stripped
 RectTransform:
   m_CorrespondingSourceObject: {fileID: 465261445454999277, guid: 9076ef1f2117e1b4a93c1cdd84441924, type: 3}
@@ -3885,6 +3959,10 @@ PrefabInstance:
     serializedVersion: 3
     m_TransformParent: {fileID: 1354847169}
     m_Modifications:
+    - target: {fileID: 201675855107690485, guid: a0d95f2c0d71b4b4d836d6568eb85bac, type: 3}
+      propertyPath: m_Name
+      value: Critical Chance Value
+      objectReference: {fileID: 0}
     - target: {fileID: 4111315578131069131, guid: a0d95f2c0d71b4b4d836d6568eb85bac, type: 3}
       propertyPath: m_Pivot.x
       value: 0.5
@@ -3983,6 +4061,17 @@ RectTransform:
   m_CorrespondingSourceObject: {fileID: 4111315578131069131, guid: a0d95f2c0d71b4b4d836d6568eb85bac, type: 3}
   m_PrefabInstance: {fileID: 579292732}
   m_PrefabAsset: {fileID: 0}
+--- !u!114 &592535462 stripped
+MonoBehaviour:
+  m_CorrespondingSourceObject: {fileID: 8752833601407297732, guid: 9076ef1f2117e1b4a93c1cdd84441924, type: 3}
+  m_PrefabInstance: {fileID: 1676484897}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: f4688fdb7df04437aeb418b961361dc5, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!1 &597437923
 GameObject:
   m_ObjectHideFlags: 0
@@ -4539,6 +4628,10 @@ PrefabInstance:
     serializedVersion: 3
     m_TransformParent: {fileID: 1354847169}
     m_Modifications:
+    - target: {fileID: 201675855107690485, guid: a0d95f2c0d71b4b4d836d6568eb85bac, type: 3}
+      propertyPath: m_Name
+      value: Physical Defence Value
+      objectReference: {fileID: 0}
     - target: {fileID: 4111315578131069131, guid: a0d95f2c0d71b4b4d836d6568eb85bac, type: 3}
       propertyPath: m_Pivot.x
       value: 0.5
@@ -4621,7 +4714,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 5104100029420071882, guid: a0d95f2c0d71b4b4d836d6568eb85bac, type: 3}
       propertyPath: m_Name
-      value: Physical Defense Info Panel
+      value: Physical Defence Info Panel
       objectReference: {fileID: 0}
     - target: {fileID: 8889275606196313175, guid: a0d95f2c0d71b4b4d836d6568eb85bac, type: 3}
       propertyPath: m_Sprite
@@ -5224,6 +5317,17 @@ RectTransform:
   m_CorrespondingSourceObject: {fileID: 7825764051584647816, guid: 35bd9001087c2a34a83206fa900853ce, type: 3}
   m_PrefabInstance: {fileID: 886038698}
   m_PrefabAsset: {fileID: 0}
+--- !u!114 &897730868 stripped
+MonoBehaviour:
+  m_CorrespondingSourceObject: {fileID: 785609686378374606, guid: 35bd9001087c2a34a83206fa900853ce, type: 3}
+  m_PrefabInstance: {fileID: 438249121}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: f4688fdb7df04437aeb418b961361dc5, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!1 &917786905
 GameObject:
   m_ObjectHideFlags: 0
@@ -5269,6 +5373,17 @@ Transform:
   - {fileID: 237104242}
   m_Father: {fileID: 1521193758}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!114 &928286675 stripped
+MonoBehaviour:
+  m_CorrespondingSourceObject: {fileID: 3849778618032345217, guid: 9076ef1f2117e1b4a93c1cdd84441924, type: 3}
+  m_PrefabInstance: {fileID: 1750556991}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 67db9e8f0e2ae9c40bc1e2b64352a6b4, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!1 &1002776098
 GameObject:
   m_ObjectHideFlags: 0
@@ -5463,6 +5578,17 @@ CanvasRenderer:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1004564275}
   m_CullTransparentMesh: 1
+--- !u!114 &1008889011 stripped
+MonoBehaviour:
+  m_CorrespondingSourceObject: {fileID: 6094679784867783542, guid: a0d95f2c0d71b4b4d836d6568eb85bac, type: 3}
+  m_PrefabInstance: {fileID: 1077802002456750535}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: f4688fdb7df04437aeb418b961361dc5, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!1 &1017993839
 GameObject:
   m_ObjectHideFlags: 0
@@ -5546,6 +5672,10 @@ PrefabInstance:
     serializedVersion: 3
     m_TransformParent: {fileID: 1354847169}
     m_Modifications:
+    - target: {fileID: 201675855107690485, guid: a0d95f2c0d71b4b4d836d6568eb85bac, type: 3}
+      propertyPath: m_Name
+      value: Critical Bonus Value
+      objectReference: {fileID: 0}
     - target: {fileID: 4111315578131069131, guid: a0d95f2c0d71b4b4d836d6568eb85bac, type: 3}
       propertyPath: m_Pivot.x
       value: 0.5
@@ -7843,6 +7973,17 @@ RectTransform:
   m_CorrespondingSourceObject: {fileID: 6843190276129197332, guid: 91cb3b441ccca974d9b8fc499b8dcd5a, type: 3}
   m_PrefabInstance: {fileID: 1675613527}
   m_PrefabAsset: {fileID: 0}
+--- !u!114 &1675785769 stripped
+MonoBehaviour:
+  m_CorrespondingSourceObject: {fileID: 6094679784867783542, guid: a0d95f2c0d71b4b4d836d6568eb85bac, type: 3}
+  m_PrefabInstance: {fileID: 579292732}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: f4688fdb7df04437aeb418b961361dc5, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!1001 &1676484897
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -7943,6 +8084,10 @@ PrefabInstance:
       propertyPath: m_AnchorMax.y
       value: 0
       objectReference: {fileID: 0}
+    - target: {fileID: 3395879248689873991, guid: 9076ef1f2117e1b4a93c1cdd84441924, type: 3}
+      propertyPath: m_Name
+      value: EXP Fraction text
+      objectReference: {fileID: 0}
     - target: {fileID: 3849778618032345217, guid: 9076ef1f2117e1b4a93c1cdd84441924, type: 3}
       propertyPath: m_TargetGraphic
       value: 
@@ -7954,6 +8099,10 @@ PrefabInstance:
     - target: {fileID: 5343247140454076275, guid: 9076ef1f2117e1b4a93c1cdd84441924, type: 3}
       propertyPath: m_Name
       value: Experience Bar Info
+      objectReference: {fileID: 0}
+    - target: {fileID: 8556268517397268083, guid: 9076ef1f2117e1b4a93c1cdd84441924, type: 3}
+      propertyPath: m_Name
+      value: EXP Slider
       objectReference: {fileID: 0}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
@@ -8363,6 +8512,10 @@ PrefabInstance:
       propertyPath: m_AnchorMax.y
       value: 0
       objectReference: {fileID: 0}
+    - target: {fileID: 3395879248689873991, guid: 9076ef1f2117e1b4a93c1cdd84441924, type: 3}
+      propertyPath: m_Name
+      value: MP Fraction text
+      objectReference: {fileID: 0}
     - target: {fileID: 3849778618032345217, guid: 9076ef1f2117e1b4a93c1cdd84441924, type: 3}
       propertyPath: m_TargetGraphic
       value: 
@@ -8374,6 +8527,10 @@ PrefabInstance:
     - target: {fileID: 5343247140454076275, guid: 9076ef1f2117e1b4a93c1cdd84441924, type: 3}
       propertyPath: m_Name
       value: Mana Bar Info
+      objectReference: {fileID: 0}
+    - target: {fileID: 8556268517397268083, guid: 9076ef1f2117e1b4a93c1cdd84441924, type: 3}
+      propertyPath: m_Name
+      value: MP Slider
       objectReference: {fileID: 0}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
@@ -9291,6 +9448,28 @@ CanvasRenderer:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 2021618354}
   m_CullTransparentMesh: 1
+--- !u!114 &2030973303 stripped
+MonoBehaviour:
+  m_CorrespondingSourceObject: {fileID: 6094679784867783542, guid: a0d95f2c0d71b4b4d836d6568eb85bac, type: 3}
+  m_PrefabInstance: {fileID: 708762379}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: f4688fdb7df04437aeb418b961361dc5, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+--- !u!114 &2047170084 stripped
+MonoBehaviour:
+  m_CorrespondingSourceObject: {fileID: 8752833601407297732, guid: 9076ef1f2117e1b4a93c1cdd84441924, type: 3}
+  m_PrefabInstance: {fileID: 1750556991}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: f4688fdb7df04437aeb418b961361dc5, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!1 &2051108552
 GameObject:
   m_ObjectHideFlags: 0
@@ -9408,6 +9587,7 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 2065634415}
+  - component: {fileID: 2065634416}
   m_Layer: 5
   m_Name: Status Panel
   m_TagString: Untagged
@@ -9440,6 +9620,31 @@ RectTransform:
   m_AnchoredPosition: {x: 0, y: 0}
   m_SizeDelta: {x: 0, y: 0}
   m_Pivot: {x: 0.5, y: 0.5}
+--- !u!114 &2065634416
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 2065634414}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 6b8637437d8ba1a4194b845245e58d23, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  HPSlider: {fileID: 164011185}
+  HPFraction: {fileID: 240871150}
+  MPSlider: {fileID: 928286675}
+  MPFraction: {fileID: 2047170084}
+  EXPSlider: {fileID: 18303516}
+  EXPFraction: {fileID: 592535462}
+  level: {fileID: 897730868}
+  physicalDamgeStat: {fileID: 1008889011}
+  magicalDamgeStat: {fileID: 164606750}
+  physicalDefenceStat: {fileID: 2030973303}
+  magicalDefenceStat: {fileID: 512132015}
+  critalChanceStat: {fileID: 1675785769}
+  criticalBonusStat: {fileID: 342389981}
 --- !u!1 &2087853753
 GameObject:
   m_ObjectHideFlags: 0
@@ -9884,6 +10089,10 @@ PrefabInstance:
     serializedVersion: 3
     m_TransformParent: {fileID: 1354847169}
     m_Modifications:
+    - target: {fileID: 201675855107690485, guid: a0d95f2c0d71b4b4d836d6568eb85bac, type: 3}
+      propertyPath: m_Name
+      value: Physical Damage Value
+      objectReference: {fileID: 0}
     - target: {fileID: 4111315578131069131, guid: a0d95f2c0d71b4b4d836d6568eb85bac, type: 3}
       propertyPath: m_Pivot.x
       value: 0.5
@@ -10166,6 +10375,10 @@ PrefabInstance:
       propertyPath: m_AnchorMax.y
       value: 0
       objectReference: {fileID: 0}
+    - target: {fileID: 3395879248689873991, guid: 9076ef1f2117e1b4a93c1cdd84441924, type: 3}
+      propertyPath: m_Name
+      value: HP Fraction text
+      objectReference: {fileID: 0}
     - target: {fileID: 3849778618032345217, guid: 9076ef1f2117e1b4a93c1cdd84441924, type: 3}
       propertyPath: m_TargetGraphic
       value: 
@@ -10173,6 +10386,10 @@ PrefabInstance:
     - target: {fileID: 5343247140454076275, guid: 9076ef1f2117e1b4a93c1cdd84441924, type: 3}
       propertyPath: m_Name
       value: Health Bar Info
+      objectReference: {fileID: 0}
+    - target: {fileID: 8556268517397268083, guid: 9076ef1f2117e1b4a93c1cdd84441924, type: 3}
+      propertyPath: m_Name
+      value: HP Slider
       objectReference: {fileID: 0}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
