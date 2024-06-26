@@ -17,10 +17,44 @@ MonoBehaviour:
     statProgresses:
     - Stat: 0
       Levels:
+      - 50
+      - 75
       - 100
+    - Stat: 1
+      Levels:
+      - 10
+      - 10
+      - 10
     - Stat: 2
       Levels:
       - 5
+      - 6
+      - 7
+    - Stat: 3
+      Levels:
+      - 1
+      - 1
+      - 1
+    - Stat: 4
+      Levels:
+      - 1
+      - 1
+      - 1
+    - Stat: 5
+      Levels:
+      - 1
+      - 1
+      - 1
+    - Stat: 6
+      Levels:
+      - 0
+      - 0
+      - 0
+    - Stat: 7
+      Levels:
+      - 10
+      - 10
+      - 10
   - characterClass: 1
     statProgresses:
     - Stat: 0

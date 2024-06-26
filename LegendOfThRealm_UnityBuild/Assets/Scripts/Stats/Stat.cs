@@ -6,8 +6,10 @@ namespace LegendOfTheRealm.Stats
         Mana,
         PhysicalDamage,
         MagicalDamage,
-        PhysicalDefense,
+        PhysicalDefence,
         MagicalDefence,
+        CriticalChance,
+        CriticalBonus,
         ExperienceToLevelUp,
         ExperienceReward,
         TotalTraitPoints
