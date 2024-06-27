@@ -1,7 +1,7 @@
+using UnityEngine;
 using LegendOfTheRealm.Attributes;
 using LegendOfTheRealm.Players;
 using LegendOfTheRealm.Stats;
-using UnityEngine;
 
 namespace LegendOfTheRealm.Enemies
 {
@@ -24,22 +24,6 @@ namespace LegendOfTheRealm.Enemies
             enemy.AnimationFinishTrigger();
         }
 
-        private void AttackTrigger()
-        {
-            Collider2D[] colliders = Physics2D.OverlapCircleAll(enemy.AttackCheck.position, enemy.AttackCheckRadius);
-
-            foreach (Collider2D collider in colliders)
-            {
-                if (collider.GetComponent<Player>() != null)
-                {
-                    float damage = enemy.BaseStat.GetValueOfStat(Stat.PhysicalDamage);
-                    collider.GetComponent<Health>().TakeDamage(10f);
-
-                    Debug.Log($"{collider.gameObject.name} take {damage} damage!!!");
-                }
-            }
-        }
-
         private void OpenCounterAttackWindow()
         {
             enemy.OpenCounterAttackWindow();
@@ -48,6 +32,32 @@ namespace LegendOfTheRealm.Enemies
         private void CloseCounterAttackWindow()
         {
             enemy.CloseCounterAttackWindow();
+        }
+
+        private void AttackTrigger()
+        {
+            Collider2D[] colliders = Physics2D.OverlapCircleAll(enemy.AttackCheck.position, enemy.AttackCheckRadius);
+
+            foreach (Collider2D collider in colliders)
+            {
+                Player player = collider.GetComponent<Player>();
+                if (player != null)
+                {
+                    Health playerHealth = collider.GetComponent<Health>();
+                    if (!playerHealth.IsDead)
+                    {
+                        playerHealth.TakeDamage(GetFinalDamage(enemy.BaseStat, player.BaseStat));
+                    }
+                }
+            }
+        }
+
+        private float GetFinalDamage(BaseStat attackerStat, BaseStat defenderStat)
+        {
+            float attackerPhysicalDamage = attackerStat.GetValueOfStat(Stat.PhysicalDamage);
+            float defenderDefence = defenderStat.GetValueOfStat(Stat.PhysicalDefence);
+
+            return Mathf.Max(1, attackerPhysicalDamage - defenderDefence);
         }
     }
 }

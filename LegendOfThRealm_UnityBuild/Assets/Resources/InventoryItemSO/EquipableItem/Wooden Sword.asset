@@ -23,7 +23,9 @@ MonoBehaviour:
   - stat: 2
     value: 10
   - stat: 6
-    value: 10
+    value: 50
+  - stat: 7
+    value: 50
   percentageModifiers:
   - stat: 1
     value: 10

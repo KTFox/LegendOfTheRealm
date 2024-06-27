@@ -1,8 +1,7 @@
+using UnityEngine;
 using LegendOfTheRealm.Attributes;
 using LegendOfTheRealm.Enemies;
-using LegendOfTheRealm.Managers;
 using LegendOfTheRealm.Stats;
-using UnityEngine;
 
 namespace LegendOfTheRealm.Players
 {
@@ -25,6 +24,11 @@ namespace LegendOfTheRealm.Players
             player.AnimationFinishTrigger();
         }
 
+        private void FreezeTime()
+        {
+            player.FreezeTime();
+        }
+
         private void AttackTrigger()
         {
             Collider2D[] colliders = Physics2D.OverlapCircleAll(player.AttackCheck.position, player.AttackCheckRadius);
@@ -32,15 +36,12 @@ namespace LegendOfTheRealm.Players
             foreach (Collider2D collider in colliders)
             {
                 Enemy enemy = collider.GetComponent<Enemy>();
-                Health health = collider.GetComponent<Health>();
                 if (enemy != null)
                 {
-                    if (!health.IsDead)
+                    Health enemyHealth = enemy.GetComponent<Health>();
+                    if (!enemyHealth.IsDead)
                     {
-                        float damage = player.BaseStat.GetValueOfStat(Stat.PhysicalDamage);
-                        health.TakeDamage(damage);
-
-                        Debug.Log($"{collider.gameObject.name} take {damage} damage!!!");
+                        enemyHealth.TakeDamage(GetFinalPhysicalDamageReceived(player.BaseStat, enemy.BaseStat));
 
                         enemy.FreezeTime();
                         player.EntityFX.PlayCameraShakeFX();
@@ -49,9 +50,20 @@ namespace LegendOfTheRealm.Players
             }
         }
 
-        private void FreezeTime()
+        private float GetFinalPhysicalDamageReceived(BaseStat attackerStat, BaseStat defenderStat)
         {
-            player.FreezeTime();
+            float attackerPhysicalDamage = attackerStat.GetValueOfStat(Stat.PhysicalDamage);
+
+            bool isCriticalHit = Random.value < attackerStat.GetValueOfStat(Stat.CriticalChance) / 100;
+            if (isCriticalHit)
+            {
+                attackerPhysicalDamage += attackerPhysicalDamage * attackerStat.GetValueOfStat(Stat.CriticalBonus) / 100;
+                Debug.Log("Critical damage");
+            }
+
+            float defenderDefence = defenderStat.GetValueOfStat(Stat.PhysicalDefence);
+
+            return Mathf.Max(1, attackerPhysicalDamage - defenderDefence);
         }
     }
 }

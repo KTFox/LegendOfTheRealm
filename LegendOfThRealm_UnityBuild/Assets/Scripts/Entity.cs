@@ -8,7 +8,7 @@ namespace LegendOfTheRealm
     {
         // Variables
 
-        private const float FREEZE_TIME = 0.3f;
+        private const float FREEZE_TIME = 0.1f;
 
         [Header("Attack info")]
         [SerializeField] protected Transform attackCheck;
