@@ -43,8 +43,8 @@ namespace LegendOfTheRealm.UI.Inventories
             HPFraction.text = $"{playerHealth.CurrentHealth}/{playerHealth.MaxHealth}";
             // TO-DO: update MP value
             // TO-DO: update MP fraction value
-            // TO-DO: update EXP value
-            // TO-DO: update EXP fraction value
+            EXPSlider.value = playerBaseStat.EXPProgression;
+            EXPFraction.text = $"{playerBaseStat.CurrentEXPAchieved}/{playerBaseStat.EXPRequiredForNextLevel}";
             level.text = playerBaseStat.CurrentLevel.ToString();
             physicalDamgeStat.text = playerBaseStat.GetValueOfStat(Stat.PhysicalDamage).ToString();
             magicalDamgeStat.text = playerBaseStat.GetValueOfStat(Stat.MagicalDamage).ToString();

@@ -10,7 +10,7 @@ namespace LegendOfTheRealm.Stats
         MagicalDefence,
         CriticalChance,
         CriticalBonus,
-        ExperienceToLevelUp,
+        TotalEXPToReachLevel,
         ExperienceReward,
         TotalTraitPoints
     }

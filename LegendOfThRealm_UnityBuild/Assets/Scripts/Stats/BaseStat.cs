@@ -21,7 +21,27 @@ namespace LegendOfTheRealm.Stats
         // Properties
 
         public int CurrentLevel => currentLevel.Value;
-        public float ExperienceToLevelUp => progressionSO.GetStat(characterClass, Stat.ExperienceToLevelUp, CurrentLevel);
+        public float EXPProgression => CurrentEXPAchieved / EXPRequiredForNextLevel;
+        public float EXPRequiredForNextLevel
+        {
+            get
+            {
+                float totalEXPToReachCurrentLevel = progressionSO.GetStat(characterClass, Stat.TotalEXPToReachLevel, currentLevel.Value);
+                float totalEXPToReachNextLevel = progressionSO.GetStat(characterClass, Stat.TotalEXPToReachLevel, currentLevel.Value + 1);
+
+                return totalEXPToReachNextLevel - totalEXPToReachCurrentLevel;
+            }
+        }
+        public float CurrentEXPAchieved
+        {
+            get
+            {
+                float currentEXP = experience.ExperiencePoint;
+                float totalEXPToReachCurrentLevel = progressionSO.GetStat(characterClass, Stat.TotalEXPToReachLevel, currentLevel.Value);
+
+                return currentEXP - totalEXPToReachCurrentLevel;
+            }
+        }
 
 
         // Methods
@@ -35,6 +55,55 @@ namespace LegendOfTheRealm.Stats
         private int GetInitialLevel()
         {
             return startLevel;
+        }
+
+        private void OnEnable()
+        {
+            if (experience != null)
+            {
+                experience.OnExperienceGained += Experience_OnExperienceGained;
+            }
+        }
+
+        private void OnDisable()
+        {
+            if (experience != null)
+            {
+                experience.OnExperienceGained -= Experience_OnExperienceGained;
+            }
+        }
+
+        private void Experience_OnExperienceGained()
+        {
+            if (currentLevel.Value < GetCurrentLevel())
+            {
+                currentLevel.Value = GetCurrentLevel();
+            }
+        }
+
+        private int GetCurrentLevel()
+        {
+            Experience experience = GetComponent<Experience>();
+
+            if (experience == null)
+            {
+                return startLevel;
+            }
+
+            float currentXP = experience.ExperiencePoint;
+            int penultimateLevel = progressionSO.GetLevelLength(characterClass, Stat.TotalEXPToReachLevel);
+
+            for (int level = 1; level <= penultimateLevel; level++)
+            {
+                float XPToLevelUp = progressionSO.GetStat(characterClass, Stat.TotalEXPToReachLevel, level + 1);
+
+                if (XPToLevelUp > currentXP)
+                {
+                    return level;
+                }
+            }
+
+            return penultimateLevel;
         }
 
         public float GetValueOfStat(Stat stat)
@@ -85,32 +154,6 @@ namespace LegendOfTheRealm.Stats
             }
 
             return total;
-        }
-
-        // TO-DO: calculate current level
-        private int GetCurrentLevel()
-        {
-            var experience = GetComponent<Experience>();
-
-            if (experience == null)
-            {
-                return startLevel;
-            }
-
-            float currentXP = experience.ExperiencePoint;
-            int penultimateLevel = progressionSO.GetLevelLength(characterClass, Stat.ExperienceToLevelUp);
-
-            for (int level = 1; level <= penultimateLevel; level++)
-            {
-                float XPToLevelUp = progressionSO.GetStat(characterClass, Stat.ExperienceToLevelUp, level);
-
-                if (XPToLevelUp > currentXP)
-                {
-                    return level;
-                }
-            }
-
-            return penultimateLevel + 1;
         }
     }
 }
