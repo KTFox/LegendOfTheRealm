@@ -40,7 +40,7 @@ namespace LegendOfTheRealm.Players
                         player.Animator.SetBool("SuccessCounterAttack", true);
 
                         float damage = player.BaseStat.GetValueOfStat(Stat.PhysicalDamage);
-                        collider.GetComponent<Health>().TakeDamage(damage);
+                        collider.GetComponent<Health>().TakeDamage(player.gameObject, damage);
 
                         player.EntityFX.PlayCameraShakeFX();
                     }

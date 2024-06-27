@@ -37,18 +37,27 @@ namespace LegendOfTheRealm.Attributes
             return GetComponent<BaseStat>().GetValueOfStat(Stat.Health);
         }
 
-        public void TakeDamage(float damage)
+        public void TakeDamage(GameObject instigator, float damage)
         {
             currentHealth.Value = Mathf.Max(currentHealth.Value - damage, 0f);
 
             if (IsDead)
             {
+                GainEXPFor(instigator);
                 OnDeath?.Invoke();
             }
             else
             {
                 OnTakeDamage?.Invoke();
             }
+        }
+
+        private void GainEXPFor(GameObject instigator)
+        {
+            Experience instigatorEXP = instigator.GetComponent<Experience>();
+            if (instigatorEXP == null) return;
+
+            instigatorEXP.GainExperience(GetComponent<BaseStat>().GetValueOfStat(Stat.ExperienceReward));
         }
 
         public void Heal(float healingAmount)

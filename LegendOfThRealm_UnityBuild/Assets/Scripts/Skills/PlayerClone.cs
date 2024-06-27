@@ -93,7 +93,7 @@ namespace LegendOfTheRealm.Skills
             {
                 if (hit.GetComponent<Enemy>() != null)
                 {
-                    hit.GetComponent<Health>().TakeDamage(10f);
+                    hit.GetComponent<Health>().TakeDamage(gameObject, 10f);
                 }
             }
         }

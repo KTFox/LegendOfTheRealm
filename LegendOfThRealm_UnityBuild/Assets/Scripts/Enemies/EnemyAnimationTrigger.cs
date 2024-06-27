@@ -46,7 +46,7 @@ namespace LegendOfTheRealm.Enemies
                     Health playerHealth = collider.GetComponent<Health>();
                     if (!playerHealth.IsDead)
                     {
-                        playerHealth.TakeDamage(GetFinalDamage(enemy.BaseStat, player.BaseStat));
+                        playerHealth.TakeDamage(gameObject, GetFinalDamage(enemy.BaseStat, player.BaseStat));
                     }
                 }
             }

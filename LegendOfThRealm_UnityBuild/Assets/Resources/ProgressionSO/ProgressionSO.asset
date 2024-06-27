@@ -19,7 +19,7 @@ MonoBehaviour:
       Levels:
       - 0
       - 50
-      - 100
+      - 200
     - Stat: 0
       Levels:
       - 50
@@ -71,3 +71,6 @@ MonoBehaviour:
     - Stat: 4
       Levels:
       - 5
+    - Stat: 9
+      Levels:
+      - 60
