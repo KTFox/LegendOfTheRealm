@@ -45,7 +45,7 @@ namespace LegendOfTheRealm.UI.Inventories
             // TO-DO: update MP fraction value
             // TO-DO: update EXP value
             // TO-DO: update EXP fraction value
-            // TO-DO: update level value
+            level.text = playerBaseStat.CurrentLevel.ToString();
             physicalDamgeStat.text = playerBaseStat.GetValueOfStat(Stat.PhysicalDamage).ToString();
             magicalDamgeStat.text = playerBaseStat.GetValueOfStat(Stat.MagicalDamage).ToString();
             physicalDefenceStat.text = playerBaseStat.GetValueOfStat(Stat.PhysicalDefence).ToString();

@@ -98,8 +98,6 @@ namespace LegendOfTheRealm.Utilities.UI
 
         private void AttempSimpleTransfer(IDragDestination<T> destination)
         {
-            Debug.Log("Attemp simple transfer");
-
             T draggingItem = source.Item;
 
             int draggingQuantity = source.Quantity;
@@ -115,8 +113,6 @@ namespace LegendOfTheRealm.Utilities.UI
 
         private void AttempSwap(IDragContainer<T> destination, IDragContainer<T> source)
         {
-            Debug.Log("Attemp swap");
-
             T removedItemFromSource = source.Item;
             T removedItemFromDestination = destination.Item;
             int removedItemNumberFromSource = source.Quantity;

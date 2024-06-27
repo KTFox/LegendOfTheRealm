@@ -1,10 +1,11 @@
+using LegendOfTheRealm.Stats;
 using System;
 using System.Collections.Generic;
 using UnityEngine;
 
 namespace LegendOfTheRealm.Inventories
 {
-    public class Equipment : MonoBehaviour
+    public class Equipment : MonoBehaviour, IModifierProvider
     {
         // Variables
 
@@ -40,5 +41,31 @@ namespace LegendOfTheRealm.Inventories
 
             OnEquipmentUpdated?.Invoke();
         }
+
+        #region IModifierProvider implements
+        IEnumerable<float> IModifierProvider.GetAdditiveModifiers(Stat stat)
+        {
+            foreach (EquipmentLocation location in equippedItems.Keys)
+            {
+                IModifierProvider provider = (EquipableItemSO)equippedItems[location];
+                foreach (float modifier in provider.GetAdditiveModifiers(stat))
+                {
+                    yield return modifier;
+                }
+            }
+        }
+
+        IEnumerable<float> IModifierProvider.GetPercentageModifiers(Stat stat)
+        {
+            foreach (EquipmentLocation location in equippedItems.Keys)
+            {
+                IModifierProvider provider = (EquipableItemSO)equippedItems[location];
+                foreach (float modifier in provider.GetPercentageModifiers(stat))
+                {
+                    yield return modifier;
+                }
+            }
+        }
+        #endregion
     }
 }

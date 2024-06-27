@@ -39,8 +39,7 @@ namespace LegendOfTheRealm.Stats
 
         public float GetValueOfStat(Stat stat)
         {
-            return GetBaseStat(stat);
-            //return (GetBaseStat(stat) + GetAdditiveModifier(stat)) * (1 + GetPercentageModifier(stat) / 100);
+            return (GetBaseStat(stat) + GetAdditiveModifier(stat)) * (1 + GetPercentageModifier(stat) / 100);
         }
 
         private float GetBaseStat(Stat stat)
@@ -48,46 +47,47 @@ namespace LegendOfTheRealm.Stats
             return progressionSO.GetStat(characterClass, stat, CurrentLevel);
         }
 
-        //private float GetAdditiveModifier(Stat stat)
-        //{
-        //    if (!_shouldUseModifier)
-        //    {
-        //        return 0;
-        //    }
+        private float GetAdditiveModifier(Stat stat)
+        {
+            if (!shouldUseModifier)
+            {
+                return 0;
+            }
 
-        //    float total = 0;
+            float total = 0;
 
-        //    foreach (IModifierProvider modifierProvider in GetComponents<IModifierProvider>())
-        //    {
-        //        foreach (float additiveModifier in modifierProvider.GetAdditiveModifiers(stat))
-        //        {
-        //            total += additiveModifier;
-        //        }
-        //    }
+            foreach (IModifierProvider modifierProvider in GetComponents<IModifierProvider>())
+            {
+                foreach (float additiveModifier in modifierProvider.GetAdditiveModifiers(stat))
+                {
+                    total += additiveModifier;
+                }
+            }
 
-        //    return total;
-        //}
+            return total;
+        }
 
-        //private float GetPercentageModifier(Stat stat)
-        //{
-        //    if (!_shouldUseModifier)
-        //    {
-        //        return 0;
-        //    }
+        private float GetPercentageModifier(Stat stat)
+        {
+            if (!shouldUseModifier)
+            {
+                return 0;
+            }
 
-        //    float total = 0;
+            float total = 0;
 
-        //    foreach (IModifierProvider modifierProvider in GetComponents<IModifierProvider>())
-        //    {
-        //        foreach (float percentageModifier in modifierProvider.GetPercentageModifiers(stat))
-        //        {
-        //            total += percentageModifier;
-        //        }
-        //    }
+            foreach (IModifierProvider modifierProvider in GetComponents<IModifierProvider>())
+            {
+                foreach (float percentageModifier in modifierProvider.GetPercentageModifiers(stat))
+                {
+                    total += percentageModifier;
+                }
+            }
 
-        //    return total;
-        //}
+            return total;
+        }
 
+        // TO-DO: calculate current level
         private int GetCurrentLevel()
         {
             var experience = GetComponent<Experience>();
