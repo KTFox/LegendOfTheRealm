@@ -54,7 +54,7 @@ namespace LegendOfTheRealm.UI.Inventories
         {
             EquipableItemSO equipableItem = item as EquipableItemSO;
 
-            if (location != equipableItem.Location || Item != null)
+            if (equipableItem == null || location != equipableItem.Location || Item != null)
             {
                 return 0;
             }

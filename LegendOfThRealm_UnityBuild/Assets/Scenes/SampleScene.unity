@@ -2934,6 +2934,10 @@ PrefabInstance:
       propertyPath: m_Name
       value: Usable Item Slot (2)
       objectReference: {fileID: 0}
+    - target: {fileID: 2469321670658894939, guid: 3fad4b523cd3863408634835b0bfd541, type: 3}
+      propertyPath: slotIndex
+      value: 2
+      objectReference: {fileID: 0}
     - target: {fileID: 3898394931315709201, guid: 3fad4b523cd3863408634835b0bfd541, type: 3}
       propertyPath: m_Pivot.x
       value: 0.5
@@ -6613,6 +6617,7 @@ GameObject:
   - component: {fileID: 1456994715}
   - component: {fileID: 1456994718}
   - component: {fileID: 1456994719}
+  - component: {fileID: 1456994721}
   m_Layer: 8
   m_Name: Player
   m_TagString: Untagged
@@ -6873,7 +6878,7 @@ MonoBehaviour:
     m_DissipationMode: 2
     m_DissipationDistance: 100
     m_PropagationSpeed: 343
-  m_DefaultVelocity: {x: 0.2, y: 0.1, z: 0}
+  m_DefaultVelocity: {x: -0.2, y: 0.1, z: 0}
 --- !u!114 &1456994718
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -6912,6 +6917,18 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   experiencePoints: 0
+--- !u!114 &1456994721
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1456994709}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 0c56f4de627ac5941b6cc6d538a739d6, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!1 &1486106633
 GameObject:
   m_ObjectHideFlags: 0
@@ -9072,6 +9089,10 @@ PrefabInstance:
     - target: {fileID: 951013479732935048, guid: 3fad4b523cd3863408634835b0bfd541, type: 3}
       propertyPath: m_Name
       value: Usable Item Slot (1)
+      objectReference: {fileID: 0}
+    - target: {fileID: 2469321670658894939, guid: 3fad4b523cd3863408634835b0bfd541, type: 3}
+      propertyPath: slotIndex
+      value: 1
       objectReference: {fileID: 0}
     - target: {fileID: 3898394931315709201, guid: 3fad4b523cd3863408634835b0bfd541, type: 3}
       propertyPath: m_Pivot.x

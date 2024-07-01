@@ -59,6 +59,17 @@ namespace LegendOfTheRealm.Inventories
 
             slots[6].Item = InventoryItemSO.GetItemFromID("f1bcb013-b2f0-4421-a5b3-e02ed615d709");
             slots[6].Quantity = 1;
+
+            slots[7].Item = InventoryItemSO.GetItemFromID("f7d0ed97-83a4-4a16-ad01-0f76c7f44475");
+            slots[7].Quantity = 10;
+
+
+            slots[8].Item = InventoryItemSO.GetItemFromID("f7d0ed97-83a4-4a16-ad01-0f76c7f44475");
+            slots[8].Quantity = 20;
+
+
+            slots[9].Item = InventoryItemSO.GetItemFromID("8480d08d-80e9-41e5-89ed-b31e1031ca31");
+            slots[9].Quantity = 10;
         }
 
         public bool AddItemToSlot(int slotIndex, InventoryItemSO item, int quantity)
