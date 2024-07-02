@@ -4,7 +4,7 @@ using UnityEngine;
 
 namespace LegendOfTheRealm
 {
-    public class PlayerHealingState : PlayerGroundedState
+    public class PlayerHealingState : PlayerState
     {
         // Variables
 
@@ -21,6 +21,8 @@ namespace LegendOfTheRealm
         public override void Enter()
         {
             base.Enter();
+
+            player.SetVelocity(0f, 0f);
         }
 
         public override void Update()
