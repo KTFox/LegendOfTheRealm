@@ -9,6 +9,8 @@ namespace LegendOfTheRealm.Attributes
     {
         // Variables
 
+        private float lastMaxHealth;
+        private float lastCurrentHealth;
         private LazyValue<float> currentHealth;
 
         // Properties
@@ -21,6 +23,7 @@ namespace LegendOfTheRealm.Attributes
 
         // Events
 
+        public event Action OnMaxHealthUpdated;
         public UnityEvent<float> OnHealthChanged;
         public UnityEvent OnDeath;
 
@@ -53,6 +56,29 @@ namespace LegendOfTheRealm.Attributes
             Heal(healAmount);
         }
 
+        private void Start()
+        {
+            lastCurrentHealth = currentHealth.Value;
+            lastMaxHealth = MaxHealth;
+        }
+
+        private void Update()
+        {
+            if (currentHealth.Value != lastCurrentHealth)
+            {
+                OnHealthChanged?.Invoke(currentHealth.Value - lastCurrentHealth);
+
+                lastCurrentHealth = currentHealth.Value;
+            }
+
+            if (MaxHealth != lastMaxHealth)
+            {
+                OnMaxHealthUpdated?.Invoke();
+
+                lastMaxHealth = MaxHealth;
+            }
+        }
+
         public void TakeDamage(GameObject instigator, float damage)
         {
             currentHealth.Value = Mathf.Max(currentHealth.Value - damage, 0f);
@@ -61,10 +87,6 @@ namespace LegendOfTheRealm.Attributes
             {
                 GainEXPFor(instigator);
                 OnDeath?.Invoke();
-            }
-            else
-            {
-                OnHealthChanged?.Invoke(-damage);
             }
         }
 
@@ -79,8 +101,6 @@ namespace LegendOfTheRealm.Attributes
         public void Heal(float healingAmount)
         {
             currentHealth.Value = MathF.Min(MaxHealth, currentHealth.Value + healingAmount);
-
-            OnHealthChanged?.Invoke(healingAmount);
         }
     }
 }

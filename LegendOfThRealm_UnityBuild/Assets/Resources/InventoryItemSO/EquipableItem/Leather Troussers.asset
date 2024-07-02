@@ -20,3 +20,9 @@ MonoBehaviour:
   stackable: 0
   price: 0
   location: 2
+  additiveModifiers:
+  - stat: 0
+    value: 50
+  percentageModifiers:
+  - stat: 0
+    value: 0

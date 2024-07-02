@@ -33,8 +33,14 @@ namespace LegendOfTheRealm.UI
                 StartCoroutine(UpdateHealthSliderCoroutine(x));
             });
 
-            healthSlider.value = playerHealth.CurrentHealthFraction;
-            delayedHealthBar.fillAmount = healthSlider.value;
+            playerHealth.OnMaxHealthUpdated += PlayerHealth_OnMaxHealthUpdated;
+
+            UpdateSliderFraction();
+        }
+
+        private void PlayerHealth_OnMaxHealthUpdated()
+        {
+            UpdateSliderFraction();
         }
 
         private IEnumerator UpdateHealthSliderCoroutine(float healthChangeAmount)
@@ -60,6 +66,12 @@ namespace LegendOfTheRealm.UI
                 delayedHealthBar.fillAmount = playerHealth.CurrentHealthFraction;
                 healthSlider.DOValue(delayedHealthBar.fillAmount, 2f);
             }
+        }
+
+        private void UpdateSliderFraction()
+        {
+            healthSlider.value = playerHealth.CurrentHealthFraction;
+            delayedHealthBar.fillAmount = healthSlider.value;
         }
     }
 }
