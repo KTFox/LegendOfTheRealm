@@ -58,6 +58,33 @@
                     "processors": "",
                     "interactions": "",
                     "initialStateCheck": false
+                },
+                {
+                    "name": "UseItem1",
+                    "type": "Button",
+                    "id": "329c14fe-a9da-4a68-a366-99209259ab44",
+                    "expectedControlType": "Button",
+                    "processors": "",
+                    "interactions": "",
+                    "initialStateCheck": false
+                },
+                {
+                    "name": "UseItem2",
+                    "type": "Button",
+                    "id": "1275401c-9099-4682-9db9-98e05a982bda",
+                    "expectedControlType": "Button",
+                    "processors": "",
+                    "interactions": "",
+                    "initialStateCheck": false
+                },
+                {
+                    "name": "UseItem3",
+                    "type": "Button",
+                    "id": "f616d3d7-52fb-4c18-b25d-9cd00bbd0b63",
+                    "expectedControlType": "Button",
+                    "processors": "",
+                    "interactions": "",
+                    "initialStateCheck": false
                 }
             ],
             "bindings": [
@@ -168,6 +195,39 @@
                     "processors": "",
                     "groups": "",
                     "action": "ToggleBookUI",
+                    "isComposite": false,
+                    "isPartOfComposite": false
+                },
+                {
+                    "name": "",
+                    "id": "fc27630f-adcc-4347-bec3-149083ff04c2",
+                    "path": "<Keyboard>/1",
+                    "interactions": "",
+                    "processors": "",
+                    "groups": "",
+                    "action": "UseItem1",
+                    "isComposite": false,
+                    "isPartOfComposite": false
+                },
+                {
+                    "name": "",
+                    "id": "c0fff273-881c-40b5-80a3-1d42a5ab736c",
+                    "path": "<Keyboard>/2",
+                    "interactions": "",
+                    "processors": "",
+                    "groups": "",
+                    "action": "UseItem2",
+                    "isComposite": false,
+                    "isPartOfComposite": false
+                },
+                {
+                    "name": "",
+                    "id": "c572e02c-7689-4163-938a-ca651da8a6b4",
+                    "path": "<Keyboard>/3",
+                    "interactions": "",
+                    "processors": "",
+                    "groups": "",
+                    "action": "UseItem3",
                     "isComposite": false,
                     "isPartOfComposite": false
                 }

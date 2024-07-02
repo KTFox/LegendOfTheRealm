@@ -80,6 +80,33 @@ public partial class @PlayerInputAction: IInputActionCollection2, IDisposable
                     ""processors"": """",
                     ""interactions"": """",
                     ""initialStateCheck"": false
+                },
+                {
+                    ""name"": ""UseItem1"",
+                    ""type"": ""Button"",
+                    ""id"": ""329c14fe-a9da-4a68-a366-99209259ab44"",
+                    ""expectedControlType"": ""Button"",
+                    ""processors"": """",
+                    ""interactions"": """",
+                    ""initialStateCheck"": false
+                },
+                {
+                    ""name"": ""UseItem2"",
+                    ""type"": ""Button"",
+                    ""id"": ""1275401c-9099-4682-9db9-98e05a982bda"",
+                    ""expectedControlType"": ""Button"",
+                    ""processors"": """",
+                    ""interactions"": """",
+                    ""initialStateCheck"": false
+                },
+                {
+                    ""name"": ""UseItem3"",
+                    ""type"": ""Button"",
+                    ""id"": ""f616d3d7-52fb-4c18-b25d-9cd00bbd0b63"",
+                    ""expectedControlType"": ""Button"",
+                    ""processors"": """",
+                    ""interactions"": """",
+                    ""initialStateCheck"": false
                 }
             ],
             ""bindings"": [
@@ -192,6 +219,39 @@ public partial class @PlayerInputAction: IInputActionCollection2, IDisposable
                     ""action"": ""ToggleBookUI"",
                     ""isComposite"": false,
                     ""isPartOfComposite"": false
+                },
+                {
+                    ""name"": """",
+                    ""id"": ""fc27630f-adcc-4347-bec3-149083ff04c2"",
+                    ""path"": ""<Keyboard>/1"",
+                    ""interactions"": """",
+                    ""processors"": """",
+                    ""groups"": """",
+                    ""action"": ""UseItem1"",
+                    ""isComposite"": false,
+                    ""isPartOfComposite"": false
+                },
+                {
+                    ""name"": """",
+                    ""id"": ""c0fff273-881c-40b5-80a3-1d42a5ab736c"",
+                    ""path"": ""<Keyboard>/2"",
+                    ""interactions"": """",
+                    ""processors"": """",
+                    ""groups"": """",
+                    ""action"": ""UseItem2"",
+                    ""isComposite"": false,
+                    ""isPartOfComposite"": false
+                },
+                {
+                    ""name"": """",
+                    ""id"": ""c572e02c-7689-4163-938a-ca651da8a6b4"",
+                    ""path"": ""<Keyboard>/3"",
+                    ""interactions"": """",
+                    ""processors"": """",
+                    ""groups"": """",
+                    ""action"": ""UseItem3"",
+                    ""isComposite"": false,
+                    ""isPartOfComposite"": false
                 }
             ]
         }
@@ -206,6 +266,9 @@ public partial class @PlayerInputAction: IInputActionCollection2, IDisposable
         m_Player_Dash = m_Player.FindAction("Dash", throwIfNotFound: true);
         m_Player_AttackCounter = m_Player.FindAction("AttackCounter", throwIfNotFound: true);
         m_Player_ToggleBookUI = m_Player.FindAction("ToggleBookUI", throwIfNotFound: true);
+        m_Player_UseItem1 = m_Player.FindAction("UseItem1", throwIfNotFound: true);
+        m_Player_UseItem2 = m_Player.FindAction("UseItem2", throwIfNotFound: true);
+        m_Player_UseItem3 = m_Player.FindAction("UseItem3", throwIfNotFound: true);
     }
 
     public void Dispose()
@@ -273,6 +336,9 @@ public partial class @PlayerInputAction: IInputActionCollection2, IDisposable
     private readonly InputAction m_Player_Dash;
     private readonly InputAction m_Player_AttackCounter;
     private readonly InputAction m_Player_ToggleBookUI;
+    private readonly InputAction m_Player_UseItem1;
+    private readonly InputAction m_Player_UseItem2;
+    private readonly InputAction m_Player_UseItem3;
     public struct PlayerActions
     {
         private @PlayerInputAction m_Wrapper;
@@ -283,6 +349,9 @@ public partial class @PlayerInputAction: IInputActionCollection2, IDisposable
         public InputAction @Dash => m_Wrapper.m_Player_Dash;
         public InputAction @AttackCounter => m_Wrapper.m_Player_AttackCounter;
         public InputAction @ToggleBookUI => m_Wrapper.m_Player_ToggleBookUI;
+        public InputAction @UseItem1 => m_Wrapper.m_Player_UseItem1;
+        public InputAction @UseItem2 => m_Wrapper.m_Player_UseItem2;
+        public InputAction @UseItem3 => m_Wrapper.m_Player_UseItem3;
         public InputActionMap Get() { return m_Wrapper.m_Player; }
         public void Enable() { Get().Enable(); }
         public void Disable() { Get().Disable(); }
@@ -310,6 +379,15 @@ public partial class @PlayerInputAction: IInputActionCollection2, IDisposable
             @ToggleBookUI.started += instance.OnToggleBookUI;
             @ToggleBookUI.performed += instance.OnToggleBookUI;
             @ToggleBookUI.canceled += instance.OnToggleBookUI;
+            @UseItem1.started += instance.OnUseItem1;
+            @UseItem1.performed += instance.OnUseItem1;
+            @UseItem1.canceled += instance.OnUseItem1;
+            @UseItem2.started += instance.OnUseItem2;
+            @UseItem2.performed += instance.OnUseItem2;
+            @UseItem2.canceled += instance.OnUseItem2;
+            @UseItem3.started += instance.OnUseItem3;
+            @UseItem3.performed += instance.OnUseItem3;
+            @UseItem3.canceled += instance.OnUseItem3;
         }
 
         private void UnregisterCallbacks(IPlayerActions instance)
@@ -332,6 +410,15 @@ public partial class @PlayerInputAction: IInputActionCollection2, IDisposable
             @ToggleBookUI.started -= instance.OnToggleBookUI;
             @ToggleBookUI.performed -= instance.OnToggleBookUI;
             @ToggleBookUI.canceled -= instance.OnToggleBookUI;
+            @UseItem1.started -= instance.OnUseItem1;
+            @UseItem1.performed -= instance.OnUseItem1;
+            @UseItem1.canceled -= instance.OnUseItem1;
+            @UseItem2.started -= instance.OnUseItem2;
+            @UseItem2.performed -= instance.OnUseItem2;
+            @UseItem2.canceled -= instance.OnUseItem2;
+            @UseItem3.started -= instance.OnUseItem3;
+            @UseItem3.performed -= instance.OnUseItem3;
+            @UseItem3.canceled -= instance.OnUseItem3;
         }
 
         public void RemoveCallbacks(IPlayerActions instance)
@@ -357,5 +444,8 @@ public partial class @PlayerInputAction: IInputActionCollection2, IDisposable
         void OnDash(InputAction.CallbackContext context);
         void OnAttackCounter(InputAction.CallbackContext context);
         void OnToggleBookUI(InputAction.CallbackContext context);
+        void OnUseItem1(InputAction.CallbackContext context);
+        void OnUseItem2(InputAction.CallbackContext context);
+        void OnUseItem3(InputAction.CallbackContext context);
     }
 }

@@ -18,6 +18,9 @@ namespace LegendOfTheRealm.Managers
         public event Action OnAttack;
         public event Action OnCounterAttack;
         public event Action OnToggleBookUI;
+        public event Action OnUseItem1;
+        public event Action OnUseItem2;
+        public event Action OnUseItem3;
 
 
         // Methods
@@ -33,6 +36,9 @@ namespace LegendOfTheRealm.Managers
             inputAction.Player.Attack.performed += Attack_performed;
             inputAction.Player.AttackCounter.performed += AttackCounter_performed;
             inputAction.Player.ToggleBookUI.performed += ToggleBookUI_performed;
+            inputAction.Player.UseItem1.performed += UseItem1_performed;
+            inputAction.Player.UseItem2.performed += UseItem2_performed;
+            inputAction.Player.UseItem3.performed += UseItem3_performed;
         }
 
         private void OnDestroy()
@@ -67,6 +73,21 @@ namespace LegendOfTheRealm.Managers
         private void ToggleBookUI_performed(UnityEngine.InputSystem.InputAction.CallbackContext obj)
         {
             OnToggleBookUI?.Invoke();
+        }
+
+        private void UseItem1_performed(UnityEngine.InputSystem.InputAction.CallbackContext obj)
+        {
+            OnUseItem1?.Invoke();
+        }
+
+        private void UseItem2_performed(UnityEngine.InputSystem.InputAction.CallbackContext obj)
+        {
+            OnUseItem2?.Invoke();
+        }
+
+        private void UseItem3_performed(UnityEngine.InputSystem.InputAction.CallbackContext obj)
+        {
+            OnUseItem3?.Invoke();
         }
 
         public Vector2 GetNormallizedMovementVector()

@@ -1,6 +1,7 @@
 using System.Collections;
 using UnityEngine;
 using LegendOfTheRealm.Managers;
+using LegendOfTheRealm.Inventories;
 
 namespace LegendOfTheRealm.Players
 {
@@ -18,6 +19,8 @@ namespace LegendOfTheRealm.Players
 
         [Header("Attack details")]
         [SerializeField] private float counterAttackDuration = 0.2f;
+
+        private UseableItemStore useableItemStore;
 
         // Properties
 
@@ -47,6 +50,8 @@ namespace LegendOfTheRealm.Players
         {
             base.Awake();
 
+            useableItemStore = GetComponent<UseableItemStore>();
+
             #region Player states caching
             stateMachine = new PlayerStateMachine();
             IdleState = new PlayerIdleState(this, stateMachine, "Idle");
@@ -70,6 +75,9 @@ namespace LegendOfTheRealm.Players
             InputManager.Instance.OnDash += InputManager_OnDash;
             InputManager.Instance.OnAttack += InputManager_OnAttack;
             InputManager.Instance.OnCounterAttack += InputManager_OnCounterAttack;
+            InputManager.Instance.OnUseItem1 += InputManager_OnUseItem1;
+            InputManager.Instance.OnUseItem2 += InputManager_OnUseItem2;
+            InputManager.Instance.OnUseItem3 += InputManager_OnUseItem3;
         }
 
         protected override void Update()
@@ -104,6 +112,21 @@ namespace LegendOfTheRealm.Players
         private void InputManager_OnCounterAttack()
         {
             stateMachine.CurrentState.OnCounterAttack();
+        }
+
+        private void InputManager_OnUseItem1()
+        {
+            useableItemStore.UseItemIn(0);
+        }
+
+        private void InputManager_OnUseItem2()
+        {
+            useableItemStore.UseItemIn(1);
+        }
+
+        private void InputManager_OnUseItem3()
+        {
+            useableItemStore.UseItemIn(2);
         }
 
         public override void Die()
