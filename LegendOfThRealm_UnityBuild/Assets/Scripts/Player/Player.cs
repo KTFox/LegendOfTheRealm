@@ -25,7 +25,7 @@ namespace LegendOfTheRealm.Players
         // Properties
 
         #region States
-        private PlayerStateMachine stateMachine;
+        public PlayerStateMachine StateMachine { get; private set; }
         public PlayerIdleState IdleState { get; private set; }
         public PlayerMoveState MoveState { get; private set; }
         public PlayerJumpState JumpState { get; private set; }
@@ -33,6 +33,7 @@ namespace LegendOfTheRealm.Players
         public PlayerAirDashingState AirDashingState { get; private set; }
         public PlayerPrimaryAttackState PrimaryAttackState { get; private set; }
         public PlayerCounterAttackState CounterAttackState { get; private set; }
+        public PlayerHealingState HealingState { get; private set; }
         public PlayerDeathState DeathState { get; private set; }
         #endregion
 
@@ -53,15 +54,16 @@ namespace LegendOfTheRealm.Players
             useableItemStore = GetComponent<UseableItemStore>();
 
             #region Player states caching
-            stateMachine = new PlayerStateMachine();
-            IdleState = new PlayerIdleState(this, stateMachine, "Idle");
-            MoveState = new PlayerMoveState(this, stateMachine, "Move");
-            JumpState = new PlayerJumpState(this, stateMachine, "Jump");
-            RollState = new PlayerRollState(this, stateMachine, "Roll");
-            AirDashingState = new PlayerAirDashingState(this, stateMachine, "AirDashing");
-            PrimaryAttackState = new PlayerPrimaryAttackState(this, stateMachine, "Attack");
-            CounterAttackState = new PlayerCounterAttackState(this, stateMachine, "CounterAttack");
-            DeathState = new PlayerDeathState(this, stateMachine, "Die");
+            StateMachine = new PlayerStateMachine();
+            IdleState = new PlayerIdleState(this, StateMachine, "Idle");
+            MoveState = new PlayerMoveState(this, StateMachine, "Move");
+            JumpState = new PlayerJumpState(this, StateMachine, "Jump");
+            RollState = new PlayerRollState(this, StateMachine, "Roll");
+            AirDashingState = new PlayerAirDashingState(this, StateMachine, "AirDashing");
+            PrimaryAttackState = new PlayerPrimaryAttackState(this, StateMachine, "Attack");
+            CounterAttackState = new PlayerCounterAttackState(this, StateMachine, "CounterAttack");
+            HealingState = new PlayerHealingState(this, StateMachine, "Heal");
+            DeathState = new PlayerDeathState(this, StateMachine, "Die");
             #endregion
         }
 
@@ -69,7 +71,7 @@ namespace LegendOfTheRealm.Players
         {
             base.Start();
 
-            stateMachine.Initialize(IdleState);
+            StateMachine.Initialize(IdleState);
 
             InputManager.Instance.OnJump += InputManager_OnJump;
             InputManager.Instance.OnDash += InputManager_OnDash;
@@ -84,34 +86,34 @@ namespace LegendOfTheRealm.Players
         {
             base.Update();
 
-            stateMachine.CurrentState.Update();
+            StateMachine.CurrentState.Update();
         }
 
         private void InputManager_OnJump()
         {
-            stateMachine.CurrentState.OnJump();
+            StateMachine.CurrentState.OnJump();
         }
 
         private void InputManager_OnDash()
         {
             if (IsGroundDetected)
             {
-                stateMachine.ChangeState(RollState);
+                StateMachine.ChangeState(RollState);
             }
             else
             {
-                stateMachine.ChangeState(AirDashingState);
+                StateMachine.ChangeState(AirDashingState);
             }
         }
 
         private void InputManager_OnAttack()
         {
-            stateMachine.CurrentState.OnAttack();
+            StateMachine.CurrentState.OnAttack();
         }
 
         private void InputManager_OnCounterAttack()
         {
-            stateMachine.CurrentState.OnCounterAttack();
+            StateMachine.CurrentState.OnCounterAttack();
         }
 
         private void InputManager_OnUseItem1()
@@ -133,7 +135,7 @@ namespace LegendOfTheRealm.Players
         {
             base.Die();
 
-            stateMachine.ChangeState(DeathState);
+            StateMachine.ChangeState(DeathState);
         }
 
         public IEnumerator BusyFor(float seconds)
@@ -147,7 +149,7 @@ namespace LegendOfTheRealm.Players
 
         public void AnimationFinishTrigger()
         {
-            stateMachine.CurrentState.AnimationFinishTrigger();
+            StateMachine.CurrentState.AnimationFinishTrigger();
         }
     }
 }

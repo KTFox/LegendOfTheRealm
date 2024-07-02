@@ -12,7 +12,12 @@ namespace LegendOfTheRealm.Inventories
         public override void Use()
         {
             Player player = FindObjectOfType<Player>();
-            player.GetComponent<Health>().Heal(healAmount);
+
+            if (player.StateMachine.CurrentState is PlayerGroundedState)
+            {
+                player.StateMachine.ChangeState(player.HealingState);
+                player.HealingState.healingAmount = healAmount;
+            }
         }
     }
 }
