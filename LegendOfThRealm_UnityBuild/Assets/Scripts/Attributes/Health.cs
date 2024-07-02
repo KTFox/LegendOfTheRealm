@@ -57,6 +57,7 @@ namespace LegendOfTheRealm.Attributes
             Experience instigatorEXP = instigator.GetComponent<Experience>();
             if (instigatorEXP == null) return;
 
+            Debug.Log($"{GetComponent<BaseStat>().GetValueOfStat(Stat.ExperienceReward)} esperience");
             instigatorEXP.GainExperience(GetComponent<BaseStat>().GetValueOfStat(Stat.ExperienceReward));
         }
 

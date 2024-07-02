@@ -41,7 +41,7 @@ namespace LegendOfTheRealm.Players
                     Health enemyHealth = enemy.GetComponent<Health>();
                     if (!enemyHealth.IsDead)
                     {
-                        enemyHealth.TakeDamage(gameObject, GetFinalPhysicalDamageReceived(player.BaseStat, enemy.BaseStat));
+                        enemyHealth.TakeDamage(player.gameObject, GetFinalPhysicalDamageReceived(player.BaseStat, enemy.BaseStat));
 
                         enemy.FreezeTime();
                         player.EntityFX.PlayCameraShakeFX();
