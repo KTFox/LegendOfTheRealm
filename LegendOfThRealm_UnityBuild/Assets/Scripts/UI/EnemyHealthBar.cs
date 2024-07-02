@@ -1,6 +1,6 @@
 using DG.Tweening;
 using LegendOfTheRealm.Attributes;
-using System;
+using System.Collections;
 using UnityEngine;
 using UnityEngine.UI;
 
@@ -16,7 +16,6 @@ namespace LegendOfTheRealm.UI
         private Slider healthSlider;
 
         private float timeToUpdateDelayedSlider = 1f;
-        private float updateHealthBarTimer;
 
 
         // Methods
@@ -29,21 +28,13 @@ namespace LegendOfTheRealm.UI
 
         private void Start()
         {
-            enemtHealth.OnTakeDamage.AddListener(UpdateHealthBar);
-
-            UpdateHealthBar();
-
-            delayedHealthBar.fillAmount = healthSlider.value;
-        }
-
-        private void Update()
-        {
-            updateHealthBarTimer -= Time.deltaTime;
-
-            if (updateHealthBarTimer <= 0f && delayedHealthBar.fillAmount != healthSlider.value)
+            enemtHealth.OnHealthChanged.AddListener((x) =>
             {
-                delayedHealthBar.DOFillAmount(healthSlider.value, 2f);
-            }
+                StartCoroutine(UpdateHealthSliderCoroutine(x));
+            });
+
+            healthSlider.value = enemtHealth.CurrentHealthFraction;
+            delayedHealthBar.fillAmount = healthSlider.value;
         }
 
         private void LateUpdate()
@@ -51,10 +42,29 @@ namespace LegendOfTheRealm.UI
             transform.LookAt(transform.position - Camera.main.transform.position);
         }
 
-        private void UpdateHealthBar()
+        private IEnumerator UpdateHealthSliderCoroutine(float healthChangeAmount)
         {
-            healthSlider.value = enemtHealth.CurrentHealthFraction;
-            updateHealthBarTimer = timeToUpdateDelayedSlider;
+            if (healthChangeAmount < 0f)
+            {
+                healthSlider.value = enemtHealth.CurrentHealthFraction;
+            }
+            else
+            {
+                delayedHealthBar.fillAmount = enemtHealth.CurrentHealthFraction;
+            }
+
+            yield return new WaitForSeconds(timeToUpdateDelayedSlider);
+
+            if (healthChangeAmount < 0f)
+            {
+                healthSlider.value = enemtHealth.CurrentHealthFraction;
+                delayedHealthBar.DOFillAmount(healthSlider.value, 2f);
+            }
+            else
+            {
+                delayedHealthBar.fillAmount = enemtHealth.CurrentHealthFraction;
+                healthSlider.DOValue(delayedHealthBar.fillAmount, 2f);
+            }
         }
     }
 }

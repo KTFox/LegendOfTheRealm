@@ -21,7 +21,7 @@ namespace LegendOfTheRealm.Attributes
 
         // Events
 
-        public UnityEvent OnTakeDamage;
+        public UnityEvent<float> OnHealthChanged;
         public UnityEvent OnDeath;
 
 
@@ -48,7 +48,7 @@ namespace LegendOfTheRealm.Attributes
             }
             else
             {
-                OnTakeDamage?.Invoke();
+                OnHealthChanged?.Invoke(-damage);
             }
         }
 
@@ -63,6 +63,8 @@ namespace LegendOfTheRealm.Attributes
         public void Heal(float healingAmount)
         {
             currentHealth.Value = MathF.Min(MaxHealth, currentHealth.Value + healingAmount);
+
+            OnHealthChanged?.Invoke(healingAmount);
         }
     }
 }

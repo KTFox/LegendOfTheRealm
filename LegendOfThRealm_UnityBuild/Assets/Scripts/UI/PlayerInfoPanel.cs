@@ -1,6 +1,7 @@
 using DG.Tweening;
 using LegendOfTheRealm.Attributes;
 using LegendOfTheRealm.Players;
+using System.Collections;
 using UnityEngine;
 using UnityEngine.UI;
 
@@ -17,7 +18,6 @@ namespace LegendOfTheRealm.UI
         private Health playerHealth;
 
         private float timeToUpdateDelayedSlider = 1f;
-        private float updateHealthBarTimer;
 
 
         // Methods
@@ -27,27 +27,38 @@ namespace LegendOfTheRealm.UI
             player = FindObjectOfType<Player>();
             playerHealth = player.GetComponent<Health>();
 
-            playerHealth.OnTakeDamage.AddListener(UpdateHealthSlider);
+            playerHealth.OnHealthChanged.AddListener((x) =>
+            {
+                StartCoroutine(UpdateHealthSliderCoroutine(x));
+            });
 
-            UpdateHealthSlider();
-
+            healthSlider.value = playerHealth.CurrentHealthFraction;
             delayedHealthBar.fillAmount = healthSlider.value;
         }
 
-        private void Update()
+        private IEnumerator UpdateHealthSliderCoroutine(float healthChangeAmount)
         {
-            updateHealthBarTimer -= Time.deltaTime;
-
-            if (updateHealthBarTimer <= 0f && delayedHealthBar.fillAmount != healthSlider.value)
+            if (healthChangeAmount < 0f)
             {
+                healthSlider.value = playerHealth.CurrentHealthFraction;
+            }
+            else
+            {
+                delayedHealthBar.fillAmount = playerHealth.CurrentHealthFraction;
+            }
+
+            yield return new WaitForSeconds(timeToUpdateDelayedSlider);
+
+            if (healthChangeAmount < 0f)
+            {
+                healthSlider.value = playerHealth.CurrentHealthFraction;
                 delayedHealthBar.DOFillAmount(healthSlider.value, 2f);
             }
-        }
-
-        private void UpdateHealthSlider()
-        {
-            healthSlider.value = playerHealth.CurrentHealthFraction;
-            updateHealthBarTimer = timeToUpdateDelayedSlider;
+            else
+            {
+                delayedHealthBar.fillAmount = playerHealth.CurrentHealthFraction;
+                healthSlider.DOValue(delayedHealthBar.fillAmount, 2f);
+            }
         }
     }
 }
