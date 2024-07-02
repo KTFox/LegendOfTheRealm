@@ -29,6 +29,7 @@ namespace LegendOfTheRealm.UI
 
             playerHealth.OnHealthChanged.AddListener((x) =>
             {
+                StopAllCoroutines();
                 StartCoroutine(UpdateHealthSliderCoroutine(x));
             });
 

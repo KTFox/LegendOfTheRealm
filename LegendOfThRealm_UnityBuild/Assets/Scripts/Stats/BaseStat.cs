@@ -43,6 +43,10 @@ namespace LegendOfTheRealm.Stats
             }
         }
 
+        // Events
+
+        public event Action OnLevelUp;
+
 
         // Methods
 
@@ -78,6 +82,8 @@ namespace LegendOfTheRealm.Stats
             if (currentLevel.Value < GetCurrentLevel())
             {
                 currentLevel.Value = GetCurrentLevel();
+
+                OnLevelUp?.Invoke();
             }
         }
 

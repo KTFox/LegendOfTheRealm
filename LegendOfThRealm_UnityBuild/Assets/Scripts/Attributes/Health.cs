@@ -37,6 +37,22 @@ namespace LegendOfTheRealm.Attributes
             return GetComponent<BaseStat>().GetValueOfStat(Stat.Health);
         }
 
+        private void OnEnable()
+        {
+            GetComponent<BaseStat>().OnLevelUp += BaseStat_OnLevelUp;
+        }
+
+        private void OnDisable()
+        {
+            GetComponent<BaseStat>().OnLevelUp -= BaseStat_OnLevelUp;
+        }
+
+        private void BaseStat_OnLevelUp()
+        {
+            float healAmount = MaxHealth - CurrentHealth;
+            Heal(healAmount);
+        }
+
         public void TakeDamage(GameObject instigator, float damage)
         {
             currentHealth.Value = Mathf.Max(currentHealth.Value - damage, 0f);
@@ -57,7 +73,6 @@ namespace LegendOfTheRealm.Attributes
             Experience instigatorEXP = instigator.GetComponent<Experience>();
             if (instigatorEXP == null) return;
 
-            Debug.Log($"{GetComponent<BaseStat>().GetValueOfStat(Stat.ExperienceReward)} esperience");
             instigatorEXP.GainExperience(GetComponent<BaseStat>().GetValueOfStat(Stat.ExperienceReward));
         }
 
