@@ -5,6 +5,8 @@ namespace LegendOfTheRealm.Managers
 {
     public class SkillManager : MonoBehaviour
     {
+        // Variables
+
         public static SkillManager Instance;
 
         #region Skill
