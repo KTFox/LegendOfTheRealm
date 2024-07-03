@@ -19,7 +19,17 @@ namespace LegendOfTheRealm.Enemies.Bandits
             base.Enter();
 
             bandit.SetVelocity(0f, 0f);
-            bandit.HealthBar.SetActive(false);
+            stateTimer = 2f;
+        }
+
+        public override void Update()
+        {
+            base.Update();
+
+            if (stateTimer <= 0f)
+            {
+                bandit.HealthBar.SetActive(false);
+            }
         }
     }
 }
