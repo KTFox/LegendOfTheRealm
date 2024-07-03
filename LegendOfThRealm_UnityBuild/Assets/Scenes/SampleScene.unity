@@ -7356,7 +7356,7 @@ MonoBehaviour:
     m_DissipationMode: 2
     m_DissipationDistance: 100
     m_PropagationSpeed: 343
-  m_DefaultVelocity: {x: -0.2, y: 0.1, z: 0}
+  m_DefaultVelocity: {x: 0.2, y: 0.1, z: 0}
 --- !u!114 &1456994718
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -7482,7 +7482,7 @@ SpriteRenderer:
   m_SortingLayerID: -1895474369
   m_SortingLayer: 3
   m_SortingOrder: 1
-  m_Sprite: {fileID: -40866003, guid: dd55e3065e1edb6419c418929f3f84de, type: 3}
+  m_Sprite: {fileID: 1897199031, guid: 57a025cf81f8dc143b369505e9455b20, type: 3}
   m_Color: {r: 1, g: 1, b: 1, a: 1}
   m_FlipX: 0
   m_FlipY: 0
@@ -7503,7 +7503,7 @@ Animator:
   m_GameObject: {fileID: 1486106633}
   m_Enabled: 1
   m_Avatar: {fileID: 0}
-  m_Controller: {fileID: 9100000, guid: bff30b3f480557e4891a686bb5e87ae7, type: 2}
+  m_Controller: {fileID: 9100000, guid: 66b091ae932153942ae54c22710f6487, type: 2}
   m_CullingMode: 0
   m_UpdateMode: 0
   m_ApplyRootMotion: 0
