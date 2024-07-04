@@ -622,9 +622,9 @@ TextureImporter:
       name: Ronin_Attack_36
       rect:
         serializedVersion: 2
-        x: 1216
+        x: 1152
         y: 192
-        width: 64
+        width: 256
         height: 64
       alignment: 0
       pivot: {x: 0.5, y: 0.5}
@@ -640,54 +640,12 @@ TextureImporter:
       edges: []
       weights: []
     - serializedVersion: 2
-      name: Ronin_Attack_37
-      rect:
-        serializedVersion: 2
-        x: 1280
-        y: 192
-        width: 64
-        height: 64
-      alignment: 0
-      pivot: {x: 0.5, y: 0.5}
-      border: {x: 0, y: 0, z: 0, w: 0}
-      outline: []
-      physicsShape: []
-      tessellationDetail: 0
-      bones: []
-      spriteID: bc5227fbd49467b4780a817d0242eed0
-      internalID: -364820519
-      vertices: []
-      indices: 
-      edges: []
-      weights: []
-    - serializedVersion: 2
-      name: Ronin_Attack_38
-      rect:
-        serializedVersion: 2
-        x: 1344
-        y: 192
-        width: 64
-        height: 64
-      alignment: 0
-      pivot: {x: 0.5, y: 0.5}
-      border: {x: 0, y: 0, z: 0, w: 0}
-      outline: []
-      physicsShape: []
-      tessellationDetail: 0
-      bones: []
-      spriteID: 863620f11eeb2e04eaf5497dc1d0a161
-      internalID: 1235709411
-      vertices: []
-      indices: 
-      edges: []
-      weights: []
-    - serializedVersion: 2
       name: Ronin_Attack_39
       rect:
         serializedVersion: 2
-        x: 1472
+        x: 1408
         y: 192
-        width: 64
+        width: 256
         height: 64
       alignment: 0
       pivot: {x: 0.5, y: 0.5}
@@ -698,48 +656,6 @@ TextureImporter:
       bones: []
       spriteID: b5152e69cbc8e0347a661859ac3a3792
       internalID: -53243094
-      vertices: []
-      indices: 
-      edges: []
-      weights: []
-    - serializedVersion: 2
-      name: Ronin_Attack_40
-      rect:
-        serializedVersion: 2
-        x: 1536
-        y: 192
-        width: 64
-        height: 64
-      alignment: 0
-      pivot: {x: 0.5, y: 0.5}
-      border: {x: 0, y: 0, z: 0, w: 0}
-      outline: []
-      physicsShape: []
-      tessellationDetail: 0
-      bones: []
-      spriteID: eea21175b67b62b41a7132c33d83c8a7
-      internalID: -1887671093
-      vertices: []
-      indices: 
-      edges: []
-      weights: []
-    - serializedVersion: 2
-      name: Ronin_Attack_41
-      rect:
-        serializedVersion: 2
-        x: 1600
-        y: 192
-        width: 64
-        height: 64
-      alignment: 0
-      pivot: {x: 0.5, y: 0.5}
-      border: {x: 0, y: 0, z: 0, w: 0}
-      outline: []
-      physicsShape: []
-      tessellationDetail: 0
-      bones: []
-      spriteID: 7482f94007f1afc42b6025418d174297
-      internalID: -656101919
       vertices: []
       indices: 
       edges: []
