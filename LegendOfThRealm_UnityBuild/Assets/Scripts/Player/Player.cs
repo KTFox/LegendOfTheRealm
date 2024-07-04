@@ -101,14 +101,7 @@ namespace LegendOfTheRealm.Players
 
         private void InputManager_OnDash()
         {
-            if (IsGroundDetected)
-            {
-                StateMachine.ChangeState(RollState);
-            }
-            else
-            {
-                StateMachine.ChangeState(AirDashingState);
-            }
+            skillManager.DashSkill.Use();
         }
 
         private void InputManager_OnAttack()
@@ -138,13 +131,7 @@ namespace LegendOfTheRealm.Players
 
         private void InputManager_OnHeavyAttack()
         {
-            if (IsGroundDetected)
-            {
-                if (skillManager.HeavyAttackSkill.CanUseSkill())
-                {
-                    StateMachine.ChangeState(HeavyAttackState);
-                }
-            }
+            skillManager.HeavyAttackSkill.Use();
         }
 
         public override void Die()

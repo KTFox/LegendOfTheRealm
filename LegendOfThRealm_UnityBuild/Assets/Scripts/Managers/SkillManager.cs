@@ -1,3 +1,4 @@
+using LegendOfTheRealm.Skills;
 using UnityEngine;
 
 namespace LegendOfTheRealm.Managers
@@ -9,6 +10,7 @@ namespace LegendOfTheRealm.Managers
         public static SkillManager Instance;
 
         #region Skills
+        public DashSkill DashSkill { get; private set; }
         public HeavyAttackSkill HeavyAttackSkill { get; private set; }
         #endregion
 
@@ -19,6 +21,7 @@ namespace LegendOfTheRealm.Managers
         {
             Instance = this;
 
+            DashSkill = GetComponent<DashSkill>();
             HeavyAttackSkill = GetComponent<HeavyAttackSkill>();
         }
     }

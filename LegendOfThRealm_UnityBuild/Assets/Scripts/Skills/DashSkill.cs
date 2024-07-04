@@ -1,10 +1,6 @@
-using System.Collections;
-using System.Collections.Generic;
-using UnityEngine;
-
 namespace LegendOfTheRealm.Skills
 {
-    public class HeavyAttackSkill : Skill
+    public class DashSkill : Skill
     {
         public override void Use()
         {
@@ -19,7 +15,11 @@ namespace LegendOfTheRealm.Skills
 
             if (player.IsGroundDetected)
             {
-                player.StateMachine.ChangeState(player.HeavyAttackState);
+                player.StateMachine.ChangeState(player.RollState);
+            }
+            else
+            {
+                player.StateMachine.ChangeState(player.AirDashingState);
             }
         }
     }
