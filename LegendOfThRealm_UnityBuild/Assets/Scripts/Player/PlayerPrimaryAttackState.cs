@@ -55,5 +55,12 @@ namespace LegendOfTheRealm.Players
             lastTimeAttacked = Time.time;
             comboCounter++;
         }
+
+        public override void OnCounterAttack()
+        {
+            base.OnCounterAttack();
+
+            stateMachine.ChangeState(player.CounterAttackState);
+        }
     }
 }
