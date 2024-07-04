@@ -18,7 +18,15 @@ namespace LegendOfTheRealm.Players
             base.Enter();
 
             stateTimer = player.RollDuration;
-            rollDir = player.FacingDir;
+
+            if (inputManger.GetNormallizedMovementVector().x != 0)
+            {
+                rollDir = inputManger.GetNormallizedMovementVector().x;
+            }
+            else
+            {
+                rollDir = player.FacingDir;
+            }
         }
 
         public override void Update()
