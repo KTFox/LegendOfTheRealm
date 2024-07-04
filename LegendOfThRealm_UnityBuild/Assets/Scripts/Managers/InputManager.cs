@@ -21,6 +21,7 @@ namespace LegendOfTheRealm.Managers
         public event Action OnUseItem1;
         public event Action OnUseItem2;
         public event Action OnUseItem3;
+        public event Action OnHeavyAttack;
 
 
         // Methods
@@ -39,6 +40,7 @@ namespace LegendOfTheRealm.Managers
             inputAction.Player.UseItem1.performed += UseItem1_performed;
             inputAction.Player.UseItem2.performed += UseItem2_performed;
             inputAction.Player.UseItem3.performed += UseItem3_performed;
+            inputAction.Player.HeavyAttack.performed += HeavyAttack_performed;
         }
 
         private void OnDestroy()
@@ -48,6 +50,7 @@ namespace LegendOfTheRealm.Managers
             inputAction.Player.Dash.performed -= Dash_performed;
             inputAction.Player.Attack.performed -= Attack_performed;
             inputAction.Player.AttackCounter.performed -= AttackCounter_performed;
+            inputAction.Player.HeavyAttack.performed -= HeavyAttack_performed;
         }
 
         private void Jump_performed(UnityEngine.InputSystem.InputAction.CallbackContext obj)
@@ -88,6 +91,11 @@ namespace LegendOfTheRealm.Managers
         private void UseItem3_performed(UnityEngine.InputSystem.InputAction.CallbackContext obj)
         {
             OnUseItem3?.Invoke();
+        }
+
+        private void HeavyAttack_performed(UnityEngine.InputSystem.InputAction.CallbackContext obj)
+        {
+            OnHeavyAttack?.Invoke();
         }
 
         public Vector2 GetNormallizedMovementVector()

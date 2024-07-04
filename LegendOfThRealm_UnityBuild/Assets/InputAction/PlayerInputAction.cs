@@ -107,6 +107,15 @@ public partial class @PlayerInputAction: IInputActionCollection2, IDisposable
                     ""processors"": """",
                     ""interactions"": """",
                     ""initialStateCheck"": false
+                },
+                {
+                    ""name"": ""HeavyAttack"",
+                    ""type"": ""Button"",
+                    ""id"": ""a4c37f27-f69b-4b88-b4ac-db4561b9b417"",
+                    ""expectedControlType"": ""Button"",
+                    ""processors"": """",
+                    ""interactions"": """",
+                    ""initialStateCheck"": false
                 }
             ],
             ""bindings"": [
@@ -252,6 +261,17 @@ public partial class @PlayerInputAction: IInputActionCollection2, IDisposable
                     ""action"": ""UseItem3"",
                     ""isComposite"": false,
                     ""isPartOfComposite"": false
+                },
+                {
+                    ""name"": """",
+                    ""id"": ""3abc85f8-c336-4f81-a40b-e82bbda6873e"",
+                    ""path"": ""<Keyboard>/u"",
+                    ""interactions"": """",
+                    ""processors"": """",
+                    ""groups"": """",
+                    ""action"": ""HeavyAttack"",
+                    ""isComposite"": false,
+                    ""isPartOfComposite"": false
                 }
             ]
         }
@@ -269,6 +289,7 @@ public partial class @PlayerInputAction: IInputActionCollection2, IDisposable
         m_Player_UseItem1 = m_Player.FindAction("UseItem1", throwIfNotFound: true);
         m_Player_UseItem2 = m_Player.FindAction("UseItem2", throwIfNotFound: true);
         m_Player_UseItem3 = m_Player.FindAction("UseItem3", throwIfNotFound: true);
+        m_Player_HeavyAttack = m_Player.FindAction("HeavyAttack", throwIfNotFound: true);
     }
 
     public void Dispose()
@@ -339,6 +360,7 @@ public partial class @PlayerInputAction: IInputActionCollection2, IDisposable
     private readonly InputAction m_Player_UseItem1;
     private readonly InputAction m_Player_UseItem2;
     private readonly InputAction m_Player_UseItem3;
+    private readonly InputAction m_Player_HeavyAttack;
     public struct PlayerActions
     {
         private @PlayerInputAction m_Wrapper;
@@ -352,6 +374,7 @@ public partial class @PlayerInputAction: IInputActionCollection2, IDisposable
         public InputAction @UseItem1 => m_Wrapper.m_Player_UseItem1;
         public InputAction @UseItem2 => m_Wrapper.m_Player_UseItem2;
         public InputAction @UseItem3 => m_Wrapper.m_Player_UseItem3;
+        public InputAction @HeavyAttack => m_Wrapper.m_Player_HeavyAttack;
         public InputActionMap Get() { return m_Wrapper.m_Player; }
         public void Enable() { Get().Enable(); }
         public void Disable() { Get().Disable(); }
@@ -388,6 +411,9 @@ public partial class @PlayerInputAction: IInputActionCollection2, IDisposable
             @UseItem3.started += instance.OnUseItem3;
             @UseItem3.performed += instance.OnUseItem3;
             @UseItem3.canceled += instance.OnUseItem3;
+            @HeavyAttack.started += instance.OnHeavyAttack;
+            @HeavyAttack.performed += instance.OnHeavyAttack;
+            @HeavyAttack.canceled += instance.OnHeavyAttack;
         }
 
         private void UnregisterCallbacks(IPlayerActions instance)
@@ -419,6 +445,9 @@ public partial class @PlayerInputAction: IInputActionCollection2, IDisposable
             @UseItem3.started -= instance.OnUseItem3;
             @UseItem3.performed -= instance.OnUseItem3;
             @UseItem3.canceled -= instance.OnUseItem3;
+            @HeavyAttack.started -= instance.OnHeavyAttack;
+            @HeavyAttack.performed -= instance.OnHeavyAttack;
+            @HeavyAttack.canceled -= instance.OnHeavyAttack;
         }
 
         public void RemoveCallbacks(IPlayerActions instance)
@@ -447,5 +476,6 @@ public partial class @PlayerInputAction: IInputActionCollection2, IDisposable
         void OnUseItem1(InputAction.CallbackContext context);
         void OnUseItem2(InputAction.CallbackContext context);
         void OnUseItem3(InputAction.CallbackContext context);
+        void OnHeavyAttack(InputAction.CallbackContext context);
     }
 }

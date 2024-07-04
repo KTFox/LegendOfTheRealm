@@ -21,6 +21,7 @@ namespace LegendOfTheRealm.Players
         [SerializeField] private float counterAttackDuration = 0.2f;
 
         private UseableItemStore useableItemStore;
+        private SkillManager skillManager;
 
         // Properties
 
@@ -33,6 +34,7 @@ namespace LegendOfTheRealm.Players
         public PlayerAirDashingState AirDashingState { get; private set; }
         public PlayerPrimaryAttackState PrimaryAttackState { get; private set; }
         public PlayerCounterAttackState CounterAttackState { get; private set; }
+        public PlayerHeavyAttackState HeavyAttackState { get; private set; }
         public PlayerHealingState HealingState { get; private set; }
         public PlayerDeathState DeathState { get; private set; }
         #endregion
@@ -52,6 +54,7 @@ namespace LegendOfTheRealm.Players
             base.Awake();
 
             useableItemStore = GetComponent<UseableItemStore>();
+            skillManager = SkillManager.Instance;
 
             #region Player states caching
             StateMachine = new PlayerStateMachine();
@@ -62,6 +65,7 @@ namespace LegendOfTheRealm.Players
             AirDashingState = new PlayerAirDashingState(this, StateMachine, "AirDashing");
             PrimaryAttackState = new PlayerPrimaryAttackState(this, StateMachine, "Attack");
             CounterAttackState = new PlayerCounterAttackState(this, StateMachine, "CounterAttack");
+            HeavyAttackState = new PlayerHeavyAttackState(this, StateMachine, "HeavyAttack");
             HealingState = new PlayerHealingState(this, StateMachine, "Heal");
             DeathState = new PlayerDeathState(this, StateMachine, "Die");
             #endregion
@@ -80,6 +84,7 @@ namespace LegendOfTheRealm.Players
             InputManager.Instance.OnUseItem1 += InputManager_OnUseItem1;
             InputManager.Instance.OnUseItem2 += InputManager_OnUseItem2;
             InputManager.Instance.OnUseItem3 += InputManager_OnUseItem3;
+            InputManager.Instance.OnHeavyAttack += InputManager_OnHeavyAttack;
         }
 
         protected override void Update()
@@ -129,6 +134,17 @@ namespace LegendOfTheRealm.Players
         private void InputManager_OnUseItem3()
         {
             useableItemStore.UseItemIn(2);
+        }
+
+        private void InputManager_OnHeavyAttack()
+        {
+            if (IsGroundDetected)
+            {
+                if (skillManager.HeavyAttackSkill.CanUseSkill())
+                {
+                    StateMachine.ChangeState(HeavyAttackState);
+                }
+            }
         }
 
         public override void Die()
