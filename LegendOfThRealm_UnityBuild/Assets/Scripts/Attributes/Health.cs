@@ -1,8 +1,9 @@
-using LegendOfTheRealm.Stats;
-using LegendOfTheRealm.Utilities;
 using System;
 using UnityEngine;
 using UnityEngine.Events;
+using LegendOfTheRealm.Stats;
+using LegendOfTheRealm.Utilities;
+
 namespace LegendOfTheRealm.Attributes
 {
     public class Health : MonoBehaviour
@@ -17,9 +18,9 @@ namespace LegendOfTheRealm.Attributes
 
         public float CurrentHealth => currentHealth.Value;
         public float MaxHealth => GetComponent<BaseStat>().GetValueOfStat(Stat.Health);
-        public float CurrentHealthFraction => currentHealth.Value / MaxHealth;
+        public float CurrentHealthFraction => CurrentHealth / MaxHealth;
         public float CurrentHealthPercentage => CurrentHealthFraction * 100;
-        public bool IsDead => currentHealth.Value <= 0f;
+        public bool IsDead => CurrentHealth <= 0f;
 
         // Events
 
@@ -58,23 +59,21 @@ namespace LegendOfTheRealm.Attributes
 
         private void Start()
         {
-            lastCurrentHealth = currentHealth.Value;
+            lastCurrentHealth = CurrentHealth;
             lastMaxHealth = MaxHealth;
         }
 
         private void Update()
         {
-            if (currentHealth.Value != lastCurrentHealth)
+            if (CurrentHealth != lastCurrentHealth)
             {
-                OnHealthChanged?.Invoke(currentHealth.Value - lastCurrentHealth);
-
-                lastCurrentHealth = currentHealth.Value;
+                OnHealthChanged?.Invoke(CurrentHealth - lastCurrentHealth);
+                lastCurrentHealth = CurrentHealth;
             }
 
             if (MaxHealth != lastMaxHealth)
             {
                 OnMaxHealthUpdated?.Invoke();
-
                 lastMaxHealth = MaxHealth;
             }
         }
@@ -93,9 +92,13 @@ namespace LegendOfTheRealm.Attributes
         private void GainEXPFor(GameObject instigator)
         {
             Experience instigatorEXP = instigator.GetComponent<Experience>();
-            if (instigatorEXP == null) return;
+            if (instigatorEXP == null)
+            {
+                return;
+            }
 
-            instigatorEXP.GainExperience(GetComponent<BaseStat>().GetValueOfStat(Stat.ExperienceReward));
+            float expReward = GetComponent<BaseStat>().GetValueOfStat(Stat.ExperienceReward);
+            instigatorEXP.GainExperience(expReward);
         }
 
         public void Heal(float healingAmount)

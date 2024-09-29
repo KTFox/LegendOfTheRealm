@@ -51,6 +51,7 @@ namespace LegendOfTheRealm.Enemies.Bandits
             if (base.TryToBeStunned())
             {
                 StateMachine.ChangeState(StunnedState);
+
                 return true;
             }
 
